@@ -1,0 +1,513 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-07-05 18:55:58.020907",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "participant_details_section",
+  "naming_series",
+  "first_name",
+  "last_name",
+  "e_mail",
+  "mobile_number",
+  "gender",
+  "column_break_sylpb",
+  "age",
+  "status",
+  "date_of_birth",
+  "profile_photo",
+  "section_break_sec1",
+  "chruch_organization",
+  "capacity",
+  "youth",
+  "layordained",
+  "column_break_su1jb",
+  "section_break_sec2",
+  "indigenous_person",
+  "person_with_disability",
+  "column_break_5fyxd",
+  "dietary_specifications",
+  "allergies",
+  "section_break_sec3",
+  "residential_address",
+  "street_or_po",
+  "city",
+  "country",
+  "column_break_tdkfb",
+  "address_line_1",
+  "pincode_or_postal_address",
+  "state",
+  "section_break_sec4",
+  "contact_person",
+  "contact_number",
+  "column_break_z3lsm",
+  "conatct_e_mail",
+  "passport_details_section",
+  "first_name_as_per_passport",
+  "last_name_as_per_passport",
+  "date_of_issue",
+  "place_of_issue",
+  "date_of_expiry",
+  "column_break_spvp7",
+  "passport_number",
+  "passport_nationality",
+  "visa_entrance",
+  "country_of_residence",
+  "country_of_nationality",
+  "arrival_details_section",
+  "arrival_at",
+  "arrival_date",
+  "column_break_yvosd",
+  "departure_from",
+  "departure_date",
+  "airline_details_section",
+  "airline_name",
+  "flight_number_arrival",
+  "airline",
+  "column_break_lg7n0",
+  "airline_departure",
+  "flight_number_departure",
+  "airline_departure_date",
+  "room_allotment_section",
+  "check_in_date",
+  "number_of_nights",
+  "room_type_and_price_tier",
+  "column_break_8volc",
+  "check_out_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "e_mail",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "email",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_sylpb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age (as of September 2023)"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of birth"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
+  },
+  {
+   "fieldname": "chruch_organization",
+   "fieldtype": "Data",
+   "label": "Church/Organisation you represent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capacity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Capacity ",
+   "options": "Category Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "youth",
+   "fieldtype": "Select",
+   "label": "Youth",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "layordained",
+   "fieldtype": "Select",
+   "label": "Lay/Ordained",
+   "options": "\nLay\nOrdained",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_su1jb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_sec1",
+   "fieldtype": "Section Break",
+   "label": "Community Details"
+  },
+  {
+   "fieldname": "section_break_sec2",
+   "fieldtype": "Section Break",
+   "label": "Medical Information"
+  },
+  {
+   "fieldname": "indigenous_person",
+   "fieldtype": "Select",
+   "label": "Indigenous Person",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "person_with_disability",
+   "fieldtype": "Select",
+   "label": "Person with Disability",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dietary_specifications",
+   "fieldtype": "Select",
+   "label": "Dietary specifications",
+   "options": "\nYes\nNone"
+  },
+  {
+   "fieldname": "column_break_5fyxd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "allergies",
+   "fieldtype": "Data",
+   "label": "Allergies",
+   "reqd": 1
+  },
+  {
+   "fieldname": "residential_address",
+   "fieldtype": "Data",
+   "label": "Residential Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Line 1"
+  },
+  {
+   "fieldname": "street_or_po",
+   "fieldtype": "Data",
+   "label": "Street and number or P.O. Box",
+   "reqd": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tdkfb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pincode_or_postal_address",
+   "fieldtype": "Data",
+   "label": "Postal or PIN Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State/Province",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Phone",
+   "options": "phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "participant_details_section",
+   "fieldtype": "Section Break",
+   "label": "Participant Details"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Emergency contact name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Emergency contact phone number",
+   "options": "phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "conatct_e_mail",
+   "fieldtype": "Data",
+   "label": "Emergency contact email"
+  },
+  {
+   "fieldname": "section_break_sec3",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "section_break_sec4",
+   "fieldtype": "Section Break",
+   "label": "Emergency contact"
+  },
+  {
+   "fieldname": "column_break_z3lsm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "passport_details_section",
+   "fieldtype": "Section Break",
+   "label": "Passport Details"
+  },
+  {
+   "fieldname": "first_name_as_per_passport",
+   "fieldtype": "Data",
+   "label": "Passport first name (as written in your passport)"
+  },
+  {
+   "fieldname": "last_name_as_per_passport",
+   "fieldtype": "Data",
+   "label": "Passport last name (as written in your passport)"
+  },
+  {
+   "fieldname": "passport_nationality",
+   "fieldtype": "Data",
+   "label": "Passport nationality"
+  },
+  {
+   "fieldname": "column_break_spvp7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "label": "Passport number"
+  },
+  {
+   "fieldname": "date_of_issue",
+   "fieldtype": "Date",
+   "label": "Date of issue"
+  },
+  {
+   "fieldname": "place_of_issue",
+   "fieldtype": "Data",
+   "label": "Place Of Issue"
+  },
+  {
+   "fieldname": "date_of_expiry",
+   "fieldtype": "Date",
+   "label": "Date of expiry "
+  },
+  {
+   "fieldname": "visa_entrance",
+   "fieldtype": "Select",
+   "label": "Do you need a letter of invitation to apply for a visa to enter India?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "country_of_residence",
+   "fieldtype": "Data",
+   "label": "Country of residence"
+  },
+  {
+   "fieldname": "country_of_nationality",
+   "fieldtype": "Data",
+   "label": "Country of nationality"
+  },
+  {
+   "fieldname": "arrival_details_section",
+   "fieldtype": "Section Break",
+   "label": "Arrival Details"
+  },
+  {
+   "fieldname": "arrival_at",
+   "fieldtype": "Data",
+   "label": "Arrival at"
+  },
+  {
+   "fieldname": "arrival_date",
+   "fieldtype": "Datetime",
+   "label": "Arrival date and time"
+  },
+  {
+   "fieldname": "column_break_yvosd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "departure_from",
+   "fieldtype": "Data",
+   "label": "Departure from"
+  },
+  {
+   "fieldname": "departure_date",
+   "fieldtype": "Datetime",
+   "label": "Departure date and time"
+  },
+  {
+   "fieldname": "airline_details_section",
+   "fieldtype": "Section Break",
+   "label": "Airline Details"
+  },
+  {
+   "fieldname": "airline_name",
+   "fieldtype": "Data",
+   "label": "Airline (Arrival)"
+  },
+  {
+   "fieldname": "airline",
+   "fieldtype": "Datetime",
+   "label": "Airline (Arrival Date)"
+  },
+  {
+   "fieldname": "flight_number_arrival",
+   "fieldtype": "Data",
+   "label": "Flight number (Arrival)"
+  },
+  {
+   "fieldname": "column_break_lg7n0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "airline_departure",
+   "fieldtype": "Data",
+   "label": "Airline (Departure)"
+  },
+  {
+   "fieldname": "airline_departure_date",
+   "fieldtype": "Datetime",
+   "label": "Airline (Departure Date)"
+  },
+  {
+   "fieldname": "flight_number_departure",
+   "fieldtype": "Data",
+   "label": "Flight number (Departure)"
+  },
+  {
+   "fieldname": "room_allotment_section",
+   "fieldtype": "Section Break",
+   "label": "Room Allotment"
+  },
+  {
+   "fieldname": "check_in_date",
+   "fieldtype": "Datetime",
+   "label": "Check-in date"
+  },
+  {
+   "fieldname": "number_of_nights",
+   "fieldtype": "Data",
+   "label": "Number of nights"
+  },
+  {
+   "fieldname": "room_type_and_price_tier",
+   "fieldtype": "Data",
+   "label": "Room type and price tier"
+  },
+  {
+   "fieldname": "column_break_8volc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "check_out_date",
+   "fieldtype": "Datetime",
+   "label": "Check-out date"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Participant Series",
+   "options": "E-{YY}-",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "profile_photo",
+   "fieldtype": "Attach Image",
+   "label": "Profile photo"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nRegistered",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-07-07 20:25:38.394406",
+ "modified_by": "Administrator",
+ "module": "E Desk",
+ "name": "Participant",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
