@@ -37,6 +37,7 @@ class RegistrationDesk(Document):
 		pr_doc.reload()
 		return _file.file_url
 	
+	# Registration completed -> converting the participant status as registered
 	def on_update(self):
 		for row in self.participant:
 			if not row.profile_img:
@@ -48,6 +49,7 @@ class RegistrationDesk(Document):
 			frappe.db.set_value(row.doctype, row.name, 'qr_img', qr, update_modified=False)
 		self.reload()
 
+	# Registration canceled -> moving the particioant to old status
 	def on_trash(self):
 		for row in self.participant:
 			doc = frappe.get_doc("Participant", row.participant_id)
