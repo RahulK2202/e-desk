@@ -28,10 +28,10 @@
   "column_break_su1jb",
   "section_break_sec2",
   "indigenous_person",
-  "person_with_disability",
   "column_break_5fyxd",
-  "dietary_specifications",
-  "allergies",
+  "person_with_disability",
+  "section_break_9tqcf",
+  "medical_info",
   "section_break_sec3",
   "residential_address",
   "street_or_po",
@@ -176,20 +176,8 @@
    "reqd": 1
   },
   {
-   "fieldname": "dietary_specifications",
-   "fieldtype": "Select",
-   "label": "Dietary specifications",
-   "options": "\nYes\nNone"
-  },
-  {
    "fieldname": "column_break_5fyxd",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "allergies",
-   "fieldtype": "Data",
-   "label": "Allergies",
-   "reqd": 1
   },
   {
    "fieldname": "residential_address",
@@ -459,11 +447,22 @@
    "label": "Status",
    "options": "Open\nRegistered",
    "read_only": 1
+  },
+  {
+   "fieldname": "medical_info",
+   "fieldtype": "Table",
+   "label": "Allergy",
+   "options": "Allergy Issues"
+  },
+  {
+   "fieldname": "section_break_9tqcf",
+   "fieldtype": "Section Break",
+   "label": "Health Issues"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-07 20:25:38.394406",
+ "modified": "2023-07-24 12:42:37.081870",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
