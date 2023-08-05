@@ -10,7 +10,8 @@ class Participant(Document):
 	def validate(self):
 		if not frappe.db.exists('User',self.e_mail):
 			doc=frappe.new_doc('User')
-			capacity_doc=frappe.get_value("Capacity Name",self.capacity,"capacity_file_url")
+			capacity_doc=frappe.get_value("Category Name",self.capacity,"capacity_file_url")
+			print(capacity_doc)
 
 			doc.update({
 				"email":self.e_mail,
