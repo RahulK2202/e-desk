@@ -11,8 +11,8 @@ class Volunteer(Document):
 			user=frappe.get_doc("User",self.get('e_mail'))
 			user.update(
 				{
-					"role_profile_name":"",
-					"user_type":"Website User",
+					"role_profile_name":"Participant",
+					"user_type":"System User",
 					"roles":[]
 				}
 			)
@@ -36,5 +36,3 @@ class Volunteer(Document):
 			}),
 			doc.save()
 			frappe.db.commit()
-
-	
