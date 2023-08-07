@@ -7,12 +7,12 @@ from frappe.model.document import Document
 class Volunteer(Document):
 	def on_trash(self):
 		if self.participant:
-			# if volunteer deleted -> converting the user to 
+			# converting the user as system user
 			user=frappe.get_doc("User",self.get('e_mail'))
 			user.update(
 				{
-					"role_profile_name":"Participant",
-					"user_type":"System User",
+					"role_profile_name":"",
+					"user_type":"Website User",
 					"roles":[]
 				}
 			)
@@ -29,12 +29,10 @@ class Volunteer(Document):
 				"email":self.e_mail,
 				"first_name":self.name1,
 				"mobile_no":self.mobile_number,
-				"role_profile_name":"Volunteer",
 				"new_password":self.mobile_number,
+				"role_profile_name":"Participant",
 				"user_type":"System User",
 				"send_welcome_email":0,
-				"module_profile":"E-desk profile",
-
 			}),
 			doc.save()
 			frappe.db.commit()

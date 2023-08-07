@@ -26,7 +26,6 @@
   "youth",
   "layordained",
   "column_break_su1jb",
-  "category_files",
   "section_break_sec2",
   "indigenous_person",
   "column_break_5fyxd",
@@ -459,17 +458,11 @@
    "fieldname": "section_break_9tqcf",
    "fieldtype": "Section Break",
    "label": "Health Issues"
-  },
-  {
-   "fieldname": "category_files",
-   "fieldtype": "Table",
-   "label": "Category Files",
-   "options": "Category Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-07 12:31:41.967230",
+ "modified": "2023-07-24 12:42:37.081870",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
@@ -509,17 +502,6 @@
    "read": 1,
    "report": 1,
    "role": "All",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Participant",
    "share": 1,
    "write": 1
   }
