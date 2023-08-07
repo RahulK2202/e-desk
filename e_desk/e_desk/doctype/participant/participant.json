@@ -59,6 +59,7 @@
   "visa_entrance",
   "country_of_residence",
   "country_of_nationality",
+  "idpassport_photo",
   "arrival_details_section",
   "arrival_at",
   "arrival_date",
@@ -190,7 +191,7 @@
   {
    "fieldname": "address_line_1",
    "fieldtype": "Data",
-   "label": "Line 1"
+   "label": "Address Line 1"
   },
   {
    "fieldname": "street_or_po",
@@ -467,11 +468,16 @@
    "fieldname": "allergies",
    "fieldtype": "Data",
    "label": "Allergies"
+  },
+  {
+   "fieldname": "idpassport_photo",
+   "fieldtype": "Data",
+   "label": "ID/Passport photo"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-07 19:38:43.437553",
+ "modified": "2023-08-07 20:28:38.015276",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
