@@ -1,0 +1,61 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"DVaVAlBFEp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">E-Desk</span>\",\"col\":12}},{\"id\":\"pd9W9TELfD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Participant\",\"col\":3}},{\"id\":\"7_-TzNtsmu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Category Name\",\"col\":3}},{\"id\":\"bzzMiJ-NB3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Registration Desk\",\"col\":3}},{\"id\":\"jS6XdzMuH0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Volunteer\",\"col\":3}}]",
+ "creation": "2023-08-07 12:20:16.102203",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "change",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "E-Desk",
+ "links": [],
+ "modified": "2023-08-07 12:25:41.049358",
+ "modified_by": "Administrator",
+ "module": "E Desk",
+ "name": "E-Desk",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
+ "sequence_id": 21.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Participant",
+   "link_to": "Participant",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Category Name",
+   "link_to": "Category Name",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Registration Desk",
+   "link_to": "Registration Desk",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Volunteer",
+   "link_to": "Volunteer",
+   "type": "DocType"
+  }
+ ],
+ "title": "E-Desk"
+}

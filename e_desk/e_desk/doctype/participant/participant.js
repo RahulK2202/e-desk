@@ -21,6 +21,23 @@ frappe.ui.form.on('Participant', {
 			)
 		}, __("Create")
 		);
+	},
+	capacity: function(frm){
+		console.log(frm.doc)
+		frappe.call(
+			{
+				method:"e_desk.e_desk.doctype.participant.participant.categoryfile_fetching",
+				args:{
+					capacity_name:frm.doc.capacity,
+					doc:frm.doc,
+				},
+				callback:function(capacity_link){
+					frm.reload_doc()
+					// frm.set_value("category_files",capacity_link["message"])
+				}
+			},
+			
+		)
 	}
 }
 );
