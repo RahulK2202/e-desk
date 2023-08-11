@@ -18,7 +18,7 @@ class Participant(Document):
 				"new_password":self.mobile_number,
 				"send_welcome_email":0,
 				"role_profile_name":"Participant",
-				"user_type":"Website User",
+				"user_type":"System User",
 				"module_profile":"E-desk profile",
 
 			}),
