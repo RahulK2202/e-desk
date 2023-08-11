@@ -4,7 +4,7 @@
 import json
 import frappe
 from frappe.model.document import Document
-
+from frappe.core.doctype.user.user import get_role_profile
 class Participant(Document):
 
 	def validate(self):
@@ -19,11 +19,13 @@ class Participant(Document):
 				"new_password":self.mobile_number,
 				"send_welcome_email":0,
 				"role_profile_name":"Participant",
+				"roles":get_role_profile("Participant"),
 				"user_type":"System User",
 				"module_profile":"E-desk profile",
 
-			}),
+			})
 			doc.save()
+			frappe.errprint(doc.user_type)
 		#attachment inside the participant -> category files
 		category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
 		self.update({
