@@ -8,6 +8,7 @@ from frappe.model.document import Document
 class Participant(Document):
 
 	def validate(self):
+		self.full_name=self.first_name+self.last_name
 		if not frappe.db.exists('User',self.e_mail):
 			doc=frappe.new_doc('User')
 			doc.update({

@@ -12,6 +12,7 @@
   "naming_series",
   "first_name",
   "last_name",
+  "full_name",
   "e_mail",
   "mobile_number",
   "gender",
@@ -476,11 +477,17 @@
    "fieldname": "idpassport_photo",
    "fieldtype": "Data",
    "label": "ID/Passport photo"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-11 13:35:46.257590",
+ "modified": "2023-08-11 16:35:48.205494",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
