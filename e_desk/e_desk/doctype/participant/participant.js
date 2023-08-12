@@ -22,6 +22,7 @@ frappe.ui.form.on('Participant', {
 		}, __("Create")
 		);
 	},
+
 	capacity: function(frm){
 		console.log(frm.doc)
 		frappe.call(
@@ -40,4 +41,42 @@ frappe.ui.form.on('Participant', {
 		)
 	}
 }
+
 );
+// frappe.listview_settings['Participant'] = {	
+// 	onload: function(listview) {
+// 	listview.page.add_menu_item(__('Food Scanning'), function() {
+// 			var d = new frappe.ui.Dialog({
+// 				title: __("Food Scanning"),
+// 				fields: [
+// 					{
+// 						"fieldtype": "Data",
+// 						"label": __("Scan QR"),
+// 						"fieldname": "scan_qr",
+// 						"options":"Barcode"
+// 					}
+// 				],
+// 				// primary_action: function (res) {
+// 				// 	let values = d.get_values();
+// 				// 	frappe.call({
+// 				// 		method: "mehala.utils.py.quotation.rejection_updation",
+// 				// 		args: {
+// 				// 			docs: [{'name':cur_frm.doc.name}],
+// 				// 			values: values,
+// 				// 		},
+// 				// 		callback: function (r) {
+// 				// 			d.hide();
+// 				// 			frm.reload_doc();
+// 				// 		},
+// 				// 	})
+// 				// },
+// 				primary_action_label: __('Submit')
+// 			});
+		
+// 			d.show();
+// 		},
+// 	);
+// },
+
+// }
+

@@ -12,7 +12,7 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/e_desk/css/e_desk.css"
-# app_include_js = "/assets/e_desk/js/e_desk.js"
+# app_include_js = "e_desk/e_desk/doctype/participant/participant.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/e_desk/css/e_desk.css"
@@ -30,7 +30,7 @@ app_license = "MIT"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+# doctype_list_js = {"Participant" : "e_desk/doctype/participant/participant.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 

@@ -12,7 +12,6 @@
   "naming_series",
   "first_name",
   "last_name",
-  "full_name",
   "e_mail",
   "mobile_number",
   "gender",
@@ -27,13 +26,12 @@
   "youth",
   "layordained",
   "column_break_su1jb",
-  "category_files",
   "section_break_sec2",
   "indigenous_person",
-  "dietary_specifications",
   "column_break_5fyxd",
   "person_with_disability",
-  "allergies",
+  "section_break_9tqcf",
+  "medical_info",
   "section_break_sec3",
   "residential_address",
   "street_or_po",
@@ -60,7 +58,6 @@
   "visa_entrance",
   "country_of_residence",
   "country_of_nationality",
-  "idpassport_photo",
   "arrival_details_section",
   "arrival_at",
   "arrival_date",
@@ -80,7 +77,10 @@
   "number_of_nights",
   "room_type_and_price_tier",
   "column_break_8volc",
-  "check_out_date"
+  "check_out_date",
+  "qr",
+  "tab_break_uhe5j",
+  "food_scanning"
  ],
  "fields": [
   {
@@ -169,8 +169,7 @@
    "fieldname": "indigenous_person",
    "fieldtype": "Select",
    "label": "Indigenous Person",
-   "options": "\nYes\nNo",
-   "reqd": 1
+   "options": "\nYes\nNo"
   },
   {
    "fieldname": "person_with_disability",
@@ -192,7 +191,7 @@
   {
    "fieldname": "address_line_1",
    "fieldtype": "Data",
-   "label": "Address Line 1"
+   "label": "Line 1"
   },
   {
    "fieldname": "street_or_po",
@@ -208,9 +207,8 @@
   },
   {
    "fieldname": "country",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Country",
-   "options": "Country",
    "reqd": 1
   },
   {
@@ -325,15 +323,13 @@
   },
   {
    "fieldname": "country_of_residence",
-   "fieldtype": "Link",
-   "label": "Country of residence",
-   "options": "Country"
+   "fieldtype": "Data",
+   "label": "Country of residence"
   },
   {
    "fieldname": "country_of_nationality",
-   "fieldtype": "Link",
-   "label": "Country of nationality",
-   "options": "Country"
+   "fieldtype": "Data",
+   "label": "Country of nationality"
   },
   {
    "fieldname": "arrival_details_section",
@@ -441,11 +437,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "profile_photo",
-   "fieldtype": "Attach Image",
-   "label": "Profile photo"
-  },
-  {
    "default": "Open",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -456,38 +447,42 @@
    "read_only": 1
   },
   {
-   "fieldname": "category_files",
+   "fieldname": "section_break_9tqcf",
+   "fieldtype": "Section Break",
+   "label": "Health Issues"
+  },
+  {
+   "fieldname": "medical_info",
    "fieldtype": "Table",
-   "label": "Category Files",
-   "options": "Category Table"
+   "label": "Allergy",
+   "options": "Allergy Issues"
   },
   {
-   "fieldname": "dietary_specifications",
-   "fieldtype": "Link",
-   "label": "Dietary Specifications",
-   "options": "Dietary Specifications List",
-   "reqd": 1
+   "fieldname": "tab_break_uhe5j",
+   "fieldtype": "Tab Break",
+   "label": "Food Scanning"
   },
   {
-   "fieldname": "allergies",
+   "fieldname": "food_scanning",
+   "fieldtype": "Table",
+   "label": "Food Scanning",
+   "options": "Food Scanning"
+  },
+  {
+   "fieldname": "profile_photo",
+   "fieldtype": "Attach Image",
+   "label": "Profile photo"
+  },
+  {
+   "fieldname": "qr",
    "fieldtype": "Data",
-   "label": "Allergies"
-  },
-  {
-   "fieldname": "idpassport_photo",
-   "fieldtype": "Data",
-   "label": "ID/Passport photo"
-  },
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "label": "Full Name",
-   "read_only": 1
+   "label": "QR"
   }
  ],
+ "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-11 16:35:48.205494",
+ "modified": "2023-08-12 18:47:34.538251",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
@@ -527,17 +522,6 @@
    "read": 1,
    "report": 1,
    "role": "All",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Participant",
    "share": 1,
    "write": 1
   }

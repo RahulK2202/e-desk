@@ -20,6 +20,7 @@
   "qr_preview",
   "registration_fee_collected_section",
   "mode_of_payment",
+  "qr",
   "amended_from"
  ],
  "fields": [
@@ -103,12 +104,17 @@
    "fieldname": "registration_process_section",
    "fieldtype": "Section Break",
    "label": "Registration Process "
+  },
+  {
+   "fieldname": "qr",
+   "fieldtype": "Data",
+   "label": "qr"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-07 20:02:43.464049",
+ "modified": "2023-08-12 18:43:09.688654",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Registration Desk",
