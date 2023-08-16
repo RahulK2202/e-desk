@@ -85,7 +85,7 @@ def validate_food(doc):
     if doc:
         doc_par = frappe.get_doc("Participant", doc)
         doc_par.append("food_scan", {
-            "datetime":datetime.now()
+            "datetime":current_time
         })
 
         if len(doc_par.food_scan) >= 2:
