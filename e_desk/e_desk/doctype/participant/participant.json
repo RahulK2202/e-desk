@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2023-07-05 18:55:58.020907",
+ "creation": "2023-08-16 16:38:04.678276",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -12,6 +12,7 @@
   "naming_series",
   "first_name",
   "last_name",
+  "full_name",
   "e_mail",
   "mobile_number",
   "gender",
@@ -26,12 +27,13 @@
   "youth",
   "layordained",
   "column_break_su1jb",
+  "category_files",
   "section_break_sec2",
   "indigenous_person",
+  "dietary_specifications",
   "column_break_5fyxd",
   "person_with_disability",
-  "section_break_9tqcf",
-  "medical_info",
+  "allergies",
   "section_break_sec3",
   "residential_address",
   "street_or_po",
@@ -58,6 +60,7 @@
   "visa_entrance",
   "country_of_residence",
   "country_of_nationality",
+  "idpassport_photo",
   "arrival_details_section",
   "arrival_at",
   "arrival_date",
@@ -78,11 +81,23 @@
   "room_type_and_price_tier",
   "column_break_8volc",
   "check_out_date",
-  "qr",
-  "tab_break_uhe5j",
-  "food_scanning"
+  "food_scanning_tab",
+  "food_scan"
  ],
  "fields": [
+  {
+   "fieldname": "participant_details_section",
+   "fieldtype": "Section Break",
+   "label": "Participant Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Participant Series",
+   "options": "GA15-.#####",
+   "read_only": 1,
+   "reqd": 1
+  },
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
@@ -97,12 +112,31 @@
    "reqd": 1
   },
   {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
    "fieldname": "e_mail",
    "fieldtype": "Data",
    "label": "Email",
    "options": "email",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Phone",
+   "options": "phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
   },
   {
    "fieldname": "column_break_sylpb",
@@ -114,15 +148,29 @@
    "label": "Age (as of September 2023)"
   },
   {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nRegistered",
+   "read_only": 1
+  },
+  {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
    "label": "Date of birth"
   },
   {
-   "fieldname": "gender",
-   "fieldtype": "Link",
-   "label": "Gender",
-   "options": "Gender"
+   "fieldname": "profile_photo",
+   "fieldtype": "Attach Image",
+   "label": "Profile photo"
+  },
+  {
+   "fieldname": "section_break_sec1",
+   "fieldtype": "Section Break",
+   "label": "Community Details"
   },
   {
    "fieldname": "chruch_organization",
@@ -156,9 +204,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_sec1",
-   "fieldtype": "Section Break",
-   "label": "Community Details"
+   "fieldname": "category_files",
+   "fieldtype": "Table",
+   "label": "Category Files",
+   "options": "Category Table"
   },
   {
    "fieldname": "section_break_sec2",
@@ -169,7 +218,19 @@
    "fieldname": "indigenous_person",
    "fieldtype": "Select",
    "label": "Indigenous Person",
-   "options": "\nYes\nNo"
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dietary_specifications",
+   "fieldtype": "Link",
+   "label": "Dietary Specifications",
+   "options": "Dietary Specifications List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5fyxd",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "person_with_disability",
@@ -179,19 +240,20 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_5fyxd",
-   "fieldtype": "Column Break"
+   "fieldname": "allergies",
+   "fieldtype": "Data",
+   "label": "Allergies"
+  },
+  {
+   "fieldname": "section_break_sec3",
+   "fieldtype": "Section Break",
+   "label": "Address"
   },
   {
    "fieldname": "residential_address",
    "fieldtype": "Data",
    "label": "Residential Address",
    "reqd": 1
-  },
-  {
-   "fieldname": "address_line_1",
-   "fieldtype": "Data",
-   "label": "Line 1"
   },
   {
    "fieldname": "street_or_po",
@@ -207,13 +269,19 @@
   },
   {
    "fieldname": "country",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Country",
+   "options": "Country",
    "reqd": 1
   },
   {
    "fieldname": "column_break_tdkfb",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
   },
   {
    "fieldname": "pincode_or_postal_address",
@@ -228,16 +296,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "mobile_number",
-   "fieldtype": "Data",
-   "label": "Mobile Phone",
-   "options": "phone",
-   "reqd": 1
-  },
-  {
-   "fieldname": "participant_details_section",
+   "fieldname": "section_break_sec4",
    "fieldtype": "Section Break",
-   "label": "Participant Details"
+   "label": "Emergency contact"
   },
   {
    "fieldname": "contact_person",
@@ -253,23 +314,13 @@
    "reqd": 1
   },
   {
+   "fieldname": "column_break_z3lsm",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "conatct_e_mail",
    "fieldtype": "Data",
    "label": "Emergency contact email"
-  },
-  {
-   "fieldname": "section_break_sec3",
-   "fieldtype": "Section Break",
-   "label": "Address"
-  },
-  {
-   "fieldname": "section_break_sec4",
-   "fieldtype": "Section Break",
-   "label": "Emergency contact"
-  },
-  {
-   "fieldname": "column_break_z3lsm",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "passport_details_section",
@@ -287,20 +338,6 @@
    "label": "Passport last name (as written in your passport)"
   },
   {
-   "fieldname": "passport_nationality",
-   "fieldtype": "Data",
-   "label": "Passport nationality"
-  },
-  {
-   "fieldname": "column_break_spvp7",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "passport_number",
-   "fieldtype": "Data",
-   "label": "Passport number"
-  },
-  {
    "fieldname": "date_of_issue",
    "fieldtype": "Date",
    "label": "Date of issue"
@@ -316,6 +353,20 @@
    "label": "Date of expiry "
   },
   {
+   "fieldname": "column_break_spvp7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "label": "Passport number"
+  },
+  {
+   "fieldname": "passport_nationality",
+   "fieldtype": "Data",
+   "label": "Passport nationality"
+  },
+  {
    "fieldname": "visa_entrance",
    "fieldtype": "Select",
    "label": "Do you need a letter of invitation to apply for a visa to enter India?",
@@ -323,13 +374,20 @@
   },
   {
    "fieldname": "country_of_residence",
-   "fieldtype": "Data",
-   "label": "Country of residence"
+   "fieldtype": "Link",
+   "label": "Country of residence",
+   "options": "Country"
   },
   {
    "fieldname": "country_of_nationality",
+   "fieldtype": "Link",
+   "label": "Country of nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "idpassport_photo",
    "fieldtype": "Data",
-   "label": "Country of nationality"
+   "label": "ID/Passport photo"
   },
   {
    "fieldname": "arrival_details_section",
@@ -371,14 +429,14 @@
    "label": "Airline (Arrival)"
   },
   {
-   "fieldname": "airline",
-   "fieldtype": "Datetime",
-   "label": "Airline (Arrival Date)"
-  },
-  {
    "fieldname": "flight_number_arrival",
    "fieldtype": "Data",
    "label": "Flight number (Arrival)"
+  },
+  {
+   "fieldname": "airline",
+   "fieldtype": "Datetime",
+   "label": "Airline (Arrival Date)"
   },
   {
    "fieldname": "column_break_lg7n0",
@@ -390,14 +448,14 @@
    "label": "Airline (Departure)"
   },
   {
-   "fieldname": "airline_departure_date",
-   "fieldtype": "Datetime",
-   "label": "Airline (Departure Date)"
-  },
-  {
    "fieldname": "flight_number_departure",
    "fieldtype": "Data",
    "label": "Flight number (Departure)"
+  },
+  {
+   "fieldname": "airline_departure_date",
+   "fieldtype": "Datetime",
+   "label": "Airline (Departure Date)"
   },
   {
    "fieldname": "room_allotment_section",
@@ -429,60 +487,21 @@
    "label": "Check-out date"
   },
   {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Participant Series",
-   "options": "E-{YY}-",
-   "read_only": 1,
-   "reqd": 1
-  },
-  {
-   "default": "Open",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Status",
-   "options": "Open\nRegistered",
-   "read_only": 1
-  },
-  {
-   "fieldname": "section_break_9tqcf",
-   "fieldtype": "Section Break",
-   "label": "Health Issues"
-  },
-  {
-   "fieldname": "medical_info",
-   "fieldtype": "Table",
-   "label": "Allergy",
-   "options": "Allergy Issues"
-  },
-  {
-   "fieldname": "tab_break_uhe5j",
+   "fieldname": "food_scanning_tab",
    "fieldtype": "Tab Break",
    "label": "Food Scanning"
   },
   {
-   "fieldname": "food_scanning",
+   "fieldname": "food_scan",
    "fieldtype": "Table",
-   "label": "Food Scanning",
+   "label": "Food Scan",
    "options": "Food Scanning"
-  },
-  {
-   "fieldname": "profile_photo",
-   "fieldtype": "Attach Image",
-   "label": "Profile photo"
-  },
-  {
-   "fieldname": "qr",
-   "fieldtype": "Data",
-   "label": "QR"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-12 18:47:34.538251",
+ "modified": "2023-08-16 16:47:55.626476",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
