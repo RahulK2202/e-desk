@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2023-07-05 18:55:58.020907",
+ "creation": "2023-08-16 16:38:04.678276",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -80,9 +80,24 @@
   "number_of_nights",
   "room_type_and_price_tier",
   "column_break_8volc",
-  "check_out_date"
+  "check_out_date",
+  "food_scanning_tab",
+  "food_scan"
  ],
  "fields": [
+  {
+   "fieldname": "participant_details_section",
+   "fieldtype": "Section Break",
+   "label": "Participant Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Participant Series",
+   "options": "GA15-.#####",
+   "read_only": 1,
+   "reqd": 1
+  },
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
@@ -97,12 +112,31 @@
    "reqd": 1
   },
   {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
    "fieldname": "e_mail",
    "fieldtype": "Data",
    "label": "Email",
    "options": "email",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Phone",
+   "options": "phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender"
   },
   {
    "fieldname": "column_break_sylpb",
@@ -114,15 +148,29 @@
    "label": "Age (as of September 2023)"
   },
   {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nRegistered",
+   "read_only": 1
+  },
+  {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
    "label": "Date of birth"
   },
   {
-   "fieldname": "gender",
-   "fieldtype": "Link",
-   "label": "Gender",
-   "options": "Gender"
+   "fieldname": "profile_photo",
+   "fieldtype": "Attach Image",
+   "label": "Profile photo"
+  },
+  {
+   "fieldname": "section_break_sec1",
+   "fieldtype": "Section Break",
+   "label": "Community Details"
   },
   {
    "fieldname": "chruch_organization",
@@ -156,9 +204,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_sec1",
-   "fieldtype": "Section Break",
-   "label": "Community Details"
+   "fieldname": "category_files",
+   "fieldtype": "Table",
+   "label": "Category Files",
+   "options": "Category Table"
   },
   {
    "fieldname": "section_break_sec2",
@@ -173,10 +222,10 @@
    "reqd": 1
   },
   {
-   "fieldname": "person_with_disability",
-   "fieldtype": "Select",
-   "label": "Person with Disability",
-   "options": "\nYes\nNo",
+   "fieldname": "dietary_specifications",
+   "fieldtype": "Link",
+   "label": "Dietary Specifications",
+   "options": "Dietary Specifications List",
    "reqd": 1
   },
   {
@@ -184,15 +233,27 @@
    "fieldtype": "Column Break"
   },
   {
+   "fieldname": "person_with_disability",
+   "fieldtype": "Select",
+   "label": "Person with Disability",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allergies",
+   "fieldtype": "Data",
+   "label": "Allergies"
+  },
+  {
+   "fieldname": "section_break_sec3",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
    "fieldname": "residential_address",
    "fieldtype": "Data",
    "label": "Residential Address",
    "reqd": 1
-  },
-  {
-   "fieldname": "address_line_1",
-   "fieldtype": "Data",
-   "label": "Address Line 1"
   },
   {
    "fieldname": "street_or_po",
@@ -218,6 +279,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
    "fieldname": "pincode_or_postal_address",
    "fieldtype": "Data",
    "label": "Postal or PIN Code",
@@ -230,16 +296,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "mobile_number",
-   "fieldtype": "Data",
-   "label": "Mobile Phone",
-   "options": "phone",
-   "reqd": 1
-  },
-  {
-   "fieldname": "participant_details_section",
+   "fieldname": "section_break_sec4",
    "fieldtype": "Section Break",
-   "label": "Participant Details"
+   "label": "Emergency contact"
   },
   {
    "fieldname": "contact_person",
@@ -255,23 +314,13 @@
    "reqd": 1
   },
   {
+   "fieldname": "column_break_z3lsm",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "conatct_e_mail",
    "fieldtype": "Data",
    "label": "Emergency contact email"
-  },
-  {
-   "fieldname": "section_break_sec3",
-   "fieldtype": "Section Break",
-   "label": "Address"
-  },
-  {
-   "fieldname": "section_break_sec4",
-   "fieldtype": "Section Break",
-   "label": "Emergency contact"
-  },
-  {
-   "fieldname": "column_break_z3lsm",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "passport_details_section",
@@ -289,20 +338,6 @@
    "label": "Passport last name (as written in your passport)"
   },
   {
-   "fieldname": "passport_nationality",
-   "fieldtype": "Data",
-   "label": "Passport nationality"
-  },
-  {
-   "fieldname": "column_break_spvp7",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "passport_number",
-   "fieldtype": "Data",
-   "label": "Passport number"
-  },
-  {
    "fieldname": "date_of_issue",
    "fieldtype": "Date",
    "label": "Date of issue"
@@ -316,6 +351,20 @@
    "fieldname": "date_of_expiry",
    "fieldtype": "Date",
    "label": "Date of expiry "
+  },
+  {
+   "fieldname": "column_break_spvp7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "label": "Passport number"
+  },
+  {
+   "fieldname": "passport_nationality",
+   "fieldtype": "Data",
+   "label": "Passport nationality"
   },
   {
    "fieldname": "visa_entrance",
@@ -334,6 +383,11 @@
    "fieldtype": "Link",
    "label": "Country of nationality",
    "options": "Country"
+  },
+  {
+   "fieldname": "idpassport_photo",
+   "fieldtype": "Data",
+   "label": "ID/Passport photo"
   },
   {
    "fieldname": "arrival_details_section",
@@ -375,14 +429,14 @@
    "label": "Airline (Arrival)"
   },
   {
-   "fieldname": "airline",
-   "fieldtype": "Datetime",
-   "label": "Airline (Arrival Date)"
-  },
-  {
    "fieldname": "flight_number_arrival",
    "fieldtype": "Data",
    "label": "Flight number (Arrival)"
+  },
+  {
+   "fieldname": "airline",
+   "fieldtype": "Datetime",
+   "label": "Airline (Arrival Date)"
   },
   {
    "fieldname": "column_break_lg7n0",
@@ -394,14 +448,14 @@
    "label": "Airline (Departure)"
   },
   {
-   "fieldname": "airline_departure_date",
-   "fieldtype": "Datetime",
-   "label": "Airline (Departure Date)"
-  },
-  {
    "fieldname": "flight_number_departure",
    "fieldtype": "Data",
    "label": "Flight number (Departure)"
+  },
+  {
+   "fieldname": "airline_departure_date",
+   "fieldtype": "Datetime",
+   "label": "Airline (Departure Date)"
   },
   {
    "fieldname": "room_allotment_section",
@@ -433,61 +487,21 @@
    "label": "Check-out date"
   },
   {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Participant Series",
-   "options": "E-{YY}-",
-   "read_only": 1,
-   "reqd": 1
+   "fieldname": "food_scanning_tab",
+   "fieldtype": "Tab Break",
+   "label": "Food Scanning"
   },
   {
-   "fieldname": "profile_photo",
-   "fieldtype": "Attach Image",
-   "label": "Profile photo"
-  },
-  {
-   "default": "Open",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Status",
-   "options": "Open\nRegistered",
-   "read_only": 1
-  },
-  {
-   "fieldname": "category_files",
+   "fieldname": "food_scan",
    "fieldtype": "Table",
-   "label": "Category Files",
-   "options": "Category Table"
-  },
-  {
-   "fieldname": "dietary_specifications",
-   "fieldtype": "Link",
-   "label": "Dietary Specifications",
-   "options": "Dietary Specifications List",
-   "reqd": 1
-  },
-  {
-   "fieldname": "allergies",
-   "fieldtype": "Data",
-   "label": "Allergies"
-  },
-  {
-   "fieldname": "idpassport_photo",
-   "fieldtype": "Data",
-   "label": "ID/Passport photo"
-  },
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "label": "Full Name",
-   "read_only": 1
+   "label": "Food Scan",
+   "options": "Food Scanning"
   }
  ],
+ "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-11 16:35:48.205494",
+ "modified": "2023-08-16 16:47:55.626476",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
@@ -527,17 +541,6 @@
    "read": 1,
    "report": 1,
    "role": "All",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Participant",
    "share": 1,
    "write": 1
   }
