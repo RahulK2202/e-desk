@@ -11,9 +11,9 @@ frappe.ui.form.on('Food Scan', {
 				args: {
 					doc: name,
 				},
-				callback: function (r) {
-					frm.reload_doc();
-				},
+				// callback: function (r) {
+				// 	frm.reload_doc();
+				// },
 			})
 		},
 	}

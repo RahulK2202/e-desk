@@ -84,14 +84,14 @@ def validate_food(doc):
 
     if doc:
         doc_par = frappe.get_doc("Participant", doc)
-        doc_par.append("food_scanning", {
+        doc_par.append("food_scan", {
             "datetime":datetime.now()
         })
 
-        if len(doc_par.food_scanning) >= 2:
-            length = len(doc_par.food_scanning)
+        if len(doc_par.food_scan) >= 2:
+            length = len(doc_par.food_scan)
 
-            scanned_time = doc_par.food_scanning[length - 2].datetime
+            scanned_time = doc_par.food_scan[length - 2].datetime
             if scanned_time:
                 time_difference = get_datetime(current_time) - get_datetime(scanned_time)
                 if time_difference < buffer_hours:
