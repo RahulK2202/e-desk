@@ -26,7 +26,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-08-12 15:52:47.904502",
+ "modified": "2023-08-17 20:36:36.490369",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Food Scan",
@@ -39,6 +39,28 @@
    "print": 1,
    "read": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Administrator",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Volunteer",
+   "select": 1,
    "share": 1,
    "write": 1
   }
