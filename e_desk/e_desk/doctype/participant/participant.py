@@ -10,8 +10,7 @@ from datetime import datetime, time, timedelta
 
 class Participant(Document):
 
-    def validate(self):
-        # validate_food(self)
+    def after_insert(self):
         self.full_name=self.first_name+self.last_name
         if not frappe.db.exists('User',self.e_mail):
             doc=frappe.new_doc('User')
@@ -26,6 +25,7 @@ class Participant(Document):
                 "roles":get_role_profile("Participant"),
                 "user_type":"System User",
                 "module_profile":"E-desk profile",
+                "participant_id":self.name
 
             })
             doc.save()
@@ -35,6 +35,13 @@ class Participant(Document):
         self.update({
             "category_files":category_files,
         })
+    def on_trash(self):
+        user_list=frappe.get_list("User",filters={"participant_id":self.name},pluck='name')
+        for i in user_list:
+            user=frappe.get_doc("User",i)
+            user.enabled=0
+            user.participant_id=''
+            user.save()
 
 
     
