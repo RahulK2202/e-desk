@@ -35,6 +35,12 @@ class Participant(Document):
         self.update({
             "category_files":category_files,
         })
+        permission=frappe.new_doc("User Permission")
+        permission.user=self.e_mail
+        permission.allow='Participant'
+        permission.for_value=self.name
+        permission.save()
+
     def on_trash(self):
         user_list=frappe.get_list("User",filters={"participant_id":self.name},pluck='name')
         for i in user_list:
@@ -108,3 +114,5 @@ def validate_food(doc):
                     doc_par.save()
         else:
             doc_par.save()
+        
+    return doc
