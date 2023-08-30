@@ -8,7 +8,9 @@
  "engine": "InnoDB",
  "field_order": [
   "scan_qr",
-  "submit"
+  "submit",
+  "section_break_bzsee",
+  "scanned_list"
  ],
  "fields": [
   {
@@ -21,12 +23,22 @@
    "fieldname": "submit",
    "fieldtype": "Button",
    "label": "Submit"
+  },
+  {
+   "fieldname": "section_break_bzsee",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "scanned_list",
+   "fieldtype": "Table",
+   "label": "Scanned List",
+   "options": "Scanned List"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-08-17 20:36:36.490369",
+ "modified": "2023-08-29 11:18:15.633897",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Food Scan",

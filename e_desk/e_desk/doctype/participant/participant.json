@@ -13,10 +13,7 @@
   "first_name",
   "last_name",
   "full_name",
-  "e_mail",
   "mobile_number",
-  "gender",
-  "column_break_sylpb",
   "age",
   "status",
   "date_of_birth",
@@ -79,6 +76,7 @@
   "check_in_date",
   "number_of_nights",
   "room_type_and_price_tier",
+  "qr",
   "column_break_8volc",
   "check_out_date",
   "food_scanning_tab",
@@ -496,12 +494,17 @@
    "fieldtype": "Table",
    "label": "Food Scan",
    "options": "Food Scanning"
+  },
+  {
+   "fieldname": "qr",
+   "fieldtype": "Data",
+   "label": "QR"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-16 16:47:55.626476",
+ "modified": "2023-08-29 10:45:22.777151",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
@@ -547,5 +550,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "full_name"
 }
