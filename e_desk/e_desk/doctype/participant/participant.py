@@ -40,6 +40,7 @@ class Participant(Document):
         permission.allow='Participant'
         permission.for_value=self.name
         permission.save()
+        frappe.db.commit()
 
     def on_trash(self):
         user_list=frappe.get_list("User",filters={"participant_id":self.name},pluck='name')
