@@ -11,7 +11,7 @@ from datetime import datetime, time, timedelta
 class Participant(Document):
 
     def after_insert(self):
-        self.full_name=self.first_name+self.last_name
+        self.full_name=self.first_name+' '+self.last_name
         if not frappe.db.exists('User',self.e_mail):
             doc=frappe.new_doc('User')
             doc.update({
@@ -35,12 +35,12 @@ class Participant(Document):
         self.update({
             "category_files":category_files,
         })
-        permission=frappe.new_doc("User Permission")
-        permission.user=self.e_mail
-        permission.allow='Participant'
-        permission.for_value=self.name
-        permission.save()
-        frappe.db.commit()
+        # permission=frappe.new_doc("User Permission")
+        # permission.user=self.e_mail
+        # permission.allow='Participant'
+        # permission.for_value=self.name
+        # permission.save()
+        # frappe.db.commit()
 
     def on_trash(self):
         user_list=frappe.get_list("User",filters={"participant_id":self.name},pluck='name')

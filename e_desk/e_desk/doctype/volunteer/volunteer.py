@@ -5,19 +5,19 @@ import frappe
 from frappe.model.document import Document
 
 class Volunteer(Document):
-	def on_trash(self):
-		if self.participant:
-			# converting the user as system user
-			user=frappe.get_doc("User",self.get('e_mail'))
-			user.update(
-				{
-					"role_profile_name":"Participant",
-					"user_type":"System User",
-					"roles":[]
-				}
-			)
-			user.save()
-			frappe.db.commit()
+	# def on_trash(self):
+	# 	if self.participant:
+	# 		# converting the user as system user
+	# 		user=frappe.get_doc("User",self.get('e_mail'))
+	# 		user.update(
+	# 			{
+	# 				"role_profile_name":"Participant",
+	# 				"user_type":"System User",
+	# 				"roles":[]
+	# 			}
+	# 		)
+	# 		user.save()
+	# 		frappe.db.commit()
 
 
 	def validate(self):

@@ -169,6 +169,7 @@
    "label": "Profile photo"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_sec1",
    "fieldtype": "Section Break",
    "label": "Community Details"
@@ -211,6 +212,7 @@
    "options": "Category Table"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_sec2",
    "fieldtype": "Section Break",
    "label": "Medical Information"
@@ -246,6 +248,7 @@
    "label": "Allergies"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_sec3",
    "fieldtype": "Section Break",
    "label": "Address"
@@ -297,6 +300,7 @@
    "reqd": 1
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_sec4",
    "fieldtype": "Section Break",
    "label": "Emergency contact"
@@ -324,6 +328,7 @@
    "label": "Emergency contact email"
   },
   {
+   "collapsible": 1,
    "fieldname": "passport_details_section",
    "fieldtype": "Section Break",
    "label": "Passport Details"
@@ -391,6 +396,7 @@
    "label": "ID/Passport photo"
   },
   {
+   "collapsible": 1,
    "fieldname": "arrival_details_section",
    "fieldtype": "Section Break",
    "label": "Arrival Details"
@@ -420,6 +426,7 @@
    "label": "Departure date and time"
   },
   {
+   "collapsible": 1,
    "fieldname": "airline_details_section",
    "fieldtype": "Section Break",
    "label": "Airline Details"
@@ -459,6 +466,7 @@
    "label": "Airline (Departure Date)"
   },
   {
+   "collapsible": 1,
    "fieldname": "room_allotment_section",
    "fieldtype": "Section Break",
    "label": "Room Allotment"
@@ -507,7 +515,7 @@
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-29 10:43:14.417446",
+ "modified": "2023-09-01 10:50:54.994870",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
