@@ -6,6 +6,11 @@ frappe.ui.form.on('Participant', {
 	//Create button for converting the participant to volunteer
 	refresh: function(frm) {
 		var hasPermission = frappe.user.has_role('Volunteer'); 
+		if (!frm.is_new()){
+			toggleEditFields(frm, false); 
+			frm.add_custom_button(__('Edit Fields'), function() {
+				toggleEditFields(frm, true); 
+			  });}
 		
 		if (hasPermission) {
 			frm.add_custom_button(__('Volunteer'), function() {
@@ -25,15 +30,10 @@ frappe.ui.form.on('Participant', {
 	},
 	validate:function(frm) {
 		toggleEditFields(frm, false); 
-		frm.add_custom_button(__('Edit Fields'), function() {
-            toggleEditFields(frm, true); 
-        });
 
 	},
-	after_save:function(frm){
-		frm.add_custom_button(__('Edit Fields'), function() {
-            toggleEditFields(frm, true); 
-        });
+	onload:function(frm){
+		
 	},
 	
 

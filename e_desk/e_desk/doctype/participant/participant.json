@@ -21,6 +21,7 @@
   "status",
   "date_of_birth",
   "profile_photo",
+  "is_paid",
   "section_break_sec1",
   "chruch_organization",
   "capacity",
@@ -510,12 +511,18 @@
    "fieldtype": "Table",
    "label": "Food Scan",
    "options": "Food Scanning"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_paid",
+   "fieldtype": "Check",
+   "label": "Is Paid"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-13 16:47:26.466393",
+ "modified": "2023-09-13 17:23:31.295920",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
