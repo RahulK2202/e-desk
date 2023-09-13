@@ -105,25 +105,25 @@ export default class Widget {
 		// Customization By thirvusoft
 		else {
 			if(title=="Participant"){
-				this.title_field[0].innerHTML = `<span class="ellipsis"; style="color:#0041C2; font-size:18px;" title="${title}">${title}</span>`;
+				this.title_field[0].innerHTML = `<span class="ellipsis"; style="color:#0041C2; font-size:15px;" title="${title}"><img src="/assets/e_desk/Icon/participant1.png" width="35"> ${title} </span>`;
 			}
 			else if(title=="User"){
-				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#800080; font-size:18px" title="${title}">${title}</span>`;
+				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#800080; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/user.png" width="35">${title}</span>`;
 			}
 			else if(title=="Volunteer"){
-				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#8C001A; font-size:18px" title="${title}">${title}</span>`;
+				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#8C001A; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/volunteer.png" width="35">${title}</span>`;
 			}
 			else if(title=="Registration Desk"){
-				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#c88147; font-size:18px" title="${title}">${title}</span>`;
+				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#c88147; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/registration.png" width="35">${title}</span>`;
 			}
 			else if(title=="Category Name"){
-				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#800080; font-size:18px" title="${title}">${title}</span>`;
+				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#800080; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/category.png" width="35">${title}</span>`;
 			}
 			else if(title=="Dietary Specifications List"){
-				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#8C001A; font-size:18px" title="${title}">${title}</span>`;
+				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#8C001A; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/dietary.png" width="35">${title}</span>`;
 			}
 			else if(title=="Program Agenda"){
-				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#0041C2; font-size:18px" title="${title}">${title}</span>`;
+				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#0041C2; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/program.png" width="35">${title}</span>`;
 			}
 			else{
 				this.title_field[0].innerHTML = `<span class="ellipsis" title="${title}">${title}</span>`;

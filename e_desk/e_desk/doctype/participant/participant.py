@@ -82,7 +82,7 @@ def volunteer_creation(doc):
 @frappe.whitelist()
 def categoryfile_fetching(capacity_name,doc):
         doc=json.loads(doc)
-        category_files=frappe.get_all('Category Table', filters={'parent': capacity_name}, fields=['attach'])
+        category_files=frappe.get_all('Category Table', filters={'parent': 'CCA Settings'}, fields=['attach'])
         doc=frappe.get_doc(doc)
         doc.update({
             "category_files":category_files,
