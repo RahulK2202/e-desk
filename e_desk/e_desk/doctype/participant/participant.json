@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2023-08-16 16:38:04.678276",
+ "creation": "2023-09-13 16:47:26.466393",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -487,6 +487,11 @@
    "label": "Room type and price tier"
   },
   {
+   "fieldname": "qr",
+   "fieldtype": "Data",
+   "label": "QR"
+  },
+  {
    "fieldname": "column_break_8volc",
    "fieldtype": "Column Break"
   },
@@ -505,17 +510,12 @@
    "fieldtype": "Table",
    "label": "Food Scan",
    "options": "Food Scanning"
-  },
-  {
-   "fieldname": "qr",
-   "fieldtype": "Data",
-   "label": "QR"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-01 10:50:54.994870",
+ "modified": "2023-09-13 16:47:26.466393",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",

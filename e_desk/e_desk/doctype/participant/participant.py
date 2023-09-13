@@ -9,47 +9,57 @@ from frappe.utils import get_datetime, add_to_date , now ,getdate
 from datetime import datetime, time, timedelta
 
 class Participant(Document):
-    def validate(self):
-        self.full_name=self.first_name+' '+self.last_name
+	def validate(self):
+		self.full_name=self.first_name+' '+self.last_name
 
-    def after_insert(self):
-        if not frappe.db.exists('User',self.e_mail):
-            doc=frappe.new_doc('User')
-            doc.update({
-                "email":self.e_mail,
-                "first_name":self.first_name,
-                "last_name":self.last_name,
-                "mobile_no":self.mobile_number,
-                "new_password":self.mobile_number,
-                "send_welcome_email":0,
-                "role_profile_name":"Participant",
-                "roles":get_role_profile("Participant"),
-                "user_type":"System User",
-                "module_profile":"E-desk profile",
-                "participant_id":self.name
+	def after_insert(self):
+		if not frappe.db.exists('User',self.e_mail):
+			doc=frappe.new_doc('User')
+			doc.update({
+				"email":self.e_mail,
+				"first_name":self.first_name,
+				"last_name":self.last_name,
+				"mobile_no":self.mobile_number,
+				"new_password":self.mobile_number,
+				"send_welcome_email":0,
+				"role_profile_name":"Participant",
+				"roles":get_role_profile("Participant"),
+				"user_type":"System User",
+				"module_profile":"E-desk profile",
+				"participant_id":self.name
 
-            })
-            doc.save()
-            frappe.errprint(doc.user_type)
-        #attachment inside the participant -> category files
-        category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
-        self.update({
-            "category_files":category_files,
-        })
-        # permission=frappe.new_doc("User Permission")
-        # permission.user=self.e_mail
-        # permission.allow='Participant'
-        # permission.for_value=self.name
-        # permission.save()
-        # frappe.db.commit()
+			})
+			doc.save()
+			frappe.errprint(doc.user_type)
+		#attachment inside the participant -> category files
+		category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
+		self.update({
+			"category_files":category_files,
+		})
+		# permission=frappe.new_doc("User Permission")
+		# permission.user=self.e_mail
+		# permission.allow='Participant'
+		# permission.for_value=self.name
+		# permission.save()
+		# frappe.db.commit()
+	#getting the category file table
+	@frappe.whitelist()
+	def categoryfile_fetching(doc, a=None):
+		category_files=frappe.get_all('Category Table', filters={'parent': 'CCA Settings'}, fields=['attach'])
+		doc=frappe.get_doc(doc)
+		doc.update({
+			"category_files":category_files,
+		})
+		# doc.save()
+		return category_files
 
-    def on_trash(self):
-        user_list=frappe.get_list("User",filters={"participant_id":self.name},pluck='name')
-        for i in user_list:
-            user=frappe.get_doc("User",i)
-            user.enabled=0
-            user.participant_id=''
-            user.save()
+	def on_trash(self):
+		user_list=frappe.get_list("User",filters={"participant_id":self.name},pluck='name')
+		for i in user_list:
+			user=frappe.get_doc("User",i)
+			user.enabled=0
+			user.participant_id=''
+			user.save()
 
 
     
@@ -78,17 +88,7 @@ def volunteer_creation(doc):
     user.save()
     frappe.db.commit()
 
-#getting the category file table
-@frappe.whitelist()
-def categoryfile_fetching(capacity_name,doc):
-        doc=json.loads(doc)
-        category_files=frappe.get_all('Category Table', filters={'parent': 'CCA Settings'}, fields=['attach'])
-        doc=frappe.get_doc(doc)
-        doc.update({
-            "category_files":category_files,
-        })
-        doc.save()
-        return category_files
+
 
 @frappe.whitelist()
 
