@@ -23,6 +23,18 @@ frappe.ui.form.on('Participant', {
 			}, __("Create"));
 		}
 	},
+	validate:function(frm) {
+		toggleEditFields(frm, false); 
+		frm.add_custom_button(__('Edit Fields'), function() {
+            toggleEditFields(frm, true); 
+        });
+
+	},
+	after_save:function(frm){
+		frm.add_custom_button(__('Edit Fields'), function() {
+            toggleEditFields(frm, true); 
+        });
+	},
 	
 
 	capacity: function(frm){
@@ -45,6 +57,21 @@ frappe.ui.form.on('Participant', {
 }
 
 );
+
+function toggleEditFields(frm, isEditable) {
+    var fieldnames = Object.keys(frm.fields_dict);
+    for (var i = 0; i < fieldnames.length; i++) {
+        var fieldname = fieldnames[i];
+        if (frm.fields_dict[fieldname].df.fieldtype !== 'Section Break' &&
+            frm.fields_dict[fieldname].df.fieldtype !== 'Column Break') {
+            frm.toggle_enable(fieldname, isEditable);
+        }
+    }
+}
+
+
+
+
 // frappe.listview_settings['Participant'] = {	
 // 	onload: function(listview) {
 // 	listview.page.add_menu_item(__('Food Scanning'), function() {
@@ -81,3 +108,4 @@ frappe.ui.form.on('Participant', {
 // },
 
 // }
+
