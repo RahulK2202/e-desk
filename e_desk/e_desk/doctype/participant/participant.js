@@ -37,22 +37,20 @@ frappe.ui.form.on('Participant', {
 	},
 	
 
-	capacity: function(frm){
-		console.log(frm.doc)
-		frappe.call(
-			{
-				method:"e_desk.e_desk.doctype.participant.participant.categoryfile_fetching",
-				args:{
-					capacity_name:frm.doc.capacity,
-					doc:frm.doc,
-				},
-				callback:function(capacity_link){
-					frm.reload_doc()
-					// frm.set_value("category_files",capacity_link["message"])
-				}
+	capacity: async function(frm){
+		await frappe.call({
+			method: "run_doc_method",
+			args: {
+				'docs': frm.doc,
+				'method': 'categoryfile_fetching'
 			},
+			callback: function (r) {
+				if (!r.exc) {
+					frm.refresh_fields();
+				}
+			}
+		});
 
-		)
 	}
 }
 
@@ -108,4 +106,3 @@ function toggleEditFields(frm, isEditable) {
 // },
 
 // }
-
