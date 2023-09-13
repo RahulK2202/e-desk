@@ -11,6 +11,7 @@ from e_desk.e_desk.doctype.registration_desk.registration_desk import Registrati
 class Participant(Document):
 	def validate(self):
 		self.full_name=self.first_name+' '+self.last_name
+
 	
 
 
@@ -32,14 +33,16 @@ class Participant(Document):
 
 			})
 			doc.save()
-			frappe.errprint(doc.user_type)
-			qr=RegistrationDesk.create_qr_participant( self)
-			self.status = "Registered"
+                  
 		#attachment inside the participant -> category files
 		category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
 		self.update({
 			"category_files":category_files,
 		})
+		if self.is_paid:
+			qr=RegistrationDesk.create_qr_participant(self)
+			self.status = "Registered"
+			self.save()
 		
 		# permission=frappe.new_doc("User Permission")
 		# permission.user=self.e_mail
