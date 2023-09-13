@@ -7,10 +7,12 @@ from frappe.model.document import Document
 from frappe.core.doctype.user.user import get_role_profile
 from frappe.utils import get_datetime, add_to_date , now ,getdate
 from datetime import datetime, time, timedelta
-
+from e_desk.e_desk.doctype.registration_desk.registration_desk import RegistrationDesk 
 class Participant(Document):
 	def validate(self):
 		self.full_name=self.first_name+' '+self.last_name
+	
+
 
 	def after_insert(self):
 		if not frappe.db.exists('User',self.e_mail):
@@ -31,11 +33,14 @@ class Participant(Document):
 			})
 			doc.save()
 			frappe.errprint(doc.user_type)
+			qr=RegistrationDesk.create_qr_participant( self)
+			self.status = "Registered"
 		#attachment inside the participant -> category files
 		category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
 		self.update({
 			"category_files":category_files,
 		})
+		
 		# permission=frappe.new_doc("User Permission")
 		# permission.user=self.e_mail
 		# permission.allow='Participant'
@@ -43,6 +48,7 @@ class Participant(Document):
 		# permission.save()
 		# frappe.db.commit()
 	#getting the category file table
+
 	@frappe.whitelist()
 	def categoryfile_fetching(doc, a=None):
 		category_files=frappe.get_all('Category Table', filters={'parent': 'CCA Settings'}, fields=['attach'])

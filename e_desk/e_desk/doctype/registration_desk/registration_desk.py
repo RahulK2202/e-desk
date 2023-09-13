@@ -11,6 +11,7 @@ from frappe.model.naming import parse_naming_series
 
 
 class RegistrationDesk(Document):
+    @classmethod
     def create_qr_participant(self, pr_doc):
         qr_image = io.BytesIO()
         data={"e_mail":pr_doc.e_mail,"mobile_number":pr_doc.mobile_number,"name":pr_doc.name}
@@ -45,7 +46,7 @@ class RegistrationDesk(Document):
             if not row.profile_img:
                 frappe.throw(f"Profile picture mandatory in {row.idx}")
             doc = frappe.get_doc("Participant", row.participant_id)
-            qr=self.create_qr_participant(doc)
+            qr=self.create_qr_participant( doc)
             doc.status = "Registered"
             doc.save()
             frappe.db.set_value(row.doctype, row.name, 'qr_img', qr, update_modified=False)
