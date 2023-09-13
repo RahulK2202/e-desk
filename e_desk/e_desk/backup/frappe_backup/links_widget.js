@@ -66,12 +66,12 @@ export default class LinksWidget extends Widget {
 		// Customized By Thirvusoft
 			// Start
 			if(["Food Scan"].includes(item.label)){
-				return `<span class="link-content ellipsis" style="color:#C88141; font-size:18px">${
-					item.label ? item.label : item.name
+				return `<span class="link-content ellipsis" style="color:#C88141; font-size:18px"><img src="/assets/e_desk/Icon/food.png" width="35">${
+					item.label ? item.label : item.name 
 				}</span>`;
 			}
 			else if(["Voting Topic"].includes(item.label)){
-				return `<span class="link-content ellipsis" style="color:#550A35; font-size:18px">${
+				return `<span class="link-content ellipsis" style="color:#550A35; font-size:18px"><img src="/assets/e_desk/Icon/voting.png" width="35">${
 					item.label ? item.label : item.name
 				}</span>`;
 			}

@@ -8,7 +8,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "church"
+  "church",
+  "latitude",
+  "longitude",
+  "location"
  ],
  "fields": [
   {
@@ -16,11 +19,26 @@
    "fieldtype": "Data",
    "label": "Church",
    "unique": 1
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Geolocation",
+   "label": "Location "
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-12 18:08:44.872985",
+ "modified": "2023-09-13 10:22:37.771577",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Church",
