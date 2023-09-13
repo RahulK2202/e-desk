@@ -2,7 +2,20 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Church', {
-	// refresh: function(frm) {
-
-	// }
+	refresh: function(frm) {
+		if (frm.doc.latitude && frm.doc.longitude) {
+		  const map = frm.get_field('location').map;
+		  const marker = L.marker([frm.doc.latitude, frm.doc.longitude]).addTo(map);
+	
+		  marker.bindPopup(frm.doc.church).openPopup();
+		}
+		frm.set_query('address', function(doc) {
+			return {
+				filters: {
+					'link_doctype': 'Branch',
+					'link_name': doc.name
+				}
+			}
+		})
+	  }
 });

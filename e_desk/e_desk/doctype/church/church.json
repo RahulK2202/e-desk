@@ -10,35 +10,57 @@
  "field_order": [
   "church",
   "latitude",
+  "column_break_4debe",
+  "address",
   "longitude",
+  "section_break_kuwdx",
   "location"
  ],
  "fields": [
   {
    "fieldname": "church",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Church",
+   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "latitude",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Latitude"
   },
   {
    "fieldname": "longitude",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Longitude"
   },
   {
    "fieldname": "location",
    "fieldtype": "Geolocation",
    "label": "Location "
+  },
+  {
+   "fieldname": "column_break_4debe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "section_break_kuwdx",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-13 10:22:37.771577",
+ "modified": "2023-09-13 15:12:57.525444",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Church",
