@@ -10,9 +10,10 @@
  "field_order": [
   "hotel",
   "latitude",
+  "get_directions",
   "column_break_cmbsn",
-  "address",
   "longitude",
+  "address",
   "section_break_zq4vh",
   "location"
  ],
@@ -53,11 +54,16 @@
    "fieldname": "location",
    "fieldtype": "Geolocation",
    "label": "Location"
+  },
+  {
+   "fieldname": "get_directions",
+   "fieldtype": "Button",
+   "label": "Get Directions"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-13 15:29:54.893337",
+ "modified": "2023-09-14 19:02:04.327703",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Hotel",

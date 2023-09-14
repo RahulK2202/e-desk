@@ -17,5 +17,15 @@ frappe.ui.form.on('Hotel', {
 				}
 			}
 		})
-	}
+	},
+	get_directions:function(frm){
+	
+		if (frm.doc.latitude && frm.doc.longitude) {
+			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude},${frm.doc.longitude}`;
+
+			window.open(mapURL, '_blank');
+		} else {
+			frappe.msgprint(__('Latitude and Longitude are required to navigate to the map.'));
+		}
+	},
 });
