@@ -17,8 +17,9 @@ frappe.ui.form.on('Hotel', {
 				}
 			}
 		})
+	},
+	get_directions:function(frm){
 	
-	frm.add_custom_button(__('Get Directions'), function() {
 		if (frm.doc.latitude && frm.doc.longitude) {
 			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude},${frm.doc.longitude}`;
 
@@ -26,5 +27,5 @@ frappe.ui.form.on('Hotel', {
 		} else {
 			frappe.msgprint(__('Latitude and Longitude are required to navigate to the map.'));
 		}
-	})}
+	},
 });

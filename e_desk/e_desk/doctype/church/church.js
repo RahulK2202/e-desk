@@ -9,16 +9,6 @@ frappe.ui.form.on('Church', {
 	
 		  marker.bindPopup(frm.doc.church).openPopup();
 		}
-			
-	frm.add_custom_button(__('Get Directions'), function() {
-		if (frm.doc.latitude && frm.doc.longitude) {
-			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude},${frm.doc.longitude}`;
-
-			window.open(mapURL, '_blank');
-		} else {
-			frappe.msgprint(__('Latitude and Longitude are required to navigate to the map.'));
-		}
-	}),
 		frm.set_query('address', function(doc) {
 			return {
 				filters: {
@@ -27,5 +17,15 @@ frappe.ui.form.on('Church', {
 				}
 			}
 		})
-	  }
-});
+	  },
+	  get_directions:function(frm){
+	
+			if (frm.doc.latitude && frm.doc.longitude) {
+				const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude},${frm.doc.longitude}`;
+	
+				window.open(mapURL, '_blank');
+			} else {
+				frappe.msgprint(__('Latitude and Longitude are required to navigate to the map.'));
+			}
+		},
+	  });
