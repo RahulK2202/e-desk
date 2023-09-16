@@ -20,6 +20,74 @@ frappe.ui.form.on('Program Agenda', {
                 return;
             }
         }
-    }
-});
 
+
+
+    },
+    refresh: function (frm) {
+        var agendaDetails = frm.doc.agenda_details || [];
+        if (frm.doc.agenda_details) {
+            var agendaTable = `<style>
+            .body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                color: #333;
+            }
+            table {
+                width: 100%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background-color: #fff;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            th:nth-child(1), td:nth-child(1) {
+                width: 30%; 
+            }
+            th:nth-child(2), td:nth-child(2) {
+                width: 70%; 
+            }
+            th {
+                background-color: #333;
+                color: #fff;
+            }
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+            tr:hover {
+                background-color: #ddd;
+            }
+            </style>`;
+    
+            var find = false;
+    
+            for (var i = 0; i < agendaDetails.length; i++) {
+                var row = agendaDetails[i];
+                if (agendaDetails[0].from_time) {
+                    if (!find) {
+                        agendaTable += ' <div class="body"> <table border="1"><tr><th>Time</th><th>Event</th></tr>';
+                        find = true;
+                    }
+                    agendaTable += '<tr>';
+                    agendaTable += '<td>' + row.from_time + ' - ' + row.to_time + '</td>';
+                    agendaTable += '<td>' + row.description + '</td>';
+                    agendaTable += '</tr>';
+                }
+            }
+    
+            agendaTable += '</div></table>';
+            frm.get_field("agenda_list").$wrapper.html(agendaTable);
+        } else {
+            frm.get_field("agenda_list").$wrapper.html('');
+        }
+    }
+    
+    
+});
