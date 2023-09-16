@@ -36,17 +36,16 @@ def get():
 			args.update({
 					"filters":filters
 			})
-		if args.doctype == "File" and not len(has_role1) and  frappe.session.user != 'Administrator':
+		if args.doctype == "File" and not len(has_role) and  frappe.session.user == 'Administrator':
+			args.update({
+					"filters":filters
+			})
+		elif args.doctype == "File" :
 			filters.append(["File","attached_to_doctype","is",'not set'])
 			args.update({
 					"filters":filters
 			})
-		elif args.doctype == "File":
-			filters.append(["File","attached_to_doctype","is",'not set'])
-			args.update({
-					"filters":filters
-			})
-		elif  not len(has_role1) and  frappe.session.user != 'Administrator':
+		elif  not len(has_role) and  frappe.session.user != 'Administrator':
 			filters.append([args.doctype,"owner","=",frappe.session.user])
 			args.update({
 					"filters":filters
@@ -92,17 +91,16 @@ def get_count():
 					"filters":filters
 			})
 		has_role1 = frappe.get_all("Has Role", filters={"role": 'Participant', "parent": frappe.session.user})
-		if args.doctype == "File" and not len(has_role1) and  frappe.session.user != 'Administrator':
-			filters.append(["File","attached_to_docType","is",'not set'])
+		if args.doctype == "File" and not len(has_role) and  frappe.session.user == 'Administrator':
 			args.update({
 					"filters":filters
 			})
 		elif args.doctype == "File":
-			filters.append(["File","attached_to_docType","is",'not set'])
+			filters.append(["File","attached_to_doctype","is",'not set'])
 			args.update({
 					"filters":filters
 			})
-		elif not len(has_role1) and  frappe.session.user != 'Administrator':
+		elif not len(has_role) and  frappe.session.user != 'Administrator':
 			filters.append([args.doctype,"owner","=",frappe.session.user])
 			args.update({
 					"filters":filters
