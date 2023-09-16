@@ -8,7 +8,7 @@ frappe.ui.form.on('Participant', {
 		var hasPermission = frappe.user.has_role('Volunteer'); 
 		if (!frm.is_new()){
 			toggleEditFields(frm, false); 
-			frm.add_custom_button(__('Edit Fields'), function() {
+			frm.add_custom_button(__('Editable'), function() {
 				toggleEditFields(frm, true); 
 			  });}
 		

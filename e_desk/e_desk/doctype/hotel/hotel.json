@@ -10,10 +10,9 @@
  "field_order": [
   "hotel",
   "latitude",
-  "get_directions",
-  "column_break_cmbsn",
-  "longitude",
   "address",
+  "longitude",
+  "get_directions",
   "section_break_zq4vh",
   "location",
   "amended_from"
@@ -39,11 +38,6 @@
    "label": "Latitude"
   },
   {
-   "fieldname": "column_break_cmbsn",
-   "fieldtype": "Column Break",
-   "label": "        <i class="
-  },
-  {
    "fieldname": "longitude",
    "fieldtype": "Float",
    "label": "Longitude"
@@ -60,7 +54,7 @@
   {
    "fieldname": "get_directions",
    "fieldtype": "Button",
-   "label": "<p class=\"fa fa-hand-o-right\" style=\"background-color: #4169E1; border-radius: 8px; color: #fff; padding: 5px;\">         Get Direction</p>"
+   "label": "<p class=\"fa fa-hand-o-right\" style=\"background-color: #4169E1; color: #fff; padding: 10px; font-size: 16px;\">Get Direct</p>"
   },
   {
    "fieldname": "amended_from",
@@ -75,7 +69,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-09-15 10:54:13.265982",
+ "modified": "2023-09-16 11:50:43.898463",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Hotel",

@@ -10,12 +10,12 @@
  "field_order": [
   "church",
   "latitude",
-  "get_directions",
-  "column_break_4debe",
   "longitude",
   "address",
+  "get_directions",
   "section_break_kuwdx",
   "location",
+  "d",
   "amended_from"
  ],
  "fields": [
@@ -45,10 +45,6 @@
    "label": "Location "
   },
   {
-   "fieldname": "column_break_4debe",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "address",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -62,7 +58,7 @@
   {
    "fieldname": "get_directions",
    "fieldtype": "Button",
-   "label": "<p class=\"fa fa-hand-o-right\" style=\"background-color: #4169E1; border-radius: 8px; color: #fff; padding: 5px;\">         Get Direction</p>"
+   "label": "<p class=\"fa fa-hand-o-right\" style=\"background-color: #4169E1; color: #fff; padding: 10px; font-size: 16px;\">Get Direct</p>"
   },
   {
    "fieldname": "amended_from",
@@ -72,12 +68,17 @@
    "options": "Church",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "d",
+   "fieldtype": "Data",
+   "label": "d"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-09-15 10:54:50.498953",
+ "modified": "2023-09-16 12:36:35.040801",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Church",

@@ -35,6 +35,8 @@
   "column_break_5fyxd",
   "person_with_disability",
   "allergies",
+  "payment_information_section",
+  "mode_of_payment",
   "section_break_sec3",
   "residential_address",
   "street_or_po",
@@ -517,12 +519,24 @@
    "fieldname": "is_paid",
    "fieldtype": "Check",
    "label": "Is Paid"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "payment_information_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Information"
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Table",
+   "label": "Mode of payment",
+   "options": "Mode of payment"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-13 17:23:31.295920",
+ "modified": "2023-09-16 12:22:23.939506",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
