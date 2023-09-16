@@ -15,7 +15,8 @@
   "longitude",
   "address",
   "section_break_zq4vh",
-  "location"
+  "location",
+  "amended_from"
  ],
  "fields": [
   {
@@ -39,7 +40,8 @@
   },
   {
    "fieldname": "column_break_cmbsn",
-   "fieldtype": "Column Break"
+   "fieldtype": "Column Break",
+   "label": "        <i class="
   },
   {
    "fieldname": "longitude",
@@ -58,12 +60,22 @@
   {
    "fieldname": "get_directions",
    "fieldtype": "Button",
-   "label": "Get Directions"
+   "label": "<p class=\"fa fa-hand-o-right\" style=\"background-color: #4169E1; border-radius: 8px; color: #fff; padding: 5px;\">         Get Direction</p>"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Hotel",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2023-09-14 19:02:04.327703",
+ "modified": "2023-09-15 10:54:13.265982",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Hotel",
