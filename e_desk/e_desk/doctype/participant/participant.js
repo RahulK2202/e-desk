@@ -28,10 +28,10 @@ frappe.ui.form.on('Participant', {
 			}, __("Create"));
 		}
 	},
-	validate:function(frm) {
-		toggleEditFields(frm, false); 
+	// validate:function(frm) {
+	// 	toggleEditFields(frm, false); 
 
-	},
+	// },
 	onload:function(frm){
 		
 	},
