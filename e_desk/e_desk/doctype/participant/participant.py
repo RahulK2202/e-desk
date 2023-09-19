@@ -156,3 +156,58 @@ def validate_attendance(doc):
             doc_par.save()
         
     return doc
+@frappe.whitelist()
+
+def full_address(address):
+    hotel=frappe.get_doc("Hotel",address)
+    add=frappe.get_doc("Address",hotel.address)
+    search_text = ""
+
+    if add.address_title:
+        search_text = search_text  + add.address_title
+        
+    if add.address_line1:
+        search_text = search_text + ",<br>"+add.address_line1
+
+
+    if add.city:
+        search_text = search_text + ",<br>" + add.city
+
+    if add.state:
+        search_text = search_text + ",<br>" + add.state
+
+    if add.country:
+        search_text = search_text + ",<br>" + add.country
+
+    if add.pincode:
+        search_text = search_text + ",<br>" + add.pincode
+    
+    return search_text
+
+@frappe.whitelist()
+
+def full_address_church(address):
+    hotel=frappe.get_doc("Church",address)
+    add=frappe.get_doc("Address",hotel.address)
+    search_text = ""
+
+    if add.address_title:
+        search_text = search_text  + add.address_title
+        
+    if add.address_line1:
+        search_text = search_text + ",<br>"+add.address_line1
+
+
+    if add.city:
+        search_text = search_text + ",<br>" + add.city
+
+    if add.state:
+        search_text = search_text + ",<br>" + add.state
+
+    if add.country:
+        search_text = search_text + ",<br>" + add.country
+
+    if add.pincode:
+        search_text = search_text + ",<br>" + add.pincode
+    
+    return search_text

@@ -85,6 +85,18 @@
   "qr",
   "column_break_8volc",
   "check_out_date",
+  "accommodation_info_tab",
+  "hotel",
+  "latitude",
+  "longitude",
+  "get_directions",
+  "hotel_address",
+  "church_details_tab",
+  "church_list",
+  "latitude_church",
+  "longitude_church",
+  "get_directions_church",
+  "church_address",
   "food_scanning_tab",
   "food_scan",
   "attendance_tab",
@@ -544,12 +556,84 @@
    "fieldtype": "Table",
    "label": "Attendance List",
    "options": "Attendance List"
+  },
+  {
+   "fieldname": "accommodation_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Accommodation Info"
+  },
+  {
+   "fieldname": "hotel",
+   "fieldtype": "Link",
+   "label": "Hotel",
+   "options": "Hotel"
+  },
+  {
+   "fieldname": "church_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Church Details"
+  },
+  {
+   "fieldname": "church_list",
+   "fieldtype": "Link",
+   "label": "Church List",
+   "options": "Church"
+  },
+  {
+   "fetch_from": "hotel.latitude",
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "hotel.longitude",
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "church_list.latitude",
+   "fieldname": "latitude_church",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "church_list.longitude",
+   "fieldname": "longitude_church",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "read_only": 1
+  },
+  {
+   "fieldname": "get_directions",
+   "fieldtype": "Button",
+   "label": "<p class=\"fa fa-hand-o-right\" style=\"background-color: #4169E1; color: #fff; padding: 10px; font-size: 16px;\">Get Direct</p>"
+  },
+  {
+   "fieldname": "get_directions_church",
+   "fieldtype": "Button",
+   "label": "<p class=\"fa fa-hand-o-right\" style=\"background-color: #4169E1; color: #fff; padding: 10px; font-size: 16px;\">Get Direct</p>"
+  },
+  {
+   "fieldname": "hotel_address",
+   "fieldtype": "Small Text",
+   "label": "Hotel Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "church_address",
+   "fieldtype": "Small Text",
+   "label": "Church Address",
+   "read_only": 1
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-16 12:44:47.580399",
+ "modified": "2023-09-19 17:41:27.659233",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
