@@ -1,0 +1,138 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"moJWlIER1F\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">E-desk</span>\",\"col\":12}},{\"id\":\"ChdI8wG-D9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Participant\",\"col\":3}},{\"id\":\"_A-14y-UjS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"User\",\"col\":3}},{\"id\":\"xYFy8cVZu0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Volunteer\",\"col\":3}},{\"id\":\"0hZz0S2ouU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Registration Desk\",\"col\":3}},{\"id\":\"XvuiGhdkWj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Category Name\",\"col\":3}},{\"id\":\"E5egpBeE2r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dietary Specifications List\",\"col\":3}},{\"id\":\"5NQvwE1sbS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Agenda\",\"col\":3}},{\"id\":\"7_OaJFouQD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Church\",\"col\":3}},{\"id\":\"4Ld8m0fM_Y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hotel\",\"col\":3}},{\"id\":\"UJHP_STAkR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"File List\",\"col\":3}},{\"id\":\"1CBPaH91hv\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"voCRpejopm\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}}]",
+ "creation": "2023-08-04 18:48:47.583950",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "project",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "E-desk",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Food Scan",
+   "link_count": 0,
+   "link_to": "Food Scan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Voting Topic",
+   "link_count": 0,
+   "link_to": "Voting Topic",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Attendance Scan",
+   "link_count": 0,
+   "link_to": "Attendance Scan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-09-19 13:33:24.934143",
+ "modified_by": "Administrator",
+ "module": "E Desk",
+ "name": "E-desk",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 35.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "User",
+   "link_to": "User",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Church",
+   "link_to": "Church",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Category Name",
+   "link_to": "Category Name",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Program Agenda",
+   "link_to": "Program Agenda",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Participant",
+   "link_to": "Participant",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Volunteer",
+   "link_to": "Volunteer",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Hotel",
+   "link_to": "Hotel",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Dietary Specifications List",
+   "link_to": "Dietary Specifications List",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Registration Desk",
+   "link_to": "Registration Desk",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "File List",
+   "link_to": "File",
+   "type": "DocType"
+  }
+ ],
+ "title": "E-desk"
+}
