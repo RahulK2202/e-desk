@@ -12,7 +12,8 @@
   "column_break_8hywj",
   "date",
   "section_break_ccdf1",
-  "agenda_details"
+  "agenda_details",
+  "agenda_list"
  ],
  "fields": [
   {
@@ -44,11 +45,16 @@
    "label": "Agenda Details",
    "options": "Agenda Details",
    "reqd": 1
+  },
+  {
+   "fieldname": "agenda_list",
+   "fieldtype": "HTML",
+   "label": "Agenda List"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-12 18:18:29.247380",
+ "modified": "2023-09-16 16:14:53.240530",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Program Agenda",
