@@ -33,7 +33,7 @@ class Participant(Document):
 
 			})
 			doc.save()
-                  
+				  
 		#attachment inside the participant -> category files
 		category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
 		self.update({
@@ -71,88 +71,143 @@ class Participant(Document):
 			user.save()
 
 
-    
+	
 # Converting the participant to volunteer
 @frappe.whitelist()
 def volunteer_creation(doc):
-    doc=json.loads(doc)
-    v_doc=frappe.new_doc('Volunteer')
-    v_doc.update({
-        "e_mail":doc.get('e_mail'),
-        "mobile_number":doc.get('mobile_number'),
-        "name1":doc.get('first_name')+doc.get('last_name'),
-        "participant":doc.get('name'),
-        "module_profile":"E-desk profile",
-    }),
-    v_doc.save()
+	doc=json.loads(doc)
+	v_doc=frappe.new_doc('Volunteer')
+	v_doc.update({
+		"e_mail":doc.get('e_mail'),
+		"mobile_number":doc.get('mobile_number'),
+		"name1":doc.get('first_name')+doc.get('last_name'),
+		"participant":doc.get('name'),
+		"module_profile":"E-desk profile",
+	}),
+	v_doc.save()
 
-    # converting the user to volunteer profile
-    user=frappe.get_doc("User",doc.get('e_mail'))
-    user.update(
-        {
-            "role_profile_name":"Volunteer",
-            "user_type":"System User"
-        }
-    )
-    user.save()
-    frappe.db.commit()
+	# converting the user to volunteer profile
+	user=frappe.get_doc("User",doc.get('e_mail'))
+	user.update(
+		{
+			"role_profile_name":"Volunteer",
+			"user_type":"System User"
+		}
+	)
+	user.save()
+	frappe.db.commit()
 
 
 
 @frappe.whitelist()
 
 def validate_food(doc):
-    scanned_time = ''
-    buffer_hours = timedelta(hours=2)
-    current_time = now()
+	scanned_time = ''
+	buffer_hours = timedelta(hours=2)
+	current_time = now()
 
-    if doc:
-        doc_par = frappe.get_doc("Participant", doc)
-        doc_par.append("food_scan", {
-            "datetime":current_time
-        })
+	if doc:
+		doc_par = frappe.get_doc("Participant", doc)
+		doc_par.append("food_scan", {
+			"datetime":current_time
+		})
 
-        if len(doc_par.food_scan) >= 2:
-            length = len(doc_par.food_scan)
+		if len(doc_par.food_scan) >= 2:
+			length = len(doc_par.food_scan)
 
-            scanned_time = doc_par.food_scan[length - 2].datetime
-            if scanned_time:
-                time_difference = get_datetime(current_time) - get_datetime(scanned_time)
-                if time_difference < buffer_hours:
-                    frappe.throw(f"Already Scanned at {scanned_time}")
-                else:
-                    
-                    doc_par.save()
-        else:
-            doc_par.save()
-        
-    return doc
+			scanned_time = doc_par.food_scan[length - 2].datetime
+			if scanned_time:
+				time_difference = get_datetime(current_time) - get_datetime(scanned_time)
+				if time_difference < buffer_hours:
+					frappe.throw(f"Already Scanned at {scanned_time}")
+				else:
+					
+					doc_par.save()
+		else:
+			doc_par.save()
+		
+	return doc
 
 @frappe.whitelist()
 
 def validate_attendance(doc):
-    scanned_time = ''
-    buffer_hours = timedelta(hours=2)
-    current_time = now()
+	scanned_time = ''
+	buffer_hours = timedelta(hours=2)
+	current_time = now()
 
-    if doc:
-        doc_par = frappe.get_doc("Participant", doc)
-        doc_par.append("attendance_list", {
-            "datetime":current_time
-        })
+	if doc:
+		doc_par = frappe.get_doc("Participant", doc)
+		doc_par.append("attendance_list", {
+			"datetime":current_time
+		})
 
-        if len(doc_par.attendance_list) >= 2:
-            length = len(doc_par.attendance_list)
+		if len(doc_par.attendance_list) >= 2:
+			length = len(doc_par.attendance_list)
 
-            scanned_time = doc_par.attendance_list[length - 2].datetime
-            if scanned_time:
-                time_difference = get_datetime(current_time) - get_datetime(scanned_time)
-                if time_difference < buffer_hours:
-                    frappe.throw(f"Already Scanned at {scanned_time}")
-                else:
-                    
-                    doc_par.save()
-        else:
-            doc_par.save()
-        
-    return doc
+			scanned_time = doc_par.attendance_list[length - 2].datetime
+			if scanned_time:
+				time_difference = get_datetime(current_time) - get_datetime(scanned_time)
+				if time_difference < buffer_hours:
+					frappe.throw(f"Already Scanned at {scanned_time}")
+				else:
+					
+					doc_par.save()
+		else:
+			doc_par.save()
+		
+	return doc
+@frappe.whitelist()
+
+def full_address(address):
+	hotel=frappe.get_doc("Hotel",address)
+	add=frappe.get_doc("Address",hotel.address)
+	search_text = ""
+
+	if add.address_title:
+		search_text = search_text  + add.address_title
+		
+	if add.address_line1:
+		search_text = search_text + ",<br>"+add.address_line1
+
+
+	if add.city:
+		search_text = search_text + ",<br>" + add.city
+
+	if add.state:
+		search_text = search_text + ",<br>" + add.state
+
+	if add.country:
+		search_text = search_text + ",<br>" + add.country
+
+	if add.pincode:
+		search_text = search_text + ",<br>" + add.pincode
+	
+	return search_text
+
+@frappe.whitelist()
+
+def full_address_church(address):
+	hotel=frappe.get_doc("Church",address)
+	add=frappe.get_doc("Address",hotel.address)
+	search_text = ""
+
+	if add.address_title:
+		search_text = search_text  + add.address_title
+		
+	if add.address_line1:
+		search_text = search_text + ",<br>"+add.address_line1
+
+
+	if add.city:
+		search_text = search_text + ",<br>" + add.city
+
+	if add.state:
+		search_text = search_text + ",<br>" + add.state
+
+	if add.country:
+		search_text = search_text + ",<br>" + add.country
+
+	if add.pincode:
+		search_text = search_text + ",<br>" + add.pincode
+	
+	return search_text

@@ -28,10 +28,10 @@ frappe.ui.form.on('Participant', {
 			}, __("Create"));
 		}
 	},
-	validate:function(frm) {
-		toggleEditFields(frm, false); 
+	// validate:function(frm) {
+	// 	toggleEditFields(frm, false); 
 
-	},
+	// },
 	onload:function(frm){
 		
 	},
@@ -51,6 +51,54 @@ frappe.ui.form.on('Participant', {
 			}
 		});
 
+	},
+	get_directions:function(frm){
+	
+		if (frm.doc.latitude && frm.doc.longitude) {
+			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude},${frm.doc.longitude}`;
+
+			window.open(mapURL, '_blank');
+		} else {
+			frappe.msgprint(__('Latitude and Longitude are required to navigate to the map.'));
+		}
+	},
+	get_directions_church:function(frm){
+	
+		if (frm.doc.latitude && frm.doc.longitude) {
+			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude_chruch},${frm.doc.longitude_chruch}`;
+
+			window.open(mapURL, '_blank');
+		} else {
+			frappe.msgprint(__('Latitude and Longitude are required to navigate to the map.'));
+		}
+	},
+	hotel: function (frm) {
+			var selectedHotel = frm.doc.hotel;
+			if (selectedHotel) {
+				frappe.call({
+					method: "e_desk.e_desk.doctype.participant.participant.full_address",
+					args: {
+						address: frm.doc.hotel,
+					},
+					callback: function (search_text) {
+						frm.set_value('hotel_address', search_text.message);
+					}
+				});
+			}
+		},
+	church_list: function (frm) {
+		var selectedchurch = frm.doc.church_list;
+		if (selectedchurch) {
+			frappe.call({
+				method: "e_desk.e_desk.doctype.participant.participant.full_address_church",
+				args: {
+					address: frm.doc.church_list,
+				},
+				callback: function (search_text) {
+					frm.set_value('church_address', search_text.message);
+				}
+			});
+		}
 	}
 }
 
@@ -66,43 +114,3 @@ function toggleEditFields(frm, isEditable) {
         }
     }
 }
-
-
-
-
-// frappe.listview_settings['Participant'] = {	
-// 	onload: function(listview) {
-// 	listview.page.add_menu_item(__('Food Scanning'), function() {
-// 			var d = new frappe.ui.Dialog({
-// 				title: __("Food Scanning"),
-// 				fields: [
-// 					{
-// 						"fieldtype": "Data",
-// 						"label": __("Scan QR"),
-// 						"fieldname": "scan_qr",
-// 						"options":"Barcode"
-// 					}
-// 				],
-// 				// primary_action: function (res) {
-// 				// 	let values = d.get_values();
-// 				// 	frappe.call({
-// 				// 		method: "mehala.utils.py.quotation.rejection_updation",
-// 				// 		args: {
-// 				// 			docs: [{'name':cur_frm.doc.name}],
-// 				// 			values: values,
-// 				// 		},
-// 				// 		callback: function (r) {
-// 				// 			d.hide();
-// 				// 			frm.reload_doc();
-// 				// 		},
-// 				// 	})
-// 				// },
-// 				primary_action_label: __('Submit')
-// 			});
-		
-// 			d.show();
-// 		},
-// 	);
-// },
-
-// }
