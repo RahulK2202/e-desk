@@ -75,6 +75,11 @@ export default class LinksWidget extends Widget {
 					item.label ? item.label : item.name
 				}</span>`;
 			}
+			else if(["Attendance Scan"].includes(item.label)){
+				return `<span class="link-content ellipsis" style="color:#800080; font-size:18px"><img src="/assets/e_desk/Icon/attendance.png" width="35">${
+					item.label ? item.label : item.name
+				}</span>`;
+			}
 			else{
 				return `<span class="link-content ellipsis">${
 					item.label ? item.label : item.name

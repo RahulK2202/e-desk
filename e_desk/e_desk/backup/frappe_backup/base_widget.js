@@ -125,6 +125,15 @@ export default class Widget {
 			else if(title=="Program Agenda"){
 				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#0041C2; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/program.png" width="35">${title}</span>`;
 			}
+			else if(title=="Church"){
+				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#c88147; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/church.png" width="35">${title}</span>`;
+			}
+			else if(title=="Hotel"){
+				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#8C001A; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/hotel.png" width="35">${title}</span>`;
+			}
+			else if(title=="File List"){
+				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#0041C2; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/file.png" width="35">${title}</span>`;
+			}
 			else{
 				this.title_field[0].innerHTML = `<span class="ellipsis" title="${title}">${title}</span>`;
 			}
