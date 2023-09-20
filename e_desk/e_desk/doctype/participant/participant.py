@@ -102,8 +102,10 @@ def volunteer_creation(doc):
 @frappe.whitelist()
 
 def validate_food(doc):
+	food_scan = frappe.db.get_single_value("CCA Settings", "food_scan_hours")
+
 	scanned_time = ''
-	buffer_hours = timedelta(hours=2)
+	buffer_hours = timedelta(hours=food_scan)
 	current_time = now()
 
 	if doc:
@@ -131,8 +133,10 @@ def validate_food(doc):
 @frappe.whitelist()
 
 def validate_attendance(doc):
+	attendance_scan = frappe.db.get_single_value("CCA Settings", "attendance_scan_hours")
+	frappe.errprint(attendance_scan)
 	scanned_time = ''
-	buffer_hours = timedelta(hours=2)
+	buffer_hours = timedelta(hours=attendance_scan)
 	current_time = now()
 
 	if doc:
