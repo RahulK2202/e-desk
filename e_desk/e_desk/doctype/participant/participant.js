@@ -64,8 +64,8 @@ frappe.ui.form.on('Participant', {
 	},
 	get_directions_church:function(frm){
 	
-		if (frm.doc.latitude && frm.doc.longitude) {
-			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude_chruch},${frm.doc.longitude_chruch}`;
+		if (frm.doc.latitude_church && frm.doc.longitude_church) {
+			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude_church},${frm.doc.longitude_church}`;
 
 			window.open(mapURL, '_blank');
 		} else {

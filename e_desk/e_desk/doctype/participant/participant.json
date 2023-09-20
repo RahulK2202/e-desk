@@ -561,7 +561,7 @@
   {
    "fieldname": "accommodation_info_tab",
    "fieldtype": "Tab Break",
-   "label": "Accommodation Info"
+   "label": "Accommodation"
   },
   {
    "fieldname": "hotel",
@@ -572,7 +572,7 @@
   {
    "fieldname": "church_details_tab",
    "fieldtype": "Tab Break",
-   "label": "Church Details"
+   "label": "Church Visit"
   },
   {
    "fieldname": "church_list",
@@ -633,13 +633,13 @@
   {
    "fieldname": "personal_information_tab",
    "fieldtype": "Tab Break",
-   "label": "Personal information"
+   "label": "Profile"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-19 18:58:07.422956",
+ "modified": "2023-09-20 13:04:13.421348",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",

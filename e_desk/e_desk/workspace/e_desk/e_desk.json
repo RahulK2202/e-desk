@@ -51,7 +51,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-09-19 13:33:24.934143",
+ "modified": "2023-09-20 12:35:28.586277",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "E-desk",
@@ -86,7 +86,7 @@
   },
   {
    "color": "Grey",
-   "doc_view": "List",
+   "doc_view": "Calendar",
    "label": "Program Agenda",
    "link_to": "Program Agenda",
    "type": "DocType"
