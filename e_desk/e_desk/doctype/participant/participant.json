@@ -88,6 +88,7 @@
   "check_out_date",
   "accommodation_info_tab",
   "hotel",
+  "hotel_address_link",
   "latitude",
   "longitude",
   "get_directions",
@@ -634,12 +635,21 @@
    "fieldname": "personal_information_tab",
    "fieldtype": "Tab Break",
    "label": "Profile"
+  },
+  {
+   "fetch_from": "hotel.address",
+   "fieldname": "hotel_address_link",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Hotel Address",
+   "options": "Address",
+   "read_only": 1
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-20 13:04:13.421348",
+ "modified": "2023-09-20 13:23:21.419831",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
