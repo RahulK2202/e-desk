@@ -37,21 +37,21 @@ frappe.ui.form.on('Participant', {
 	},
 	
 
-	capacity: async function(frm){
-		await frappe.call({
-			method: "run_doc_method",
-			args: {
-				'docs': frm.doc,
-				'method': 'categoryfile_fetching'
-			},
-			callback: function (r) {
-				if (!r.exc) {
-					frm.refresh_fields();
-				}
-			}
-		});
+	// capacity: async function(frm){
+	// 	await frappe.call({
+	// 		method: "run_doc_method",
+	// 		args: {
+	// 			'docs': frm.doc,
+	// 			'method': 'categoryfile_fetching'
+	// 		},
+	// 		callback: function (r) {
+	// 			if (!r.exc) {
+	// 				frm.refresh_fields();
+	// 			}
+	// 		}
+	// 	});
 
-	},
+	// },
 	get_directions:function(frm){
 	
 		if (frm.doc.latitude && frm.doc.longitude) {

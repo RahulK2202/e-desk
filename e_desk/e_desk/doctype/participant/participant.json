@@ -23,6 +23,8 @@
   "date_of_birth",
   "profile_photo",
   "is_paid",
+  "invoice_no",
+  "reg_no",
   "section_break_sec1",
   "chruch_organization",
   "capacity",
@@ -217,8 +219,7 @@
    "fieldname": "layordained",
    "fieldtype": "Select",
    "label": "Lay/Ordained",
-   "options": "\nLay\nOrdained",
-   "reqd": 1
+   "options": "\nLay\nOrdained"
   },
   {
    "fieldname": "column_break_su1jb",
@@ -227,6 +228,7 @@
   {
    "fieldname": "category_files",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Category Files",
    "options": "Category Table"
   },
@@ -240,15 +242,13 @@
    "fieldname": "indigenous_person",
    "fieldtype": "Select",
    "label": "Indigenous Person",
-   "options": "\nYes\nNo",
-   "reqd": 1
+   "options": "\nYes\nNo"
   },
   {
    "fieldname": "dietary_specifications",
    "fieldtype": "Link",
    "label": "Dietary Specifications",
-   "options": "Dietary Specifications List",
-   "reqd": 1
+   "options": "Dietary Specifications List"
   },
   {
    "fieldname": "column_break_5fyxd",
@@ -258,8 +258,7 @@
    "fieldname": "person_with_disability",
    "fieldtype": "Select",
    "label": "Person with Disability",
-   "options": "\nYes\nNo",
-   "reqd": 1
+   "options": "\nYes\nNo"
   },
   {
    "fieldname": "allergies",
@@ -275,27 +274,23 @@
   {
    "fieldname": "residential_address",
    "fieldtype": "Data",
-   "label": "Residential Address",
-   "reqd": 1
+   "label": "Residential Address"
   },
   {
    "fieldname": "street_or_po",
    "fieldtype": "Data",
-   "label": "Street and number or P.O. Box",
-   "reqd": 1
+   "label": "Street and number or P.O. Box"
   },
   {
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City",
-   "reqd": 1
+   "label": "City"
   },
   {
    "fieldname": "country",
    "fieldtype": "Link",
    "label": "Country",
-   "options": "Country",
-   "reqd": 1
+   "options": "Country"
   },
   {
    "fieldname": "column_break_tdkfb",
@@ -309,14 +304,12 @@
   {
    "fieldname": "pincode_or_postal_address",
    "fieldtype": "Data",
-   "label": "Postal or PIN Code",
-   "reqd": 1
+   "label": "Postal or PIN Code"
   },
   {
    "fieldname": "state",
    "fieldtype": "Data",
-   "label": "State/Province",
-   "reqd": 1
+   "label": "State/Province"
   },
   {
    "collapsible": 1,
@@ -568,7 +561,8 @@
    "fieldname": "hotel",
    "fieldtype": "Link",
    "label": "Hotel",
-   "options": "Hotel"
+   "options": "Hotel",
+   "reqd": 1
   },
   {
    "fieldname": "church_details_tab",
@@ -579,7 +573,8 @@
    "fieldname": "church_list",
    "fieldtype": "Link",
    "label": "Church List",
-   "options": "Church"
+   "options": "Church",
+   "reqd": 1
   },
   {
    "fetch_from": "hotel.latitude",
@@ -644,12 +639,23 @@
    "label": "Hotel Address",
    "options": "Address",
    "read_only": 1
+  },
+  {
+   "fieldname": "invoice_no",
+   "fieldtype": "Data",
+   "label": "Invoice No"
+  },
+  {
+   "fieldname": "reg_no",
+   "fieldtype": "Data",
+   "label": "Reg No",
+   "mandatory_depends_on": "eval:doc.is_paid"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-20 13:23:21.419831",
+ "modified": "2023-09-20 15:35:27.685520",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
