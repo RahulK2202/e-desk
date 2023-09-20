@@ -8,6 +8,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "personal_information_tab",
   "participant_details_section",
   "naming_series",
   "first_name",
@@ -628,12 +629,17 @@
    "fieldtype": "Small Text",
    "label": "Church Address",
    "read_only": 1
+  },
+  {
+   "fieldname": "personal_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Personal information"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-19 17:41:27.659233",
+ "modified": "2023-09-19 18:58:07.422956",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
