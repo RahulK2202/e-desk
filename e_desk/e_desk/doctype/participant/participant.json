@@ -88,6 +88,7 @@
   "check_out_date",
   "accommodation_info_tab",
   "hotel",
+  "hotel_address_link",
   "latitude",
   "longitude",
   "get_directions",
@@ -561,7 +562,7 @@
   {
    "fieldname": "accommodation_info_tab",
    "fieldtype": "Tab Break",
-   "label": "Accommodation Info"
+   "label": "Accommodation"
   },
   {
    "fieldname": "hotel",
@@ -572,7 +573,7 @@
   {
    "fieldname": "church_details_tab",
    "fieldtype": "Tab Break",
-   "label": "Church Details"
+   "label": "Church Visit"
   },
   {
    "fieldname": "church_list",
@@ -633,13 +634,22 @@
   {
    "fieldname": "personal_information_tab",
    "fieldtype": "Tab Break",
-   "label": "Personal information"
+   "label": "Profile"
+  },
+  {
+   "fetch_from": "hotel.address",
+   "fieldname": "hotel_address_link",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Hotel Address",
+   "options": "Address",
+   "read_only": 1
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-19 18:58:07.422956",
+ "modified": "2023-09-20 13:23:21.419831",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",

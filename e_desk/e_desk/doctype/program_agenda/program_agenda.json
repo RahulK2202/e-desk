@@ -9,11 +9,9 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "column_break_8hywj",
-  "date",
-  "section_break_ccdf1",
-  "agenda_details",
-  "agenda_list"
+  "start",
+  "end",
+  "description"
  ],
  "fields": [
   {
@@ -25,36 +23,29 @@
    "unique": 1
   },
   {
-   "fieldname": "date",
-   "fieldtype": "Date",
+   "fieldname": "start",
+   "fieldtype": "Datetime",
    "in_list_view": 1,
-   "label": "Date",
+   "label": "Start Date",
    "reqd": 1
   },
   {
-   "fieldname": "column_break_8hywj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_ccdf1",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "agenda_details",
-   "fieldtype": "Table",
-   "label": "Agenda Details",
-   "options": "Agenda Details",
+   "fieldname": "end",
+   "fieldtype": "Datetime",
+   "label": "End Date",
    "reqd": 1
   },
   {
-   "fieldname": "agenda_list",
-   "fieldtype": "HTML",
-   "label": "Agenda List"
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2023-09-16 16:14:53.240530",
+ "modified": "2023-09-20 13:01:01.462488",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Program Agenda",
@@ -76,5 +67,9 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }
