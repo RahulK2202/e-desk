@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"moJWlIER1F\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">E-desk</span>\",\"col\":12}},{\"id\":\"ChdI8wG-D9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Participant\",\"col\":3}},{\"id\":\"_A-14y-UjS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"User\",\"col\":3}},{\"id\":\"xYFy8cVZu0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Volunteer\",\"col\":3}},{\"id\":\"0hZz0S2ouU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Registration Desk\",\"col\":3}},{\"id\":\"XvuiGhdkWj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Category Name\",\"col\":3}},{\"id\":\"E5egpBeE2r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dietary Specifications List\",\"col\":3}},{\"id\":\"5NQvwE1sbS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Agenda\",\"col\":3}},{\"id\":\"7_OaJFouQD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Church\",\"col\":3}},{\"id\":\"4Ld8m0fM_Y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hotel\",\"col\":3}},{\"id\":\"UJHP_STAkR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"File List\",\"col\":3}},{\"id\":\"1CBPaH91hv\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"voCRpejopm\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}}]",
+ "content": "[{\"id\":\"moJWlIER1F\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">E-desk</span>\",\"col\":12}},{\"id\":\"ChdI8wG-D9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Participant\",\"col\":3}},{\"id\":\"_A-14y-UjS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"User\",\"col\":3}},{\"id\":\"xYFy8cVZu0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stewards\",\"col\":3}},{\"id\":\"0hZz0S2ouU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Registration Desk\",\"col\":3}},{\"id\":\"XvuiGhdkWj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Category Name\",\"col\":3}},{\"id\":\"E5egpBeE2r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dietary Specifications List\",\"col\":3}},{\"id\":\"5NQvwE1sbS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Program Agenda\",\"col\":3}},{\"id\":\"7_OaJFouQD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Church\",\"col\":3}},{\"id\":\"4Ld8m0fM_Y\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hotel\",\"col\":3}},{\"id\":\"UJHP_STAkR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Resources\",\"col\":3}},{\"id\":\"A4ueePk2s6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CCA Settings\",\"col\":3}},{\"id\":\"1CBPaH91hv\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"voCRpejopm\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}}]",
  "creation": "2023-08-04 18:48:47.583950",
  "custom_blocks": [],
  "docstatus": 0,
@@ -51,7 +51,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-09-20 12:35:28.586277",
+ "modified": "2023-09-21 12:06:37.780570",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "E-desk",
@@ -66,8 +66,29 @@
   {
    "color": "Grey",
    "doc_view": "List",
+   "label": "CCA Settings",
+   "link_to": "CCA Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Stewards",
+   "link_to": "Volunteer",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
    "label": "User",
    "link_to": "User",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Resources",
+   "link_to": "File",
    "type": "DocType"
   },
   {
@@ -101,13 +122,6 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Volunteer",
-   "link_to": "Volunteer",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
    "label": "Hotel",
    "link_to": "Hotel",
    "type": "DocType"
@@ -124,13 +138,6 @@
    "doc_view": "List",
    "label": "Registration Desk",
    "link_to": "Registration Desk",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "File List",
-   "link_to": "File",
    "type": "DocType"
   }
  ],

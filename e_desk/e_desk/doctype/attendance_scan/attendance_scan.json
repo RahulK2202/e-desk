@@ -8,7 +8,9 @@
  "engine": "InnoDB",
  "field_order": [
   "scan_qr",
-  "submit"
+  "submit",
+  "section_break_leywe",
+  "attendance_scanned_list"
  ],
  "fields": [
   {
@@ -21,12 +23,22 @@
    "fieldname": "submit",
    "fieldtype": "Button",
    "label": "Submit"
+  },
+  {
+   "fieldname": "section_break_leywe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "attendance_scanned_list",
+   "fieldtype": "Table",
+   "label": "Attendance Scanned List",
+   "options": "Attendance Scanned List"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-09-16 12:27:09.540868",
+ "modified": "2023-09-21 12:13:33.730671",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Attendance Scan",

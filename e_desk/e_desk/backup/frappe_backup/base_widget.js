@@ -110,7 +110,7 @@ export default class Widget {
 			else if(title=="User"){
 				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#800080; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/user.png" width="35">${title}</span>`;
 			}
-			else if(title=="Volunteer"){
+			else if(title=="Stewards"){
 				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#8C001A; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/volunteer.png" width="35">${title}</span>`;
 			}
 			else if(title=="Registration Desk"){
@@ -131,8 +131,11 @@ export default class Widget {
 			else if(title=="Hotel"){
 				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#8C001A; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/hotel.png" width="35">${title}</span>`;
 			}
-			else if(title=="File List"){
-				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#0041C2; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/file.png" width="35">${title}</span>`;
+			else if(title=="Resources"){
+				this.title_field[0].innerHTML = `<span class="ellipsis"  style="color:#0041C2; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/file1.png" width="35">${title}</span>`;
+			}
+			else if(title=="CCA Settings"){
+				this.title_field[0].innerHTML = `<span class="ellipsis" style="color:#800080; font-size:18px" title="${title}"><img src="/assets/e_desk/Icon/settings.png" width="35">${title}</span>`;
 			}
 			else{
 				this.title_field[0].innerHTML = `<span class="ellipsis" title="${title}">${title}</span>`;

@@ -15,11 +15,14 @@ frappe.ui.form.on('Attendance Scan', {
 				},
 				callback:function(r){
 					if (r.message){
-						frappe.show_alert({message:"Attendance Created Sucessfully", indicator:'green'});
-
+						frappe.show_alert({message:"Attendance Scanned Sucessfully", indicator:'green'});
+						var item = cur_frm.add_child("attendance_scanned_list");
+						frappe.model.set_value(item.doctype, item.name, "participant", r.message);
+						frappe.model.set_value(item.doctype, item.name, "date_time", frappe.datetime.now_datetime());
+						cur_frm.refresh_field('attendance_scanned_list');
+						cur_frm.save();
 					}
-					
-				}
+					}
 
 			})
 		},
