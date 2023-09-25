@@ -1,0 +1,31 @@
+{
+ "cards": [
+  {
+   "card": "Participant Open Count"
+  },
+  {
+   "card": "Participant Registration Status"
+  },
+  {
+   "card": "Volunteer Count"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Category-wise Participant  Count",
+   "width": "Full"
+  }
+ ],
+ "creation": "2023-09-25 16:39:11.895306",
+ "dashboard_name": "CCA Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2023-09-25 16:54:05.819490",
+ "modified_by": "Administrator",
+ "module": "E Desk",
+ "name": "CCA Dashboard",
+ "owner": "Administrator"
+}
