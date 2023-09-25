@@ -54,22 +54,24 @@ frappe.ui.form.on('Participant', {
 	// },
 	get_directions:function(frm){
 	
-		if (frm.doc.latitude && frm.doc.longitude) {
-			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude},${frm.doc.longitude}`;
+		if (frm.doc.location_url) {
+			const mapURL = frm.doc.location_url;
+	
+			window.open(mapURL);
 
-			window.open(mapURL, '_blank');
 		} else {
-			frappe.msgprint(__('Latitude and Longitude are required to navigate to the map.'));
+			frappe.msgprint(__('Location URL is required to navigate to the map.'));
 		}
 	},
 	get_directions_church:function(frm){
 	
-		if (frm.doc.latitude_church && frm.doc.longitude_church) {
-			const mapURL = `https://www.google.com/maps/dir/?api=1&destination=${frm.doc.latitude_church},${frm.doc.longitude_church}`;
+		if (frm.doc.location_url_church) {
+			const mapURL = frm.doc.location_url_church;
+	
+			window.open(mapURL);
 
-			window.open(mapURL, '_blank');
 		} else {
-			frappe.msgprint(__('Latitude and Longitude are required to navigate to the map.'));
+			frappe.msgprint(__('Location URL is required to navigate to the map.'));
 		}
 	},
 	hotel: function (frm) {

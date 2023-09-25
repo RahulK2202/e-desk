@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "capacity",
+  "color",
   "capacity_file_url"
  ],
  "fields": [
@@ -23,13 +24,19 @@
   {
    "fieldname": "capacity_file_url",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Capacity File URL",
    "options": "Category Table"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-17 20:42:46.691143",
+ "modified": "2023-09-22 16:58:05.083565",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Category Name",

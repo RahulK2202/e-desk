@@ -11,6 +11,7 @@
   "personal_information_tab",
   "participant_details_section",
   "naming_series",
+  "title",
   "first_name",
   "last_name",
   "full_name",
@@ -90,16 +91,20 @@
   "check_out_date",
   "accommodation_info_tab",
   "hotel",
-  "hotel_address_link",
-  "latitude",
-  "longitude",
+  "column_break_p3oya",
   "get_directions",
+  "section_break_fb9u1",
+  "locaton_url",
+  "hotel_details",
   "hotel_address",
+  "hotel_address_link",
   "church_details_tab",
   "church_list",
-  "latitude_church",
-  "longitude_church",
+  "column_break_kuovp",
   "get_directions_church",
+  "section_break_wasbs",
+  "location_url_church",
+  "church_details",
   "church_address",
   "food_scanning_tab",
   "food_scan",
@@ -561,8 +566,7 @@
    "fieldname": "hotel",
    "fieldtype": "Link",
    "label": "Hotel",
-   "options": "Hotel",
-   "reqd": 1
+   "options": "Hotel"
   },
   {
    "fieldname": "church_details_tab",
@@ -572,37 +576,8 @@
   {
    "fieldname": "church_list",
    "fieldtype": "Link",
-   "label": "Church List",
-   "options": "Church",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "hotel.latitude",
-   "fieldname": "latitude",
-   "fieldtype": "Float",
-   "label": "Latitude",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "hotel.longitude",
-   "fieldname": "longitude",
-   "fieldtype": "Float",
-   "label": "Longitude",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "church_list.latitude",
-   "fieldname": "latitude_church",
-   "fieldtype": "Float",
-   "label": "Latitude",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "church_list.longitude",
-   "fieldname": "longitude_church",
-   "fieldtype": "Float",
-   "label": "Longitude",
-   "read_only": 1
+   "label": "Church to Visit",
+   "options": "Church"
   },
   {
    "fieldname": "get_directions",
@@ -650,12 +625,61 @@
    "fieldtype": "Data",
    "label": "Reg No",
    "mandatory_depends_on": "eval:doc.is_paid"
+  },
+  {
+   "fetch_from": "hotel.location_url",
+   "fieldname": "locaton_url",
+   "fieldtype": "Small Text",
+   "label": "Locaton URL",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "church_list.location_url",
+   "fieldname": "location_url_church",
+   "fieldtype": "Small Text",
+   "label": "Location URL Church",
+   "read_only": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fetch_from": "hotel.hotel_details",
+   "fieldname": "hotel_details",
+   "fieldtype": "Small Text",
+   "label": "Hotel Details",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "church_list.church_details",
+   "fieldname": "church_details",
+   "fieldtype": "Small Text",
+   "label": "Church Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_p3oya",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_fb9u1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_kuovp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_wasbs",
+   "fieldtype": "Section Break"
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-20 15:35:27.685520",
+ "modified": "2023-09-22 17:16:14.761935",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",

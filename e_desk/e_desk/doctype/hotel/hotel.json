@@ -9,12 +9,11 @@
  "engine": "InnoDB",
  "field_order": [
   "hotel",
-  "latitude",
   "address",
-  "longitude",
-  "get_directions",
   "section_break_zq4vh",
-  "location",
+  "location_url",
+  "hotel_details",
+  "get_directions",
   "amended_from"
  ],
  "fields": [
@@ -22,7 +21,8 @@
    "fieldname": "address",
    "fieldtype": "Link",
    "label": "Address",
-   "options": "Address"
+   "options": "Address",
+   "reqd": 1
   },
   {
    "fieldname": "hotel",
@@ -33,23 +33,8 @@
    "unique": 1
   },
   {
-   "fieldname": "latitude",
-   "fieldtype": "Float",
-   "label": "Latitude"
-  },
-  {
-   "fieldname": "longitude",
-   "fieldtype": "Float",
-   "label": "Longitude"
-  },
-  {
    "fieldname": "section_break_zq4vh",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "location",
-   "fieldtype": "Geolocation",
-   "label": "Location"
   },
   {
    "fieldname": "get_directions",
@@ -64,12 +49,21 @@
    "options": "Hotel",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "location_url",
+   "fieldtype": "Small Text",
+   "label": "Location URL"
+  },
+  {
+   "fieldname": "hotel_details",
+   "fieldtype": "Small Text",
+   "label": "Hotel Details"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2023-09-16 11:50:43.898463",
+ "modified": "2023-09-22 17:10:54.317695",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Hotel",

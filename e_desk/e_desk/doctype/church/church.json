@@ -9,13 +9,11 @@
  "engine": "InnoDB",
  "field_order": [
   "church",
-  "latitude",
-  "longitude",
   "address",
-  "get_directions",
   "section_break_kuwdx",
-  "location",
-  "d",
+  "church_details",
+  "location_url",
+  "get_directions",
   "amended_from"
  ],
  "fields": [
@@ -28,28 +26,12 @@
    "unique": 1
   },
   {
-   "fieldname": "latitude",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Latitude"
-  },
-  {
-   "fieldname": "longitude",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Longitude"
-  },
-  {
-   "fieldname": "location",
-   "fieldtype": "Geolocation",
-   "label": "Location "
-  },
-  {
    "fieldname": "address",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Address",
-   "options": "Address"
+   "options": "Address",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_kuwdx",
@@ -70,15 +52,19 @@
    "read_only": 1
   },
   {
-   "fieldname": "d",
-   "fieldtype": "Data",
-   "label": "d"
+   "fieldname": "location_url",
+   "fieldtype": "Small Text",
+   "label": "Location URL"
+  },
+  {
+   "fieldname": "church_details",
+   "fieldtype": "Small Text",
+   "label": "Church Details"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2023-09-16 12:36:35.040801",
+ "modified": "2023-09-22 17:17:08.026100",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Church",
