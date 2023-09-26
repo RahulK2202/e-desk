@@ -111,7 +111,9 @@ function toggleEditFields(frm, isEditable) {
     for (var i = 0; i < fieldnames.length; i++) {
         var fieldname = fieldnames[i];
         if (frm.fields_dict[fieldname].df.fieldtype !== 'Section Break' &&
-            frm.fields_dict[fieldname].df.fieldtype !== 'Column Break') {
+            frm.fields_dict[fieldname].df.fieldtype !== 'Column Break' &&
+			isEditable?!frm.fields_dict[fieldname].df.reqd:true )
+			 {
             frm.toggle_enable(fieldname, isEditable);
         }
     }

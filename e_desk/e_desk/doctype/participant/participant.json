@@ -182,7 +182,8 @@
    "in_standard_filter": 1,
    "label": "Status",
    "options": "Open\nRegistered",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "date_of_birth",
@@ -680,7 +681,7 @@
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-26 16:54:09.917870",
+ "modified": "2023-09-26 18:21:26.852428",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
