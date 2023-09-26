@@ -10,7 +10,7 @@ from datetime import datetime, time, timedelta
 from e_desk.e_desk.doctype.registration_desk.registration_desk import RegistrationDesk 
 class Participant(Document):
 	def validate(self):
-		self.full_name=self.first_name+' '+self.last_name
+		self.full_name=self.title+' '+self.first_name+' '+self.last_name
 
 	
 
