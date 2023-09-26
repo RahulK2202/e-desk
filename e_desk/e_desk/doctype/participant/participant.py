@@ -9,12 +9,6 @@ from frappe.utils import get_datetime, add_to_date , now ,getdate
 from datetime import datetime, time, timedelta
 from e_desk.e_desk.doctype.registration_desk.registration_desk import RegistrationDesk 
 class Participant(Document):
-	def validate(self):
-		self.full_name=self.title+' '+self.first_name+' '+self.last_name
-
-	
-
-
 	def after_insert(self):
 		if not frappe.db.exists('User',self.e_mail):
 			doc=frappe.new_doc('User')
