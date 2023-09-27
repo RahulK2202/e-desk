@@ -80,6 +80,26 @@ export default class LinksWidget extends Widget {
 					item.label ? item.label : item.name
 				}</span>`;
 			}
+			else if(["CCA Attendance"].includes(item.label)){
+				return `<span class="link-content ellipsis" style="color:#800080; font-size:18px"><img src="/assets/e_desk/Icon/att_report.png" width="35">${
+					item.label ? item.label : item.name
+				}</span>`;
+			}
+			else if(["CCA Voting"].includes(item.label)){
+				return `<span class="link-content ellipsis" style="color:#550A35; font-size:18px"><img src="/assets/e_desk/Icon/vote_report.png" width="35">${
+					item.label ? item.label : item.name
+				}</span>`;
+			}
+			else if(["CCA Food"].includes(item.label)){
+				return `<span class="link-content ellipsis" style="color:#C88141; font-size:18px"><img src="/assets/e_desk/Icon/food_report.png" width="35">${
+					item.label ? item.label : item.name
+				}</span>`;
+			}
+			else if(["Dashboard"].includes(item.label)){
+				return `<span class="link-content ellipsis" style="color:#C88141; font-size:18px"><img src="/assets/e_desk/Icon/dashboard_report.png" width="35">${
+					item.label ? item.label : item.name
+				}</span>`;
+			}
 			else{
 				return `<span class="link-content ellipsis">${
 					item.label ? item.label : item.name
