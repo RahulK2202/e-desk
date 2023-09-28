@@ -26,6 +26,7 @@
   "is_paid",
   "invoice_no",
   "reg_no",
+  "qr_preview",
   "section_break_sec1",
   "chruch_organization",
   "capacity",
@@ -94,7 +95,7 @@
   "column_break_p3oya",
   "get_directions",
   "section_break_fb9u1",
-  "locaton_url",
+  "location_url",
   "hotel_details",
   "hotel_address",
   "hotel_address_link",
@@ -628,13 +629,6 @@
    "mandatory_depends_on": "eval:doc.is_paid"
   },
   {
-   "fetch_from": "hotel.location_url",
-   "fieldname": "locaton_url",
-   "fieldtype": "Small Text",
-   "label": "Locaton URL",
-   "read_only": 1
-  },
-  {
    "fetch_from": "church_list.location_url",
    "fieldname": "location_url_church",
    "fieldtype": "Small Text",
@@ -676,12 +670,24 @@
   {
    "fieldname": "section_break_wasbs",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "qr_preview",
+   "fieldtype": "HTML",
+   "label": "QR"
+  },
+  {
+   "fetch_from": "hotel.location_url",
+   "fieldname": "location_url",
+   "fieldtype": "Small Text",
+   "label": "Location URL",
+   "read_only": 1
   }
  ],
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-26 18:21:26.852428",
+ "modified": "2023-09-28 16:01:27.965690",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",

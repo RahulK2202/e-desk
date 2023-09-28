@@ -27,6 +27,20 @@ frappe.ui.form.on('Participant', {
 				});
 			}, __("Create"));
 		}
+
+		let qrHTML = ''
+			if (frm.doc.qr) {
+				qrHTML += `
+				<div>
+					<img src='${frm.doc.qr}' alt='IMG' height="100" width="100">
+					<br>
+					<br>
+				</div>
+				`
+			}
+		
+
+		frm.get_field("qr_preview").$wrapper.html(qrHTML);
 	},
 	// validate:function(frm) {
 	// 	toggleEditFields(frm, false); 
@@ -107,14 +121,23 @@ frappe.ui.form.on('Participant', {
 );
 
 function toggleEditFields(frm, isEditable) {
+	var user= 'mathew@gmail.com'
     var fieldnames = Object.keys(frm.fields_dict);
     for (var i = 0; i < fieldnames.length; i++) {
         var fieldname = fieldnames[i];
-        if (frm.fields_dict[fieldname].df.fieldtype !== 'Section Break' &&
-            frm.fields_dict[fieldname].df.fieldtype !== 'Column Break' &&
-			isEditable?!frm.fields_dict[fieldname].df.reqd:true )
-			 {
-            frm.toggle_enable(fieldname, isEditable);
+		if(frappe.session.user != user){
+			if (frm.fields_dict[fieldname].df.fieldtype !== 'Section Break' &&
+				frm.fields_dict[fieldname].df.fieldtype !== 'Column Break' &&
+				isEditable?!frm.fields_dict[fieldname].df.reqd:true )
+				{
+				frm.toggle_enable(fieldname, isEditable);
+        }}
+		else{
+			if (frm.fields_dict[fieldname].df.fieldtype !== 'Section Break' &&
+				frm.fields_dict[fieldname].df.fieldtype !== 'Column Break')
+				{
+				frm.toggle_enable(fieldname, isEditable);
         }
+		}
     }
 }

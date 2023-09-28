@@ -74,7 +74,7 @@ def volunteer_creation(doc):
 	v_doc.update({
 		"e_mail":doc.get('e_mail'),
 		"mobile_number":doc.get('mobile_number'),
-		"name1":doc.get('first_name')+doc.get('last_name'),
+		"name1":doc.get('full_name'),
 		"participant":doc.get('name'),
 		"module_profile":"E-desk profile",
 	}),
