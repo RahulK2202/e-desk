@@ -115,10 +115,26 @@ def validate_food(doc):
 			if scanned_time:
 				time_difference = get_datetime(current_time) - get_datetime(scanned_time)
 				if time_difference < buffer_hours:
-					frappe.throw(f"Already Scanned at {scanned_time}")
+					frappe.throw(f"Food Already Scanned at {scanned_time}")
 				else:
 					
 					doc_par.save()
+					doc_par.append("attendance_list", {
+						"datetime":current_time
+					})
+
+					if len(doc_par.attendance_list) >= 2:
+						length = len(doc_par.attendance_list)
+
+						scanned_time = doc_par.attendance_list[length - 2].datetime
+						if scanned_time:
+							time_difference = get_datetime(current_time) - get_datetime(scanned_time)
+							if time_difference < buffer_hours: 
+								pass
+							else:
+								doc_par.save()
+					else:
+						doc_par.save()
 		else:
 			doc_par.save()
 		
@@ -146,9 +162,8 @@ def validate_attendance(doc):
 			if scanned_time:
 				time_difference = get_datetime(current_time) - get_datetime(scanned_time)
 				if time_difference < buffer_hours:
-					frappe.throw(f"Already Scanned at {scanned_time}")
+					frappe.throw(f"Attendance Already Scanned at {scanned_time}")
 				else:
-					
 					doc_par.save()
 		else:
 			doc_par.save()
