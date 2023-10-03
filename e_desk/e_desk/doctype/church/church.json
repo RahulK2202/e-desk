@@ -30,8 +30,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Address",
-   "options": "Address",
-   "reqd": 1
+   "options": "Address"
   },
   {
    "fieldname": "section_break_kuwdx",
@@ -64,7 +63,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-22 17:17:08.026100",
+ "modified": "2023-09-30 10:44:16.170575",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Church",

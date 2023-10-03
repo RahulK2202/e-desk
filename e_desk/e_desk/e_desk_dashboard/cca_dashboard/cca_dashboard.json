@@ -12,7 +12,7 @@
  ],
  "charts": [
   {
-   "chart": "Category-wise Participant  Count",
+   "chart": "Category-wise Participant Count - E Desk",
    "width": "Full"
   }
  ],
@@ -23,7 +23,7 @@
  "idx": 0,
  "is_default": 1,
  "is_standard": 1,
- "modified": "2023-09-25 16:54:05.819490",
+ "modified": "2023-09-30 15:30:12.073658",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "CCA Dashboard",
