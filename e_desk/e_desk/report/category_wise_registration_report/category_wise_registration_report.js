@@ -10,6 +10,11 @@ frappe.query_reports["Category-wise Registration Report"] = {
 			"fieldtype": "Link",
 			'options':"Category Name"
 		},
+		{
+			"fieldname": "reg_no",
+			"label": ("Reg No"),
+			"fieldtype": "Data",
+		},
 	],
 	"initial_depth":0,
 	"formatter":function(value, row, column, data, default_formatter) {

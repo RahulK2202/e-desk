@@ -34,6 +34,12 @@ def execute(filters=None):
 			'label': 'Attendance List',
 			'width': 300
 		},
+		{
+			'fieldname': 'reg_no',
+			'fieldtype': 'Data',
+			'label': 'Reg No',
+			'width': 250
+		},
 
 	]
 
@@ -48,7 +54,10 @@ def execute(filters=None):
 		attendance_dict = {}
 		for i in category:
 			if frappe.db.exists('Participant', {'capacity': ['in', i.name]}):
-				participant_list = frappe.get_all('Participant', {'capacity': ['in', i.name]})
+				if filters.get("reg_no"):
+					participant_list = frappe.get_all('Participant', {'capacity': ['in', i.name],'reg_no':['like',f'''%{filters.get("reg_no")}%''']})
+				else:
+					participant_list = frappe.get_all('Participant', {'capacity': ['in', i.name]})
 				for h in participant_list:
 					participant = frappe.get_doc('Participant', h.name)
 					if participant.attendance_list:
@@ -74,6 +83,7 @@ def execute(filters=None):
 					'participant': participant.name,
 					'participant_name': participant.full_name,
 					'attendance_list': attendance.datetime,
+					'reg_no':participant.reg_no,
 					'indent': 1
 				}
 				data.append(sub_data)
@@ -85,7 +95,11 @@ def execute(filters=None):
 		i=filters.get("category")
 		attendance_dict = {}
 		if frappe.db.exists('Participant', {'capacity': ['in', filters.get("category")]}):
-			participant_list = frappe.get_all('Participant', {'capacity': ['in', filters.get("category")]})
+			if filters.get("reg_no"):
+				participant_list = frappe.get_all('Participant', {'capacity': ['in', filters.get("category")],'reg_no':['like',f'''%{filters.get("reg_no")}%''']})
+			else:
+				participant_list = frappe.get_all('Participant', {'capacity': ['in', filters.get("category")]})
+
 			for h in participant_list:
 				participant = frappe.get_doc('Participant', h.name)
 				if participant.attendance_list:
@@ -111,6 +125,7 @@ def execute(filters=None):
 					'participant': participant.name,
 					'participant_name': participant.full_name,
 					'attendance_list': attendance.datetime,
+					'reg_no':participant.reg_no,
 					'indent': 1
 				}
 				data.append(sub_data)
