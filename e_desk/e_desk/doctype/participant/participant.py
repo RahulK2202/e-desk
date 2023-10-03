@@ -224,3 +224,25 @@ def full_address_church(address):
 		search_text = search_text + ",<br>" + add.pincode
 	
 	return search_text
+
+def atten_food_script():
+	participant_lsit=frappe.get_all("Participant")
+	for i in participant_lsit:
+		participant=frappe.get_doc("Participant",i.name)
+		if participant.food_scan:
+			for j in participant.food_scan:
+				food_scan_date=j.get("datetime").date()
+				match=False
+				for k in participant.attendance_list:
+					att_scan_date=k.get("datetime").date()
+					if  food_scan_date==att_scan_date:
+						match=True
+						break
+
+				if match==False:
+					participant.append("attendance_list", {
+						"datetime":j.datetime
+					})
+					participant.save()
+					frappe.db.commit()
+									

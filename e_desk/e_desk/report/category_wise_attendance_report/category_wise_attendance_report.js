@@ -8,11 +8,20 @@ frappe.query_reports["Category-wise Attendance Report"] = {
 			"fieldname": "from_date",
 			"label": __("From Date"),
 			"fieldtype": "Date",
+			"reqd":1
 		},
 		{
 			"fieldname": "to_date",
 			"label": __("To Date"),
 			"fieldtype": "Date",
+			"reqd":1
+
+		},
+		{
+			"fieldname": "category",
+			"label": ("Category Name"),
+			"fieldtype": "Link",
+			'options':"Category Name"
 		},
 	],
 	"initial_depth":0,
