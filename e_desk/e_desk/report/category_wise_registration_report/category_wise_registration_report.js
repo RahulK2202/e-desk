@@ -2,24 +2,11 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["Category-wise Attendance Report"] = {
+frappe.query_reports["Category-wise Registration Report"] = {
 	"filters": [
 		{
-			"fieldname": "from_date",
-			"label": __("From Date"),
-			"fieldtype": "Date",
-			"reqd":1
-		},
-		{
-			"fieldname": "to_date",
-			"label": __("To Date"),
-			"fieldtype": "Date",
-			"reqd":1
-
-		},
-		{
 			"fieldname": "category",
-			"label": ("Category Name"),
+			"label": __("Category Name"),
 			"fieldtype": "Link",
 			'options':"Category Name"
 		},
