@@ -70,7 +70,7 @@ class RegistrationDesk(Document):
     
 
 @frappe.whitelist()
-def event_participant_filte(doctype, txt, searchfield, start, page_len, filters):
+def event_participant_filter(doctype, txt, searchfield, start, page_len, filters):
     conference = filters.get('conference')
 
     # filtering  participant which are not registered in this perticular event
