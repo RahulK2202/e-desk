@@ -10,7 +10,8 @@
   "scan_qr",
   "submit",
   "section_break_leywe",
-  "attendance_scanned_list"
+  "attendance_scanned_list",
+  "confer"
  ],
  "fields": [
   {
@@ -33,12 +34,18 @@
    "fieldtype": "Table",
    "label": "Attendance Scanned List",
    "options": "Attendance Scanned List"
+  },
+  {
+   "fieldname": "confer",
+   "fieldtype": "Link",
+   "label": "Confer",
+   "options": "Confer"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-09-21 12:13:33.730671",
+ "modified": "2024-08-07 15:11:31.949551",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Attendance Scan",

@@ -29,14 +29,14 @@ class Participant(Document):
 			doc.save()
 				  
 		#attachment inside the participant -> category files
-		category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
-		self.update({
-			"category_files":category_files,
-		})
-		if self.is_paid:
-			qr=RegistrationDesk.create_qr_participant(self)
-			self.status = "Registered"
-			self.save()
+		# category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
+		# self.update({
+		# 	"category_files":category_files,
+		# })
+		# if self.is_paid:
+		# 	qr=RegistrationDesk.create_qr_participant(self)
+		# 	self.status = "Registered"
+		# 	self.save()
 		
 		# permission=frappe.new_doc("User Permission")
 		# permission.user=self.e_mail

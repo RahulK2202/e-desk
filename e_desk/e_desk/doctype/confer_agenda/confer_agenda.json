@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:program_agenda",
+ "creation": "2024-08-07 15:03:44.508357",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "program_agenda",
+  "start_date",
+  "end_date",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "program_agenda",
+   "fieldtype": "Link",
+   "label": "Program Agenda",
+   "options": "Program Agenda",
+   "unique": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Datetime",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Datetime",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-07 15:10:31.452516",
+ "modified_by": "Administrator",
+ "module": "E Desk",
+ "name": "Confer Agenda",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
