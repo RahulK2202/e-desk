@@ -11,6 +11,7 @@
  "field_order": [
   "registration_process_section",
   "naming_series",
+  "confer",
   "participant",
   "kit_provided_",
   "section_break_sec1",
@@ -22,8 +23,7 @@
   "registration_fee_collected_section",
   "mode_of_payment",
   "qr",
-  "amended_from",
-  "confer"
+  "amended_from"
  ],
  "fields": [
   {
@@ -116,13 +116,14 @@
    "fieldname": "confer",
    "fieldtype": "Link",
    "label": "Confer",
-   "options": "Confer"
+   "options": "Confer",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-07 15:41:51.055594",
+ "modified": "2024-08-12 16:24:54.350990",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Registration Desk",

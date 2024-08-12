@@ -69,3 +69,27 @@ class RegistrationDesk(Document):
 
     
 
+@frappe.whitelist()
+def event_participant_filte(doctype, txt, searchfield, start, page_len, filters):
+    conference = filters.get('conference')
+
+    # filtering  participant which are not registered in this perticular event
+    participants = frappe.db.sql("""
+        SELECT p.name
+        FROM `tabParticipant` p
+        WHERE p.name NOT IN (
+            SELECT ep.participant
+            FROM `tabEvent Participant` ep
+            WHERE ep.parent = %(conference)s
+        )
+        AND p.name LIKE %(txt)s
+        LIMIT %(start)s, %(page_len)s
+    """, {
+        'conference': conference,
+        'txt': "%" + txt + "%",
+        'start': start,
+        'page_len': page_len
+    })
+
+
+    return participants

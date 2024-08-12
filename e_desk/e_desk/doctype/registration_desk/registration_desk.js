@@ -2,15 +2,20 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Registration Desk', {
+
+	setup: function(frm) {
+        // Set query for the participant link field inside the Participant child table
+        frm.set_query('participant_id', 'participant', function(doc, cdt, cdn) {
+            return {
+                query: 'e_desk.e_desk.doctype.registration_desk.registration_desk.event_participant_filter',
+                filters: {
+                    conference: frm.doc.confer
+                }	
+            };
+        });
+    },
 	refresh:function(frm){
-		frm.set_query('participant_id', 'participant', function() {
-			return {
-				filters: {
-					'status': ['!=', 'Registered']
-				}
-			}
-			
-		})
+		
 		let imgList = [];
 		(frm.doc.participant || []).forEach(row => {
 			imgList.push({'img': row.profile_img})
@@ -54,25 +59,43 @@ frappe.ui.form.on('Registration Desk', {
 
 		frm.get_field("qr_preview").$wrapper.html(qrHTML);
 		
-		// if(frm.doc.part_profile){
-		// 	let $profileimg = `
-		// 		<img
-		// 		class="sign"
-		// 		src=${frm.doc.part_profile} 
-		// 		/>
-		// 		`
-		// 		frm.get_field("profile_preview").$wrapper.html($profileimg);
-		// }
-		// if(frm.doc.part_profile){
-		// 	let $profileimg = `
-		// 		<img
-		// 		class="sign"https://media.istockphoto.com/id/1313644269/vector/gold-and-silver-circle-star-logo-template.jpg?s=612x612&w=0&k=20&c=hDqCI9qTkNqNcKa6XS7aBim7xKz8cZbnm80Z_xiU2DI=
-		// 		src=${frm.doc.part_profile} 
-		// 		/>
-		// 		`
-		// 		frm.get_field("profile_preview").$wrapper.html($profileimg);
-		// }
+
 	},
+
+
+
+
+// ONSUBMIT FUNCTION FOR THE REGISTRATION
+
+// before_save: function(frm) {
+
+
+
+	
+// 	console.log("why submitted",frm.doc.participant[0].participant_id)
+// 	// const participantId = frm.participant_id;
+
+	
+// 	const participantId = frm.doc.participant[0].participant_id
+	
+// 	const eventId = frm.doc.confer;
+
+// 	// Call your custom function to add participant to the child table
+// 	addParticipantToEvent(participantId, eventId);
+// },
+
+
+
+
+
+
+
+
+
+
+
+
+
 	participant_profile:function(frm){
 		if(frm.doc.part_profile){
 			let $profileimg = `
@@ -85,3 +108,28 @@ frappe.ui.form.on('Registration Desk', {
 		}
 	},
 });
+
+
+
+
+
+
+
+// Custom function to add participant to the child table
+// function addParticipantToEvent(participantId, eventId) {
+// 	// Check if the participant is already registered for this event
+// 	frappe.call({
+// 		method: "e_desk.e_desk.doctype.registration_desk.registration_desk.add_participant_to_event", // Adjust the method path
+// 		args: {
+// 			participant_id: participantId,
+// 			event_id: eventId
+// 		},
+// 		callback: function(response) {
+// 			if (response.message === "success") {
+// 				frappe.msgprint("Participant added successfully.");
+// 			} else {
+// 				frappe.msgprint("Participant is already registered for this event.");
+// 			}
+// 		}
+// 	});
+// 	}
