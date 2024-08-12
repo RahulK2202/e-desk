@@ -6,12 +6,23 @@ frappe.ui.form.on('Registration Desk', {
 	setup: function(frm) {
         // Set query for the participant link field inside the Participant child table
         frm.set_query('participant_id', 'participant', function(doc, cdt, cdn) {
+			if (frm.doc.confer){
             return {
-                query: 'e_desk.e_desk.doctype.registration_desk.registration_desk.event_participant_filter',
-                filters: {
-                    conference: frm.doc.confer
-                }	
-            };
+
+					query: 'e_desk.e_desk.doctype.registration_desk.registration_desk.event_participant_filter',
+					filters: {
+						conference: frm.doc.confer
+					}	
+				};
+			}
+			else{
+				frappe.msgprint({
+                    title: __('Error'),
+                    indicator: 'red',
+                    message: __('Select the confer for fetching participant')
+                });
+				
+			}
         });
     },
 	refresh:function(frm){
