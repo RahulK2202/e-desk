@@ -8,7 +8,7 @@ from frappe.model.document import Document
 from pyqrcode import create as qr_create
 import os
 from frappe.model.naming import parse_naming_series
-
+from e_desk.e_desk.utils.role import update_user_role
 
 class RegistrationDesk(Document):
     @classmethod
@@ -86,13 +86,13 @@ class RegistrationDesk(Document):
         print(user, "user.......................................................")
 
  
-        if doc.is_volunteer:
-            update_user_role(user, "Volunteer")
-            print(new_row,"this is new_row to be done,,,,,,,,,,,,,,,")
-            new_row.event_role = "Volunteer"
-        else:
-            if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
-                update_user_role(user, "Participant")
+        # if doc.is_volunteer:
+        #     update_user_role(user, "Volunteer")
+        #     print(new_row,"this is new_row to be done,,,,,,,,,,,,,,,")
+        #     new_row.event_role = "Volunteer"
+        # else:
+        if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
+            update_user_role(user, "Participant")
 
         new_row.save()
         conference.append('event_participant', new_row)
@@ -101,13 +101,7 @@ class RegistrationDesk(Document):
 
         frappe.msgprint('Conference updated successfully.')
 
-def update_user_role(user, role_name):
-    user.update({
-        "role_profile_name": role_name,
-        "user_type": "System User"
-    })
-    user.save()
-    frappe.db.commit()
+
 
 
 
