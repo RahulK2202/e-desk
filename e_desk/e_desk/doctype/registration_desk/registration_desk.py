@@ -88,12 +88,13 @@ class RegistrationDesk(Document):
  
         if doc.is_volunteer:
             update_user_role(user, "Volunteer")
+            print(new_row,"this is new_row to be done,,,,,,,,,,,,,,,")
             new_row.event_role = "Volunteer"
         else:
             if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
                 update_user_role(user, "Participant")
 
-   
+        new_row.save()
         conference.append('event_participant', new_row)
    
         conference.save()
