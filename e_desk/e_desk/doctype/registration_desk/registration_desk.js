@@ -76,32 +76,6 @@ frappe.ui.form.on('Registration Desk', {
 
 
 
-// ONSUBMIT FUNCTION FOR THE REGISTRATION
-
-// before_save: function(frm) {
-
-
-
-	
-// 	console.log("why submitted",frm.doc.participant[0].participant_id)
-// 	// const participantId = frm.participant_id;
-
-	
-// 	const participantId = frm.doc.participant[0].participant_id
-	
-// 	const eventId = frm.doc.confer;
-
-// 	// Call your custom function to add participant to the child table
-// 	addParticipantToEvent(participantId, eventId);
-// },
-
-
-
-
-
-
-
-
 
 
 
@@ -124,23 +98,3 @@ frappe.ui.form.on('Registration Desk', {
 
 
 
-
-
-// Custom function to add participant to the child table
-// function addParticipantToEvent(participantId, eventId) {
-// 	// Check if the participant is already registered for this event
-// 	frappe.call({
-// 		method: "e_desk.e_desk.doctype.registration_desk.registration_desk.add_participant_to_event", // Adjust the method path
-// 		args: {
-// 			participant_id: participantId,
-// 			event_id: eventId
-// 		},
-// 		callback: function(response) {
-// 			if (response.message === "success") {
-// 				frappe.msgprint("Participant added successfully.");
-// 			} else {
-// 				frappe.msgprint("Participant is already registered for this event.");
-// 			}
-// 		}
-// 	});
-// 	}

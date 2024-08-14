@@ -7,3 +7,4 @@ def get_file_permission(user: str = None) -> str:
     if user == "Administrator" or len(has_role):
         return ""
     return """ `tabFile`.folder like "%GA Drive%" or `tabFile`.file_name = "GA Drive" """
+

@@ -33,6 +33,8 @@ class Participant(Document):
 		# self.update({
 		# 	"category_files":category_files,
 		# })
+
+		
 		# if self.is_paid:
 		# 	qr=RegistrationDesk.create_qr_participant(self)
 		# 	self.status = "Registered"
@@ -46,6 +48,9 @@ class Participant(Document):
 		# frappe.db.commit()
 	#getting the category file table
 
+
+
+
 	@frappe.whitelist()
 	def categoryfile_fetching(doc, a=None):
 		category_files=frappe.get_all('Category Table', filters={'parent': 'CCA Settings'}, fields=['attach'])
@@ -55,6 +60,9 @@ class Participant(Document):
 		})
 		# doc.save()
 		return category_files
+
+
+
 
 	def on_trash(self):
 		user_list=frappe.get_list("User",filters={"participant_id":self.name},pluck='name')

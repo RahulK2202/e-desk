@@ -23,7 +23,8 @@
   "registration_fee_collected_section",
   "mode_of_payment",
   "qr",
-  "amended_from"
+  "amended_from",
+  "is_volunteer"
  ],
  "fields": [
   {
@@ -118,12 +119,18 @@
    "label": "Confer",
    "options": "Confer",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_volunteer",
+   "fieldtype": "Check",
+   "label": "Is Volunteer"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-12 16:24:54.350990",
+ "modified": "2024-08-14 11:20:02.236440",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Registration Desk",

@@ -67,6 +67,63 @@ class RegistrationDesk(Document):
 
 
 
+
+    def on_submit(doc):
+
+        conference = frappe.get_doc('Confer', doc.confer)
+
+   
+        new_row = frappe.get_doc({
+            'doctype': 'Event Participant',
+            'parenttype': 'Confer',
+            'parentfield': 'event_participant',
+            'parent': conference.name,
+            'participant': doc.participant[0].participant_id
+        })
+
+ 
+        user = frappe.get_doc('User', {'participant_id': doc.participant[0].participant_id})
+        print(user, "user.......................................................")
+
+ 
+        if doc.is_volunteer:
+            update_user_role(user, "Volunteer")
+            new_row.event_role = "Volunteer"
+        else:
+            if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
+                update_user_role(user, "Participant")
+
+   
+        conference.append('event_participant', new_row)
+   
+        conference.save()
+
+        frappe.msgprint('Conference updated successfully.')
+
+def update_user_role(user, role_name):
+    user.update({
+        "role_profile_name": role_name,
+        "user_type": "System User"
+    })
+    user.save()
+    frappe.db.commit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
 @frappe.whitelist()
