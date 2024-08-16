@@ -8,7 +8,7 @@ from frappe.model.document import Document
 from pyqrcode import create as qr_create
 import os
 from frappe.model.naming import parse_naming_series
-from e_desk.e_desk.utils.role import update_user_role
+from e_desk.e_desk.utils.role import update_event_participant_role
 
 class RegistrationDesk(Document):
     @classmethod
@@ -69,57 +69,22 @@ class RegistrationDesk(Document):
 
 
     def on_submit(doc):
-
-        conference = frappe.get_doc('Confer', doc.confer)
-
-   
+        participant= doc.participant[0].participant_id
         new_row = frappe.get_doc({
             'doctype': 'Event Participant',
             'parenttype': 'Confer',
             'parentfield': 'event_participant',
-            'parent': conference.name,
-            'participant': doc.participant[0].participant_id
+            'parent': doc.confer,
+            'participant': participant,
+            'event_role' : "Participant"
         })
 
  
-        user = frappe.get_doc('User', {'participant_id': doc.participant[0].participant_id})
-        print(user, "user.......................................................")
-
- 
-        # if doc.is_volunteer:
-        #     update_user_role(user, "Volunteer")
-        #     print(new_row,"this is new_row to be done,,,,,,,,,,,,,,,")
-        #     new_row.event_role = "Volunteer"
-        # else:
-        if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
-            update_user_role(user, "Participant")
-
         new_row.save()
-        conference.append('event_participant', new_row)
-   
-        conference.save()
-
+        # if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
+        update_event_participant_role(participant,doc.confer, "Participant")
+            
         frappe.msgprint('Conference updated successfully.')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
 @frappe.whitelist()
 def event_participant_filter(doctype, txt, searchfield, start, page_len, filters):

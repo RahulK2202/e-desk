@@ -12,21 +12,47 @@ frappe.ui.form.on('Participant', {
 				toggleEditFields(frm, true); 
 			  });}
 		
-		if (hasPermission) {
-			frm.add_custom_button(__('Volunteer'), function() {
-	
-				var Participant_details = frm.doc;
-	
-				console.log(Participant_details);
-				return frappe.call({
-					method: "e_desk.e_desk.doctype.participant.participant.volunteer_creation",
-					args: { doc: Participant_details },
-					callback: function() {
-						frappe.msgprint("Volunteer Created Successfully");
-					}
-				});
-			}, __("Create"));
-		}
+			if (hasPermission) {
+				frm.add_custom_button(__('Volunteer'), function() {
+					
+					let d = new frappe.ui.Dialog({
+						title: 'Enter details',
+						fields: [
+							{
+								label: 'Confer List',
+								fieldname: 'confer',
+								fieldtype: 'Link',
+								options: 'Confer',
+								reqd: 1 ,
+								get_query: function() {
+									return {
+										query: "e_desk.e_desk.utils.role.get_filtered_confer",
+										filters: {
+											participant: frm.doc.name  // Pass the participant name
+										}
+									};
+								}
+							}
+						],
+						primary_action_label: 'Submit',
+						primary_action(values) {    
+								frappe.call({
+									method: "e_desk.e_desk.utils.role.update_event_participant_role",
+									args: {
+										participant: frm.doc.name,
+										confer: values.confer,
+										role_name:'Volunteer'
+									},
+									callback: function() {
+										frappe.msgprint("Volunteer Created Successfully");
+										d.hide(); 
+									}
+								});
+						}
+					});
+					d.show();
+				}, __("Create"));
+			}
 
 		let qrHTML = ''
 			if (frm.doc.qr) {
@@ -42,30 +68,11 @@ frappe.ui.form.on('Participant', {
 
 		frm.get_field("qr_preview").$wrapper.html(qrHTML);
 	},
-	// validate:function(frm) {
-	// 	toggleEditFields(frm, false); 
 
-	// },
 	onload:function(frm){
 		
 	},
 	
-
-	// capacity: async function(frm){
-	// 	await frappe.call({
-	// 		method: "run_doc_method",
-	// 		args: {
-	// 			'docs': frm.doc,
-	// 			'method': 'categoryfile_fetching'
-	// 		},
-	// 		callback: function (r) {
-	// 			if (!r.exc) {
-	// 				frm.refresh_fields();
-	// 			}
-	// 		}
-	// 	});
-
-	// },
 	get_directions:function(frm){
 	
 		if (frm.doc.location_url) {

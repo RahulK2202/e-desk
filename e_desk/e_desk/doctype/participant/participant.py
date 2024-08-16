@@ -78,15 +78,15 @@ class Participant(Document):
 @frappe.whitelist()
 def volunteer_creation(doc):
 	doc=json.loads(doc)
-	v_doc=frappe.new_doc('Volunteer')
-	v_doc.update({
-		"e_mail":doc.get('e_mail'),
-		"mobile_number":doc.get('mobile_number'),
-		"name1":doc.get('full_name'),
-		"participant":doc.get('name'),
-		"module_profile":"E-desk profile",
-	}),
-	v_doc.save()
+	# v_doc=frappe.new_doc('Volunteer')
+	# v_doc.update({
+	# 	"e_mail":doc.get('e_mail'),
+	# 	"mobile_number":doc.get('mobile_number'),
+	# 	"name1":doc.get('full_name'),
+	# 	"participant":doc.get('name'),
+	# 	"module_profile":"E-desk profile",
+	# }),
+	# v_doc.save()
 
 	# converting the user to volunteer profile
 	user=frappe.get_doc("User",doc.get('e_mail'))
