@@ -8,15 +8,7 @@ from frappe.model.document import Document
 from pyqrcode import create as qr_create
 import os
 from frappe.model.naming import parse_naming_series
-<<<<<<< HEAD
-<<<<<<< HEAD
-from e_desk.e_desk.utils.role import update_user_role
-=======
-from e_desk.e_desk.utils.role import update_event_particpant_role
->>>>>>> 4d8fe7b (updated event participant role and fixed volunteer creation function issues)
-=======
 from e_desk.e_desk.utils.role import update_event_participant_role
->>>>>>> db0695a (added role change)
 
 class RegistrationDesk(Document):
     @classmethod
@@ -73,25 +65,19 @@ class RegistrationDesk(Document):
             first_item_name=first_item.participant_name
             self.name = parse_naming_series(f"{first_item_name}-.#")
 
+
+
+
     def on_submit(doc):
-<<<<<<< HEAD
-        
-=======
         participant= doc.participant[0].participant_id
->>>>>>> db0695a (added role change)
         new_row = frappe.get_doc({
             'doctype': 'Event Participant',
             'parenttype': 'Confer',
             'parentfield': 'event_participant',
             'parent': doc.confer,
-<<<<<<< HEAD
-            'participant': doc.participant[0].participant_id
-=======
             'participant': participant,
             'event_role' : "Participant"
->>>>>>> db0695a (added role change)
         })
-<<<<<<< HEAD
 
  
         new_row.save()
@@ -100,35 +86,6 @@ class RegistrationDesk(Document):
             
         frappe.msgprint('Conference updated successfully.')
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> 4d8fe7b (updated event participant role and fixed volunteer creation function issues)
-    
-        new_row.save()
-        update_event_particpant_role(doc.participant[0].participant_id ,doc.confer,"Participant")
-        frappe.msgprint(' Registered successfully.')
-
-
-=======
->>>>>>> db0695a (added role change)
 @frappe.whitelist()
 def event_participant_filter(doctype, txt, searchfield, start, page_len, filters):
     conference = filters.get('conference')

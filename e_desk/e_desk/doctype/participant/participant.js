@@ -11,53 +11,6 @@ frappe.ui.form.on('Participant', {
 			frm.add_custom_button(__('Editable'), function() {
 				toggleEditFields(frm, true); 
 			  });}
-<<<<<<< HEAD
-
-
-if (hasPermission) {
-    frm.add_custom_button(__('Volunteer'), function() {
-        console.log(frm.doc.name );
-		const val=frm.doc.name
-        let d = new frappe.ui.Dialog({
-            title: 'Enter details',
-            fields: [
-                {
-                    label: 'Confer List',
-                    fieldname: 'confer',
-                    fieldtype: 'Link',
-                    options: 'Confer',
-                    reqd: 1,
-                    get_query: function() {
-                        return {
-                            query: "e_desk.e_desk.utils.role.get_filtered_confer",
-                            filters: {
-                                participant: frm.doc.name
-                            }
-                        };
-                    }
-                }
-            ],
-            primary_action_label: 'Submit',
-            primary_action(values) {
-                            frappe.call({
-                                method: "e_desk.e_desk.utils.role.update_event_particpant_role",
-                                args: {
-                                    doc:  frm.doc.name,
-                                    confer_id: values.confer,
-									role_name:"Volunteer"
-                                },
-                                callback: function() {
-                                    frappe.msgprint("Volunteer Created Successfully");
-                                    d.hide();
-                                }
-                            });
-            }
-        });
-
-        d.show();
-    }, __("Create"));
-}
-=======
 		
 			if (hasPermission) {
 				frm.add_custom_button(__('Volunteer'), function() {
@@ -100,7 +53,6 @@ if (hasPermission) {
 					d.show();
 				}, __("Create"));
 			}
->>>>>>> db0695a (added role change)
 
 		let qrHTML = ''
 			if (frm.doc.qr) {
@@ -116,30 +68,11 @@ if (hasPermission) {
 
 		frm.get_field("qr_preview").$wrapper.html(qrHTML);
 	},
-	// validate:function(frm) {
-	// 	toggleEditFields(frm, false); 
 
-	// },
 	onload:function(frm){
 		
 	},
 	
-
-	// capacity: async function(frm){
-	// 	await frappe.call({
-	// 		method: "run_doc_method",
-	// 		args: {
-	// 			'docs': frm.doc,
-	// 			'method': 'categoryfile_fetching'
-	// 		},
-	// 		callback: function (r) {
-	// 			if (!r.exc) {
-	// 				frm.refresh_fields();
-	// 			}
-	// 		}
-	// 	});
-
-	// },
 	get_directions:function(frm){
 	
 		if (frm.doc.location_url) {
