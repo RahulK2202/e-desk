@@ -8,7 +8,11 @@ from frappe.model.document import Document
 from pyqrcode import create as qr_create
 import os
 from frappe.model.naming import parse_naming_series
+<<<<<<< HEAD
 from e_desk.e_desk.utils.role import update_user_role
+=======
+from e_desk.e_desk.utils.role import update_event_particpant_role
+>>>>>>> 4d8fe7b (updated event participant role and fixed volunteer creation function issues)
 
 class RegistrationDesk(Document):
     @classmethod
@@ -65,21 +69,16 @@ class RegistrationDesk(Document):
             first_item_name=first_item.participant_name
             self.name = parse_naming_series(f"{first_item_name}-.#")
 
-
-
-
     def on_submit(doc):
-
-        conference = frappe.get_doc('Confer', doc.confer)
-
-   
+        
         new_row = frappe.get_doc({
             'doctype': 'Event Participant',
             'parenttype': 'Confer',
             'parentfield': 'event_participant',
-            'parent': conference.name,
+            'parent': doc.confer,
             'participant': doc.participant[0].participant_id
         })
+<<<<<<< HEAD
 
  
         user = frappe.get_doc('User', {'participant_id': doc.participant[0].participant_id})
@@ -119,7 +118,13 @@ class RegistrationDesk(Document):
 
 
 
+=======
+>>>>>>> 4d8fe7b (updated event participant role and fixed volunteer creation function issues)
     
+        new_row.save()
+        update_event_particpant_role(doc.participant[0].participant_id ,doc.confer,"Participant")
+        frappe.msgprint(' Registered successfully.')
+
 
 @frappe.whitelist()
 def event_participant_filter(doctype, txt, searchfield, start, page_len, filters):
