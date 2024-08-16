@@ -73,14 +73,6 @@ frappe.ui.form.on('Registration Desk', {
 
 	},
 
-
-
-
-
-
-
-
-
 	participant_profile:function(frm){
 		if(frm.doc.part_profile){
 			let $profileimg = `

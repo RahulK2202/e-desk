@@ -11,6 +11,7 @@ frappe.ui.form.on('Participant', {
 			frm.add_custom_button(__('Editable'), function() {
 				toggleEditFields(frm, true); 
 			  });}
+<<<<<<< HEAD
 
 
 if (hasPermission) {
@@ -56,6 +57,50 @@ if (hasPermission) {
         d.show();
     }, __("Create"));
 }
+=======
+		
+			if (hasPermission) {
+				frm.add_custom_button(__('Volunteer'), function() {
+					
+					let d = new frappe.ui.Dialog({
+						title: 'Enter details',
+						fields: [
+							{
+								label: 'Confer List',
+								fieldname: 'confer',
+								fieldtype: 'Link',
+								options: 'Confer',
+								reqd: 1 ,
+								get_query: function() {
+									return {
+										query: "e_desk.e_desk.utils.role.get_filtered_confer",
+										filters: {
+											participant: frm.doc.name  // Pass the participant name
+										}
+									};
+								}
+							}
+						],
+						primary_action_label: 'Submit',
+						primary_action(values) {    
+								frappe.call({
+									method: "e_desk.e_desk.utils.role.update_event_participant_role",
+									args: {
+										participant: frm.doc.name,
+										confer: values.confer,
+										role_name:'Volunteer'
+									},
+									callback: function() {
+										frappe.msgprint("Volunteer Created Successfully");
+										d.hide(); 
+									}
+								});
+						}
+					});
+					d.show();
+				}, __("Create"));
+			}
+>>>>>>> db0695a (added role change)
 
 		let qrHTML = ''
 			if (frm.doc.qr) {

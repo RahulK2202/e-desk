@@ -9,10 +9,14 @@ from pyqrcode import create as qr_create
 import os
 from frappe.model.naming import parse_naming_series
 <<<<<<< HEAD
+<<<<<<< HEAD
 from e_desk.e_desk.utils.role import update_user_role
 =======
 from e_desk.e_desk.utils.role import update_event_particpant_role
 >>>>>>> 4d8fe7b (updated event participant role and fixed volunteer creation function issues)
+=======
+from e_desk.e_desk.utils.role import update_event_participant_role
+>>>>>>> db0695a (added role change)
 
 class RegistrationDesk(Document):
     @classmethod
@@ -70,36 +74,33 @@ class RegistrationDesk(Document):
             self.name = parse_naming_series(f"{first_item_name}-.#")
 
     def on_submit(doc):
+<<<<<<< HEAD
         
+=======
+        participant= doc.participant[0].participant_id
+>>>>>>> db0695a (added role change)
         new_row = frappe.get_doc({
             'doctype': 'Event Participant',
             'parenttype': 'Confer',
             'parentfield': 'event_participant',
             'parent': doc.confer,
+<<<<<<< HEAD
             'participant': doc.participant[0].participant_id
+=======
+            'participant': participant,
+            'event_role' : "Participant"
+>>>>>>> db0695a (added role change)
         })
 <<<<<<< HEAD
 
  
-        user = frappe.get_doc('User', {'participant_id': doc.participant[0].participant_id})
-        print(user, "user.......................................................")
-
- 
-        # if doc.is_volunteer:
-        #     update_user_role(user, "Volunteer")
-        #     print(new_row,"this is new_row to be done,,,,,,,,,,,,,,,")
-        #     new_row.event_role = "Volunteer"
-        # else:
-        if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
-            update_user_role(user, "Participant")
-
         new_row.save()
-        conference.append('event_participant', new_row)
-   
-        conference.save()
-
+        # if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
+        update_event_participant_role(participant,doc.confer, "Participant")
+            
         frappe.msgprint('Conference updated successfully.')
 
+<<<<<<< HEAD
 
 
 
@@ -126,6 +127,8 @@ class RegistrationDesk(Document):
         frappe.msgprint(' Registered successfully.')
 
 
+=======
+>>>>>>> db0695a (added role change)
 @frappe.whitelist()
 def event_participant_filter(doctype, txt, searchfield, start, page_len, filters):
     conference = filters.get('conference')
