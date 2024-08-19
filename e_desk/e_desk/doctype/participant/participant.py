@@ -9,8 +9,11 @@ from frappe.utils import get_datetime, add_to_date , now ,getdate
 from datetime import datetime, time, timedelta
 from e_desk.e_desk.doctype.registration_desk.registration_desk import RegistrationDesk 
 class Participant(Document):
+	# @frappe.whitelist(allow_guest=True)
 	def after_insert(self):
 		if not frappe.db.exists('User',self.e_mail):
+
+			print("this is woreking here.....................................................")
 			doc=frappe.new_doc('User')
 			doc.update({
 				"email":self.e_mail,
@@ -26,7 +29,9 @@ class Participant(Document):
 				"participant_id":self.name
 
 			})
-			doc.save()
+			print(doc,"doc is woreking hereeeeeeeeeeeeeeeeeeee")
+			
+			doc.save(ignore_permissions=True)
 				  
 		#attachment inside the participant -> category files
 		# category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
