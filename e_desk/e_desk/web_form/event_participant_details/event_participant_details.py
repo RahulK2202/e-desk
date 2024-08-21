@@ -6,6 +6,9 @@ def get_context(context):
    
 @frappe.whitelist(allow_guest=True)
 def form_update(conf):
+    print("welcomeeeee................................................................")
+
+    print(conf,"data comeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
  
     user = frappe.db.get_value('User', frappe.session.user, 'participant_id')
     
