@@ -45,6 +45,23 @@ app_license = "MIT"
 #	"Role": "home_page"
 # }
 
+
+
+
+fixtures = [
+  
+    {"dt": "Custom Field", "filters": [["module", "=", "E Desk"]],
+    "prefix": "e_desk_custom_fields"}
+]
+
+
+
+
+
+
+
+
+
 # Generators
 # ----------
 
