@@ -4,7 +4,7 @@
 import json
 import frappe
 from frappe.model.document import Document
-from frappe.core.doctype.user.user import get_role_profile
+# from frappe.core.doctype.user.user import get_roles
 from frappe.utils import get_datetime, add_to_date , now ,getdate
 from datetime import datetime, time, timedelta
 from e_desk.e_desk.doctype.registration_desk.registration_desk import RegistrationDesk 
@@ -23,7 +23,7 @@ class Participant(Document):
 				"new_password":self.mobile_number,
 				"send_welcome_email":0,
 				"role_profile_name":"Participant",
-				"roles":get_role_profile("Participant"),
+				"roles":frappe.get_roles("Participant"),
 				"user_type":"System User",
 				"module_profile":"E-desk profile",
 				"participant_id":self.name

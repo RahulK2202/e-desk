@@ -1,36 +1,35 @@
 import frappe
 
-# def get_context(context):
-# 	# do your magic here
-# 	print("welcome my bopyyyyyyyyyyyyyyy")
-
-
-
 def get_context(context):
     pass
-    # print(".,............................/,,/,/,,/,/,,,,/")
-    # print(context,"rmpoty///////////////////////////////////////////////////")
-    # participant_id = frappe.session.user
-    # participant_ids = frappe.db.get_value("User", {"email": participant_id}, "participant_id")
-    # print(participant_ids,"this is the id we go from hereeee")
-    # context.participant=participant_ids
-    # print( context.participant," context.participant context.participant context.participant context.participant")
-    # print( participant_id,confer_id,"confer_idconfer_idconfer_idconfer_idconfer_idconfer_id")
+# 
+   
+@frappe.whitelist(allow_guest=True)
+def form_update(conf):
+ 
+    user = frappe.db.get_value('User', frappe.session.user, 'participant_id')
     
 
+    exist = frappe.get_value('Event Participant', {'participant': user, 'parent': conf}, 'name')
+    
 
-    # # Query the Event Participant table
-    # participant = frappe.db.get_value(
-    #     'Event Participant',
-    #     {'participant': participant_id, 'parent': confer_id},
-    #     '*'
-    # )
-    # print(participant," participant participant participant participant participant participant")
+    conf_doc = frappe.get_doc('Confer', conf)
+    
 
-    # if participant:
-    #     context.participant_details = participant
-    # else:
-    #     context.participant_details = None
+    event_dict = {}
+    
+ 
+    if exist:
+        event = frappe.get_doc('Event Participant', exist)
+        event_dict = event.as_dict()
+        print( event_dict," event_dict event_dict event_dict")
+    
 
-    # print("welcome my bopyyyyyyyyyyyyyyy")
+    data = {
+        'confer': conf_doc.as_dict(), 
+        'event_dict': event_dict
+    }
 
+    print(data,"this is data we using......................")
+    
+    return data

@@ -1,7 +1,4 @@
 import frappe
-from e_desk.e_desk.doctype.participant.participant import get_role_profile
-from frappe.model.document import Document
-
 
 def get_context(context):
     print("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
