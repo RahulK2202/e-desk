@@ -28,7 +28,8 @@ frappe.ui.form.on('Participant', {
 									return {
 										query: "e_desk.e_desk.utils.role.get_filtered_confer",
 										filters: {
-											participant: frm.doc.name  // Pass the participant name
+											participant: frm.doc.name,
+											 // Pass the participant name
 										}
 									};
 								}

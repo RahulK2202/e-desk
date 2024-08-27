@@ -8,12 +8,17 @@ from frappe.model.document import Document
 from frappe.utils import get_datetime, add_to_date , now ,getdate
 from datetime import datetime, time, timedelta
 from e_desk.e_desk.doctype.registration_desk.registration_desk import RegistrationDesk 
+
+
 class Participant(Document):
 	# @frappe.whitelist(allow_guest=True)
 	def after_insert(self):
-		if not frappe.db.exists('User',self.e_mail):
 
+		if not self.e_mail:
+			frappe.throw("Email is required to create a new User.")
+		if not frappe.db.exists('User',self.e_mail):
 			print("this is woreking here.....................................................")
+			print(self.e_mail,"email.....................................")
 			doc=frappe.new_doc('User')
 			doc.update({
 				"email":self.e_mail,
@@ -23,15 +28,25 @@ class Participant(Document):
 				"new_password":self.mobile_number,
 				"send_welcome_email":0,
 				"role_profile_name":"Participant",
-				"roles":frappe.get_roles("Participant"),
+				# "roles":frappe.get_roles("Participant"),
 				"user_type":"System User",
 				"module_profile":"E-desk profile",
 				"participant_id":self.name
 
 			})
+			roles = frappe.get_roles("Participant")
+			print(roles,"roles...........................................................")
+			for role in roles:
+				print(role,"role looppp....................")
+				doc.append("roles", {"role": role})
 			print(doc,"doc is woreking hereeeeeeeeeeeeeeeeeeee")
 			
 			doc.save(ignore_permissions=True)
+			frappe.msgprint(
+                msg=f"User created successfully!<br>Login Email: {doc.email}<br>Login Password: {self.mobile_number}",
+                title="User Login Details",
+                indicator='green'
+            )
 				  
 		#attachment inside the participant -> category files
 		# category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])

@@ -72,15 +72,14 @@ class RegistrationDesk(Document):
         participant= doc.participant[0].participant_id
         new_row = frappe.get_doc({
             'doctype': 'Event Participant',
-            'parenttype': 'Confer',
-            'parentfield': 'event_participant',
-            'parent': doc.confer,
+            'event': doc.confer,
             'participant': participant,
             'event_role' : "Participant"
         })
 
  
-        new_row.save()
+        new_row.insert(ignore_permissions=True)
+        frappe.db.commit()
         # if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
         update_event_participant_role(participant,doc.confer, "Participant")
             

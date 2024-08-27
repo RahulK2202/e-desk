@@ -99,9 +99,9 @@ fixtures = [
 # -----------
 # Permissions evaluated in scripted ways
 
-permission_query_conditions = {
-	"File": "e_desk.e_desk.utils.py.permissions.file.get_file_permission",
-}
+# permission_query_conditions = {
+# 	"File": "e_desk.e_desk.utils.py.permissions.file.get_file_permission",
+# }
 #
 # has_permission = {
 #	"Event": "frappe.desk.doctype.event.event.has_permission",

@@ -11,17 +11,10 @@
   "title",
   "start_date",
   "end_date",
-  "event_participant",
   "agenda",
   "is_private"
  ],
  "fields": [
-  {
-   "fieldname": "event_participant",
-   "fieldtype": "Table",
-   "label": "Event Participant",
-   "options": "Event Participant"
-  },
   {
    "fieldname": "title",
    "fieldtype": "Data",
@@ -59,7 +52,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-07 15:32:00.297700",
+ "modified": "2024-08-21 22:38:05.494580",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Confer",

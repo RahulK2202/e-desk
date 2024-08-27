@@ -3,14 +3,13 @@
  "allow_delete": 0,
  "allow_edit": 1,
  "allow_incomplete": 0,
- "allow_multiple": 1,
+ "allow_multiple": 0,
  "allow_print": 0,
  "anonymous": 0,
- "apply_document_permissions": 1,
+ "apply_document_permissions": 0,
  "button_label": "Save",
- "client_script": "frappe.web_form.on('on_load', () => {\n\n   console.log(\"this is need to change\")\n});",
  "condition_json": "[]",
- "creation": "2024-08-18 21:34:04.226567",
+ "creation": "2024-08-22 10:47:13.102653",
  "doc_type": "Event Participant",
  "docstatus": 0,
  "doctype": "Web Form",
@@ -19,20 +18,20 @@
  "list_columns": [],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2024-08-27 15:59:00.139334",
+ "modified": "2024-08-27 12:28:50.926545",
  "modified_by": "Administrator",
  "module": "E Desk",
- "name": "event-participant-details",
+ "name": "newforms",
  "owner": "Administrator",
  "published": 1,
- "route": "event-participant-details",
+ "route": "newforms",
  "show_attachments": 0,
- "show_list": 1,
+ "show_list": 0,
  "show_sidebar": 0,
- "title": "Event participant details",
+ "title": "newforms",
  "web_form_fields": [
   {
-   "allow_read_on_all_link_options": 1,
+   "allow_read_on_all_link_options": 0,
    "fieldname": "participant",
    "fieldtype": "Link",
    "hidden": 0,
@@ -40,8 +39,23 @@
    "max_length": 0,
    "max_value": 0,
    "options": "Participant",
-   "read_only": 1,
-   "reqd": 1,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "hidden": 0,
+   "label": "Event",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Confer",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
    "show_in_filter": 0
   },
   {
@@ -53,21 +67,8 @@
    "max_length": 0,
    "max_value": 0,
    "options": "Open\nRegistered",
-   "read_only": 0,
-   "reqd": 1,
-   "show_in_filter": 0
-  },
-  {
-   "allow_read_on_all_link_options": 1,
-   "fieldname": "event",
-   "fieldtype": "Link",
-   "hidden": 0,
-   "label": "Event",
-   "max_length": 0,
-   "max_value": 0,
-   "options": "Confer",
    "precision": "",
-   "read_only": 1,
+   "read_only": 0,
    "reqd": 1,
    "show_in_filter": 0
   },
@@ -80,6 +81,7 @@
    "label": "Is Paid",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -92,6 +94,7 @@
    "label": "Invoice No",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -104,6 +107,7 @@
    "label": "Reg No",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -129,12 +133,13 @@
    "label": "Church/Organisation you represent",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
   },
   {
-   "allow_read_on_all_link_options": 1,
+   "allow_read_on_all_link_options": 0,
    "fieldname": "capacity",
    "fieldtype": "Link",
    "hidden": 0,
@@ -142,6 +147,7 @@
    "max_length": 0,
    "max_value": 0,
    "options": "Category Name",
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -155,6 +161,7 @@
    "max_length": 0,
    "max_value": 0,
    "options": "\nYes\nNo",
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -168,6 +175,7 @@
    "max_length": 0,
    "max_value": 0,
    "options": "\nLay\nOrdained",
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -181,6 +189,7 @@
    "max_length": 0,
    "max_value": 0,
    "options": "\nYes\nNo",
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -206,6 +215,7 @@
    "label": "Arrival at",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -218,6 +228,7 @@
    "label": "Arrival date and time",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -242,6 +253,7 @@
    "label": "Departure from",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -254,6 +266,7 @@
    "label": "Departure date and time",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -279,6 +292,7 @@
    "label": "Airline (Arrival)",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -291,6 +305,7 @@
    "label": "Flight number (Arrival)",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -303,6 +318,7 @@
    "label": "Airline (Arrival Date)",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -327,6 +343,7 @@
    "label": "Airline (Departure)",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -339,6 +356,7 @@
    "label": "Flight number (Departure)",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -351,6 +369,7 @@
    "label": "Airline (Departure Date)",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -376,6 +395,7 @@
    "label": "Check-in date",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -388,6 +408,7 @@
    "label": "Number of nights",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -400,6 +421,7 @@
    "label": "Room type and price tier",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -412,6 +434,7 @@
    "label": "QR",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -436,12 +459,13 @@
    "label": "Check-out date",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
   },
   {
-   "allow_read_on_all_link_options": 1,
+   "allow_read_on_all_link_options": 0,
    "fieldname": "hotel",
    "fieldtype": "Link",
    "hidden": 0,
@@ -449,6 +473,7 @@
    "max_length": 0,
    "max_value": 0,
    "options": "Hotel",
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -461,6 +486,7 @@
    "label": "Hotel Details",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -478,7 +504,7 @@
    "show_in_filter": 0
   },
   {
-   "allow_read_on_all_link_options": 1,
+   "allow_read_on_all_link_options": 0,
    "fieldname": "hotel_address_link",
    "fieldtype": "Link",
    "hidden": 0,
@@ -486,6 +512,7 @@
    "max_length": 0,
    "max_value": 0,
    "options": "Address",
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -498,6 +525,7 @@
    "label": "Location URL",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -510,6 +538,7 @@
    "label": "Hotel Address",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -548,6 +577,7 @@
    "label": "First Preference ",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -560,6 +590,7 @@
    "label": "Second Preference",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -585,6 +616,7 @@
    "label": "First Preference",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -597,6 +629,7 @@
    "label": "Second Preference ",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -614,7 +647,7 @@
    "show_in_filter": 0
   },
   {
-   "allow_read_on_all_link_options": 1,
+   "allow_read_on_all_link_options": 0,
    "fieldname": "church_list",
    "fieldtype": "Link",
    "hidden": 0,
@@ -622,6 +655,7 @@
    "max_length": 0,
    "max_value": 0,
    "options": "Church",
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -658,6 +692,7 @@
    "label": "Location URL Church",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -670,6 +705,7 @@
    "label": "Church Details",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -682,6 +718,7 @@
    "label": "Church Address",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -695,6 +732,7 @@
    "max_length": 0,
    "max_value": 0,
    "options": "Approved\nDeclined\nPending",
+   "precision": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -703,11 +741,12 @@
    "allow_read_on_all_link_options": 0,
    "fieldname": "event_role",
    "fieldtype": "Data",
-   "hidden": 1,
+   "hidden": 0,
    "label": "Event Role",
    "max_length": 0,
    "max_value": 0,
-   "read_only": 1,
+   "precision": "",
+   "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
   }
