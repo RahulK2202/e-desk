@@ -6,6 +6,7 @@ import frappe
 import io
 from frappe.model.document import Document
 from pyqrcode import create as qr_create
+# import png
 import os
 from frappe.model.naming import parse_naming_series
 from e_desk.e_desk.utils.role import update_event_participant_role
@@ -13,6 +14,8 @@ from e_desk.e_desk.utils.role import update_event_participant_role
 class RegistrationDesk(Document):
     @classmethod
     def create_qr_participant(self, pr_doc):
+        print("WELCOME TO THIS....................................................................")
+        print(pr_doc,"thi sis the doc we passing to this...................")
         qr_image = io.BytesIO()
         data={"e_mail":pr_doc.e_mail,"mobile_number":pr_doc.mobile_number,"name":pr_doc.name}
         data=json.dumps(data,indent=4,sort_keys=True,default=str)
@@ -45,19 +48,32 @@ class RegistrationDesk(Document):
         for row in self.participant:
             if not row.profile_img:
                 frappe.throw(f"Profile picture mandatory in {row.idx}")
-            doc = frappe.get_doc("Participant", row.participant_id)
-            qr=self.create_qr_participant( doc)
-            doc.status = "Registered"
-            doc.save()
-            frappe.db.set_value(row.doctype, row.name, 'qr_img', qr, update_modified=False)
-        self.reload()
+        #     doc = frappe.get_doc("Participant", row.participant_id)
+        #     # qr=self.create_qr_participant( doc)
+        #     doc.status = "Registered"
+        #     doc.save()
+        #     # frappe.db.set_value(row.doctype, row.name, 'qr_img', qr, update_modified=False)
+        # self.reload()
+
 
     # Registration canceled -> moving the particioant to old status
     def on_trash(self):
         for row in self.participant:
-            doc = frappe.get_doc("Participant", row.participant_id)
-            doc.status = "Open"
-            doc.save()
+            event_participant = frappe.get_doc(
+            "Event Participant",
+            {
+                "participant": row.participant_id,
+                "event": self.confer
+            }
+            )
+          
+            event_participant.is_paid = False
+            event_participant.reg_status = "Pending"
+            event_participant.status = "Open"
+
+            # Save the changes
+            event_participant.save()
+            
    
     def autoname(self):
         if self.participant:
@@ -66,37 +82,101 @@ class RegistrationDesk(Document):
             self.name = parse_naming_series(f"{first_item_name}-.#")
 
 
+    def on_submit(self):
+        # Retrieve the participant ID from the Participant Table using self.participant[0]
+        participant_data = frappe.get_value("Participant Table", self.participant[0], ["participant_id", "qr_img","name"])
+        participant_qr=frappe.get_value("Participant", self.participant[0], "qr")
+        participant_id, qr_img,id_name = participant_data
+
+        frappe.db.set_value('Participant Table', id_name, 'qr_img',participant_qr)
 
 
-    def on_submit(doc):
-        participant= doc.participant[0].participant_id
-        new_row = frappe.get_doc({
-            'doctype': 'Event Participant',
-            'event': doc.confer,
-            'participant': participant,
-            'event_role' : "Participant"
-        })
+        # Fetch the Event Participant document using the participant_id and confer
+        event_participant = frappe.get_doc(
+            "Event Participant",
+            {
+                "participant": participant_id,
+                "event": self.confer
+            }
+        )
+        # Update the Event Participant document fields
+        event_participant.is_paid = True
+        event_participant.reg_status = "Approved"
+        event_participant.status = "Registered"
+
+        # Save the changes
+        event_participant.save()
+
+        # Optionally, show a confirmation message
+        frappe.msgprint("Participant registration has been updated successfully.")
+
+
+    # def on_submit(doc):
+    #     participant= doc.participant[0].participant_id
+    #     new_row = frappe.get_doc({
+    #         'doctype': 'Event Participant',
+    #         'event': doc.confer,
+    #         'participant': participant,
+    #         'event_role' : "Participant"
+    #     })
 
  
-        new_row.insert(ignore_permissions=True)
-        frappe.db.commit()
-        # if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
-        update_event_participant_role(participant,doc.confer, "Participant")
+    #     new_row.insert(ignore_permissions=True)
+    #     frappe.db.commit()
+    #     # if user.role_profile_name not in ["Participant", "E-Desk Admin"]:
+    #     update_event_participant_role(participant,doc.confer, "Participant")
             
-        frappe.msgprint('Conference updated successfully.')
+    #     frappe.msgprint('Conference updated successfully.')
+
+
+
+# @frappe.whitelist()
+# def event_participant_filter(doctype, txt, searchfield, start, page_len, filters):
+#     conference = filters.get('conference')
+
+#     # filtering  participant which are not registered in this perticular event
+#     participants = frappe.db.sql("""
+#         SELECT p.name,p.full_name
+#         FROM `tabParticipant` p
+#         WHERE p.name  IN (
+#             SELECT ep.participant
+#             FROM `tabEvent Participant` ep
+#             WHERE ep.event = %(conference)s
+#         )
+#         AND p.name LIKE %(txt)s
+        
+#         LIMIT %(start)s, %(page_len)s
+        
+#     """, {
+#         'conference': conference,
+#         'txt': "%" + txt + "%",
+#         'start': start,
+#         'page_len': page_len
+#     })
+
+#     # registered_participants=
+
+ 
+#     return participants
 
 @frappe.whitelist()
 def event_participant_filter(doctype, txt, searchfield, start, page_len, filters):
     conference = filters.get('conference')
 
-    # filtering  participant which are not registered in this perticular event
+    # Filtering participants who are not registered in the Registration Desk for this particular event
     participants = frappe.db.sql("""
-        SELECT p.name
+        SELECT p.name, p.full_name
         FROM `tabParticipant` p
-        WHERE p.name NOT IN (
+        WHERE p.name IN (
             SELECT ep.participant
             FROM `tabEvent Participant` ep
-            WHERE ep.parent = %(conference)s
+            WHERE ep.event = %(conference)s
+        )
+        AND p.name NOT IN (
+            SELECT pt.participant_id
+            FROM `tabRegistration Desk` rd
+            JOIN `tabParticipant Table` pt ON pt.parent = rd.name
+            WHERE rd.confer = %(conference)s
         )
         AND p.name LIKE %(txt)s
         LIMIT %(start)s, %(page_len)s
@@ -107,5 +187,5 @@ def event_participant_filter(doctype, txt, searchfield, start, page_len, filters
         'page_len': page_len
     })
 
-
     return participants
+

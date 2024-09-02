@@ -8,17 +8,15 @@ from frappe.model.document import Document
 from frappe.utils import get_datetime, add_to_date , now ,getdate
 from datetime import datetime, time, timedelta
 from e_desk.e_desk.doctype.registration_desk.registration_desk import RegistrationDesk 
+from frappe import _
 
 
 class Participant(Document):
 	# @frappe.whitelist(allow_guest=True)
 	def after_insert(self):
-
 		if not self.e_mail:
 			frappe.throw("Email is required to create a new User.")
 		if not frappe.db.exists('User',self.e_mail):
-			print("this is woreking here.....................................................")
-			print(self.e_mail,"email.....................................")
 			doc=frappe.new_doc('User')
 			doc.update({
 				"email":self.e_mail,
@@ -35,19 +33,46 @@ class Participant(Document):
 
 			})
 			roles = frappe.get_roles("Participant")
-			print(roles,"roles...........................................................")
 			for role in roles:
-				print(role,"role looppp....................")
 				doc.append("roles", {"role": role})
-			print(doc,"doc is woreking hereeeeeeeeeeeeeeeeeeee")
 			
 			doc.save(ignore_permissions=True)
+			qr=RegistrationDesk.create_qr_participant(self)
+			print(qr,"data coming from this..................qr")
+			self.save()
+			confer_id = self.event
+			if confer_id:
+				# Create an Event Participant document
+				event_participant_doc = frappe.new_doc('Event Participant')
+				event_participant_doc.update({
+					"participant": self.name,
+					"event": confer_id,
+					"event_role":"Participant"
+				})
+				event_participant_doc.save(ignore_permissions=True)
+        
+            # Create User Permission linked to this Event Participant
+			user_permission_doc = frappe.new_doc('User Permission')
+			
+			user_permission_doc.update({
+                "user": self.e_mail,
+                "allow": "Event Participant",
+                "for_value": event_participant_doc.name,
+                "apply_to_all_doctypes": True,
+                # "applicable_for": ["Confer"]
+            })
+			user_permission_doc.save(ignore_permissions=True)
+
+#added qr here
+		
+
+
 			frappe.msgprint(
                 msg=f"User created successfully!<br>Login Email: {doc.email}<br>Login Password: {self.mobile_number}",
                 title="User Login Details",
                 indicator='green'
             )
-				  
+
 		#attachment inside the participant -> category files
 		# category_files=frappe.get_all('Category Table', filters={'parent': self.capacity}, fields=['attach'])
 		# self.update({
@@ -273,4 +298,48 @@ def atten_food_script():
 					})
 					participant.save()
 					frappe.db.commit()
-									
+
+
+
+@frappe.whitelist(allow_guest=True)
+def register_event_participant(email, confer_id):
+
+	if email and confer_id:
+		user = frappe.db.get_value("User", {"email": email}, "name")
+		if not user:
+			return {"message": _("User does not exist. Please register as a new user.")}
+		
+		participant_id = frappe.db.get_value("Participant", {"e_mail": email}, "name")
+		existing_registration = frappe.db.exists("Event Participant", {
+			"event": confer_id,
+			"participant": participant_id
+		})
+		
+		if existing_registration:
+				
+			return {"message": "You are already registered for this event."}
+		
+		
+		event_participant_doc = frappe.new_doc('Event Participant')
+		event_participant_doc.update({
+						"participant": participant_id,
+						"event": confer_id,
+						"event_role":"Participant"
+					})
+		
+		event_participant_doc.save(ignore_permissions=True)
+		
+		user_permission_doc = frappe.new_doc('User Permission')
+		user_permission_doc.update({
+					"user": email,
+					"allow": "Event Participant",
+					"for_value": event_participant_doc.name,
+					"apply_to_all_doctypes": True,
+					# "applicable_for": ["Confer"]
+				})
+		
+		user_permission_doc.save(ignore_permissions=True)
+		
+		return {"message": _("Registration successful!")}
+	else:
+		return {"message": _("Event is not found")}

@@ -1,9 +1,9 @@
-frappe.views.calendar["Program Agenda"] = {
+frappe.views.calendar["Confer"] = {
 	field_map: {
-		start: "start",
-		end: "end",
+		start: "agenda.start_date",
+		end: "agenda.end_date",
 		id: "name",
-		title: "description",
+		title: "agenda.program_agenda",
 		allDay: "allDay",
 		progress: "progress",
 	},

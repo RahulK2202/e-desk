@@ -29,7 +29,7 @@ frappe.ready(function() {
       
 
             frappe.call({
-                method: "e_desk.e_desk.web_form.participant_registration.participant_registration.check_user_exists",
+                method: "e_desk.e_desk.web_form.event_participant_registration.event_participant_registration.check_user_exists",
                 args: {
                     email: email
                 },
@@ -45,6 +45,10 @@ frappe.ready(function() {
                             indicator: 'red',
                             message: __('This email is already registered.')
                         });
+
+						setTimeout(function() {
+                            window.location.href = '/login';
+                        }, 3000); 
                      
                     } 
                  

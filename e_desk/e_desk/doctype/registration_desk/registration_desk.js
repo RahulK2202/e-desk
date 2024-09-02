@@ -4,6 +4,16 @@
 frappe.ui.form.on('Registration Desk', {
 
 	setup: function(frm) {
+
+		frm.set_query('confer', function(doc, cdt, cdn) {
+            return {
+                filters: [
+                    ['start_date', '>=', frappe.datetime.get_today()] // Only show upcoming or ongoing conferences
+                ]
+            };
+        });
+
+
         // Set query for the participant link field inside the Participant child table
         frm.set_query('participant_id', 'participant', function(doc, cdt, cdn) {
 			if (frm.doc.confer){
