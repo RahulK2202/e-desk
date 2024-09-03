@@ -58,9 +58,7 @@ frappe.ui.form.on('Participant', {
 		let qrHTML = ''
 		
 			if (frm.doc.qr) {
-				console.log("the qr code is coming........................")
-				console.log(frm.doc.qr,"frm doc qr...............................");
-				
+					
 				qrHTML += `
 				<div>
 					<img src='${frm.doc.qr}' alt='IMG' height="100" width="100">

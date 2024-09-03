@@ -8,6 +8,9 @@
   },
   {
    "card": "Volunteer Count"
+  },
+  {
+   "card": "Event Participant Count"
   }
  ],
  "charts": [
@@ -23,7 +26,7 @@
  "idx": 0,
  "is_default": 1,
  "is_standard": 1,
- "modified": "2023-09-30 15:30:12.073658",
+ "modified": "2024-09-02 15:38:52.225167",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "CCA Dashboard",

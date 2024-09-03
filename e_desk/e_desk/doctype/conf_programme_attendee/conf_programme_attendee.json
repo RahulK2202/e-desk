@@ -7,18 +7,23 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "programme",
+  "column_break_sz9i",
   "scan_qr",
   "submit",
+  "section_break_epxh",
   "scanned_list"
  ],
  "fields": [
   {
+   "depends_on": "eval:doc.programme",
    "fieldname": "scan_qr",
    "fieldtype": "Data",
    "label": "Scan QR",
    "options": "Barcode"
   },
   {
+   "depends_on": "eval:doc.programme",
    "fieldname": "submit",
    "fieldtype": "Button",
    "label": "Submit"
@@ -28,12 +33,26 @@
    "fieldtype": "Table",
    "label": "Scanned List",
    "options": "Scanned List"
+  },
+  {
+   "fieldname": "programme",
+   "fieldtype": "Link",
+   "label": "Programme",
+   "options": "Confer Agenda"
+  },
+  {
+   "fieldname": "column_break_sz9i",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_epxh",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-08-13 15:08:41.003500",
+ "modified": "2024-09-02 19:16:01.472416",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Conf Programme Attendee",
