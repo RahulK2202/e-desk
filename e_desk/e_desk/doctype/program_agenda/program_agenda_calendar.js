@@ -10,3 +10,5 @@ frappe.views.calendar["Confer"] = {
 	gantt: true,
 	get_events_method: "frappe.desk.calendar.get_events",
 };
+
+

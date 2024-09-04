@@ -7,20 +7,6 @@ frappe.ready(function() {
         frappe.web_form.set_value('event', confer_id)
     }
 
-
-    console.log(confer_id,"this is the confer data we got...................")
-
-
-
-
-
-
-
-
-
-
-
-
     // Bind the onchange event to the e_mail field
     $('input[data-fieldname="e_mail"]').on('change', function() {
         let email = $(this).val();
@@ -43,7 +29,7 @@ frappe.ready(function() {
                         frappe.msgprint({
                             title: __('Error'),
                             indicator: 'red',
-                            message: __('This email is already registered.')
+                            message: __('This email is already registered. Please proceed with registration through the Existing User option')
                         });
 
 						setTimeout(function() {

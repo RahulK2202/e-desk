@@ -14,8 +14,6 @@ from e_desk.e_desk.utils.role import update_event_participant_role
 class RegistrationDesk(Document):
     @classmethod
     def create_qr_participant(self, pr_doc):
-        print("WELCOME TO THIS....................................................................")
-        print(pr_doc,"thi sis the doc we passing to this...................")
         qr_image = io.BytesIO()
         data={"e_mail":pr_doc.e_mail,"mobile_number":pr_doc.mobile_number,"name":pr_doc.name}
         data=json.dumps(data,indent=4,sort_keys=True,default=str)
@@ -84,13 +82,20 @@ class RegistrationDesk(Document):
 
     def on_submit(self):
         # Retrieve the participant ID from the Participant Table using self.participant[0]
-        participant_data = frappe.get_value("Participant Table", self.participant[0], ["participant_id", "qr_img","name"])
-        participant_qr=frappe.get_value("Participant", self.participant[0], "qr")
+        participant_data = frappe.get_value("Participant Table", self.participant[0], ["participant_id", "qr_img","name"])  
         participant_id, qr_img,id_name = participant_data
+        participant_qr=frappe.get_value("Participant",  participant_id, "qr")
+        #not found qrcode
+        if participant_qr:
+            frappe.db.set_value('Participant Table', id_name, 'qr_img', participant_qr)
+        else:
+            pr_doc = frappe.get_doc("Participant", participant_id)
 
-        frappe.db.set_value('Participant Table', id_name, 'qr_img',participant_qr)
+            # Call the create_qr_participant method
+            qr_url = RegistrationDesk.create_qr_participant(pr_doc)
+            frappe.db.set_value('Participant Table', id_name, 'qr_img', qr_url)
 
-
+    
         # Fetch the Event Participant document using the participant_id and confer
         event_participant = frappe.get_doc(
             "Event Participant",

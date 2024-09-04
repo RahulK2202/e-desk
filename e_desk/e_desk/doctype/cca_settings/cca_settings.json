@@ -9,7 +9,8 @@
  "field_order": [
   "food_scan_hours",
   "attendance_scan_hours",
-  "category_image_table"
+  "category_image_table",
+  "event"
  ],
  "fields": [
   {
@@ -32,12 +33,18 @@
    "in_list_view": 1,
    "label": "Attendance Scan Hours",
    "reqd": 1
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "label": "Event",
+   "options": "Confer"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-09-20 16:01:08.532276",
+ "modified": "2024-09-03 21:47:30.044890",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "CCA Settings",
