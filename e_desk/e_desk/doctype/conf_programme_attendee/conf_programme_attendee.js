@@ -31,6 +31,8 @@ frappe.ui.form.on('Conf Programme Attendee', {
 						// Refresh and save the form
 						cur_frm.refresh_field('scanned_list');
 						cur_frm.save();
+					
+						
 					}
 					}
 
@@ -39,6 +41,7 @@ frappe.ui.form.on('Conf Programme Attendee', {
 
     refresh: function(frm) {
 
+		// frm.set_value('programme', '');
 		
         frm.set_query('programme', function() {
 			

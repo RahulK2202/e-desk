@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.utils import getdate
 
 class EventParticipant(Document):
 	pass
@@ -60,26 +61,40 @@ def count_volunteer_registered():
     }
 
 
+
+
 @frappe.whitelist()
-def get_events(start, end, filters=None):
-    print("Helloo its reached............................")
-    print(start, end,"start, end,start, end,start, end,start, end,")
-    events = []
-    # Fetch events from the child table
-    child_table_entries = frappe.get_all("Confer Agenda", filters={
-        "parent": filters.get("parent"),
-        "start_date": ["between", [start, end]]
-    })
-    print(child_table_entries,"child_table_entrieschild_table_entrieschild_table_entrieschild_table_entries")
-    for entry in child_table_entries:
-        events.append({
-            "name": entry.name,
-            "start": entry.start_date,
-            "end": entry.end_date,
-            "title": entry.title,
-            "allDay": entry.all_day
-        })
-    return events
+def get_confer_agenda_events(start, end):
+    """Fetches the events from Confer Agenda to display in the calendar view."""
+
+    # Step 1: Get parent Confer entries within the date range
+    confer_list = frappe.get_all('Confer', filters={
+        'start_date': ['<=', end],
+        'end_date': ['>=', start]
+    }, fields=['name'])
+
+    agenda_events = []
+    
+    # Step 2: Loop through each Confer and fetch the child table data (Confer Agenda)
+    for confer in confer_list:
+        agenda = frappe.get_all('Confer Agenda', filters={
+            'parent': confer.name,
+            'start_date': ['<=', end],
+            'end_date': ['>=', start]
+        }, fields=['program_agenda', 'start_date', 'end_date'])
+        
+        # Step 3: Add each agenda item to the calendar data with required fields
+        for item in agenda:
+            agenda_events.append({
+                "title": item.program_agenda,
+                "start": item.start_date,
+                "end": item.end_date,
+                "color": "#FF5733"  # Example color, you can add dynamic logic for different colors
+            })
+    
+    
+    return agenda_events
+
 
 
 
