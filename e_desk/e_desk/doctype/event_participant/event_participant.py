@@ -67,14 +67,60 @@ def count_volunteer_registered():
 def get_confer_agenda_events(start, end):
     """Fetches the events from Confer Agenda to display in the calendar view."""
 
-    # Step 1: Get parent Confer entries within the date range
+    user = frappe.session.user
+
+    agenda_events = []
+    if user == "Administrator":
+        print("Administrator logged in, showing all events.")
+        
+        confer_list = frappe.get_all('Confer', filters={
+            'start_date': ['<=', end],
+            'end_date': ['>=', start]
+        }, fields=['name'])
+
+        for confer in confer_list:
+            agenda = frappe.get_all('Confer Agenda', filters={
+                'parent': confer.name,
+                'start_date': ['<=', end],
+                'end_date': ['>=', start]
+            }, fields=['program_agenda', 'start_date', 'end_date'])
+
+            # Add each agenda item to the calendar data with required fields
+            for item in agenda:
+                agenda_events.append({
+                    "title": item.program_agenda,
+                    "start": item.start_date,
+                    "end": item.end_date,
+                    "color": "#FF5733"  # Static color, you can add dynamic logic
+                })
+        
+        return agenda_events
+  
+    print(user,"this is the session user")
+    participant = frappe.get_value("Participant", {"e_mail": user}, "name") 
+    print(participant,"id......................................")
+    if not participant:
+        # If the user doesn't have a participant ID, return an empty list
+        return []
+    
+    joined_confer_list = frappe.get_all('Event Participant', filters={
+        'participant': participant
+    }, fields=['event']) 
+
+    joined_confer_ids = [confer['event'] for confer in joined_confer_list]
+    print(joined_confer_ids,"joined_confer_idsjoined_confer_idsjoined_confer_ids")
+
+    if not joined_confer_ids:
+        # If the user hasn't joined any events, return an empty list
+        return []
+    
     confer_list = frappe.get_all('Confer', filters={
+        'name': ['in', joined_confer_ids],  # Only events the user joined
         'start_date': ['<=', end],
         'end_date': ['>=', start]
     }, fields=['name'])
 
-    agenda_events = []
-    
+
     # Step 2: Loop through each Confer and fetch the child table data (Confer Agenda)
     for confer in confer_list:
         agenda = frappe.get_all('Confer Agenda', filters={
@@ -136,16 +182,4 @@ def get_confer_agenda_events(start, end):
 
 
 
-
-# @frappe.whitelist()
-# def get_event_participant_count(event=None):
-#     if not event:
-#         return {"value": 0}
-    
-#     count = frappe.db.count("Event Participant", filters={"event": event})
-    
-#     return {
-#         "value": count,
-#         "fieldtype": "Int"
-#     }
 
