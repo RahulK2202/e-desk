@@ -12,7 +12,8 @@
   "start_date",
   "end_date",
   "agenda",
-  "is_private"
+  "is_private",
+  "attach_files"
  ],
  "fields": [
   {
@@ -47,13 +48,20 @@
    "default": "0",
    "fieldname": "is_private",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Is private"
+  },
+  {
+   "fieldname": "attach_files",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Category Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2024-09-04 18:10:57.826616",
+ "modified": "2024-09-11 17:42:08.358661",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Confer",
