@@ -142,6 +142,32 @@ def get_confer_agenda_events(start, end):
     return agenda_events
 
 
+# def has_permission(doc, ptype, user):
+#     # Allow Volunteer to access Confer Agenda
+#     print("this is the function....................................")
+#     if user == "Volunteer" or "Volunteer" in frappe.get_roles(user):
+#         return True
+#     else:
+#         return False
+
+
+
+def conf_programme_attendee_has_permission(doc, user=None, permission_type=None):
+    print("Checking permission for Conf Programme Attendee...")
+    # Allow volunteers to access all actions (read, write, create, delete)
+    if user and "Volunteer" in frappe.get_roles(user):
+        return True
+    return False
+
+def confer_agenda_has_permission(doc, user=None, permission_type=None):
+    print("Checking permission for Confer Agenda...")
+    # Allow volunteers to access all actions (read, write, create, delete)
+    if user and "Volunteer" in frappe.get_roles(user):
+        return True
+    return False
+
+
+
 
 
 

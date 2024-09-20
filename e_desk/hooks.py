@@ -102,10 +102,14 @@ fixtures = [
 # permission_query_conditions = {
 # 	"File": "e_desk.e_desk.utils.py.permissions.file.get_file_permission",
 # }
-#
-# has_permission = {
-#	"Event": "frappe.desk.doctype.event.event.has_permission",
+# permission_query_conditions = {
+# 	"Conf Programme Attendee": "e_desk.e_desk.doctype.event_participant.event_participant.has_permission",
 # }
+#
+has_permission = {
+	"Conf Programme Attendee": "e_desk.e_desk.doctype.event_participant.event_participant.conf_programme_attendee_has_permission",
+    "Confer Agenda": "e_desk.e_desk.doctype.event_participant.event_participant.confer_agenda_has_permission"
+}
 
 # DocType Class
 # ---------------
