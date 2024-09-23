@@ -10,6 +10,7 @@ frappe.ready(function() {
     // Bind the onchange event to the e_mail field
     $('input[data-fieldname="e_mail"]').on('change', function() {
         let email = $(this).val();
+        console.log(email,"email........")
      
         if (email) {
       
@@ -20,8 +21,11 @@ frappe.ready(function() {
                     email: email
                 },
                 callback: function(response) {
+                    console.log(response,"response..............");
+                    
                     
                     let user = response.message;
+                    console.log(user,"user exist,,,,,,,,,,,,")
 
                     if (user) {
                         // Email exists, redirect to login
@@ -33,7 +37,7 @@ frappe.ready(function() {
                         });
 
 						setTimeout(function() {
-                            window.location.href = '/login';
+                            window.location.href = '/home';
                         }, 3000); 
                      
                     } 

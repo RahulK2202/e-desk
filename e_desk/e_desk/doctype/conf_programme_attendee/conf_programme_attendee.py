@@ -9,17 +9,20 @@ class ConfProgrammeAttendee(Document):
 
 
 @frappe.whitelist()
-def scanning_validations(doc, programme):
-	# Get the parent event (Confer) from the Confer Agenda doctype
-	parent_confer = frappe.db.get_value("Confer Agenda", {"name": programme}, "parent")	
-	# Check if the participant is registered for the event
-	event_participant_id = frappe.db.get_value("Event Participant", {"participant": doc, "event": parent_confer}, "name")
+def scanning_validations(doc, programme,confer):
+
+	event_participant_id = frappe.db.get_value("Event Participant", {"participant": doc, "event": confer}, "name")
+	
 	if not event_participant_id:
 		frappe.msgprint("Please scan Event User")
 		return None 
 
+
 	# Check if the user is already scanned for this programme
+
+	
 	scanned_user_exist = frappe.db.exists("Scanned List", {"participant": event_participant_id, "Programme": programme})
+
 	if scanned_user_exist:
 		frappe.msgprint(f"User is already scanned for the {programme}")
 		return None  # Stop further processing if the user is already scanned
@@ -30,5 +33,19 @@ def scanning_validations(doc, programme):
         "event_participant_id": event_participant_id,
         "full_name": full_name
     }
+
+
+@frappe.whitelist()
+def get_programmes(confer):
+    today_date = frappe.utils.nowdate()
+	
+
+    programmes = frappe.db.sql("""
+        SELECT agenda.name
+        FROM `tabConfer Agenda` AS agenda
+        WHERE agenda.parent = %s AND agenda.start_date >= %s
+    """, (confer, today_date), as_list=1)
+
+    return [prog[0] for prog in programmes]
 
 	
