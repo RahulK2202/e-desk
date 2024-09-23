@@ -72,22 +72,26 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "Open\nRegistered",
+   "read_only": 1,
    "reqd": 1
   },
   {
    "default": "0",
    "fieldname": "is_paid",
    "fieldtype": "Check",
-   "label": "Is Paid"
+   "label": "Is Paid",
+   "read_only": 1
   },
   {
    "fieldname": "invoice_no",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Invoice No"
   },
   {
    "fieldname": "reg_no",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Reg No"
   },
   {
@@ -304,12 +308,14 @@
    "fieldname": "reg_status",
    "fieldtype": "Select",
    "label": "Registration Status",
-   "options": "Approved\nDeclined\nPending"
+   "options": "Approved\nDeclined\nPending",
+   "read_only": 1
   },
   {
    "fieldname": "event_role",
    "fieldtype": "Data",
-   "label": "Event Role"
+   "label": "Event Role",
+   "read_only": 1
   },
   {
    "fieldname": "event",
@@ -320,7 +326,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 13:22:37.442405",
+ "modified": "2024-09-23 11:15:17.316919",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Event Participant",
