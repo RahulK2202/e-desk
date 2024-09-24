@@ -65,6 +65,16 @@ class Participant(Document):
                 # "applicable_for": ["Confer"]
             })
 			user_permission_doc.save(ignore_permissions=True)
+	# newpermission conf		
+			confer_permission_doc = frappe.new_doc('User Permission')
+		
+			confer_permission_doc.update({
+				"user": self.e_mail,
+				"allow": "Confer",
+				"for_value": confer_id,
+				"apply_to_all_doctypes": False,  # Set to False if you want this permission to apply only to this specific Confer
+			})
+			confer_permission_doc.save(ignore_permissions=True)
 
 #added qr here
 		

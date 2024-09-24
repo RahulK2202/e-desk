@@ -15,25 +15,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Reports",
-   "link_count": 1,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Event Attendee",
-   "link_count": 0,
-   "link_to": "Attendance Scan Report",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Masters",
    "link_count": 1,
    "link_type": "DocType",
@@ -68,9 +49,28 @@
    "link_type": "Page",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Event Attendee",
+   "link_count": 0,
+   "link_to": "Attendee Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-09-07 13:33:47.579612",
+ "modified": "2024-09-24 16:43:17.506164",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Conferrx",

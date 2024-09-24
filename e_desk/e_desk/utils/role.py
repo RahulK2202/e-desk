@@ -9,6 +9,8 @@ def update_user_role(user, role_name):
     })
     user.save()
     frappe.db.commit()
+
+
 @frappe.whitelist()
 def update_event_participant_role(participant,confer, role_name):
     print(participant,confer,role_name,"this are the roles...........")
@@ -17,7 +19,19 @@ def update_event_participant_role(participant,confer, role_name):
     user=frappe.get_doc('User',{'participant_id': participant})
     update_user_role(user ,role_name)
 
+    # deleting permissions
+    user_permissions = frappe.get_all('User Permission', filters={'user': user.email}, fields=['name'])
+    print(user_permissions,"this is the permissionsss",user.email)
+    for i in user_permissions:
+        frappe.delete_doc('User Permission', i['name'], ignore_permissions=True)
+
+
     
+
+
+
+
+
 
 @frappe.whitelist()
 def get_filtered_confer(doctype, txt, searchfield, start, page_len,filters):
