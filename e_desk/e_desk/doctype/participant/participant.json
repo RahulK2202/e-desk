@@ -16,10 +16,10 @@
   "first_name",
   "last_name",
   "full_name",
-  "e_mail",
-  "mobile_number",
   "gender",
   "column_break_sylpb",
+  "mobile_number",
+  "e_mail",
   "date_of_birth",
   "profile_photo",
   "qr_preview",
@@ -82,14 +82,13 @@
   {
    "fieldname": "last_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Last Name"
   },
   {
    "fieldname": "full_name",
    "fieldtype": "Data",
-   "label": "Full Name",
-   "reqd": 1
+   "hidden": 1,
+   "label": "Full Name"
   },
   {
    "fieldname": "e_mail",
@@ -322,7 +321,8 @@
    "fieldname": "event",
    "fieldtype": "Link",
    "label": "Event",
-   "options": "Confer"
+   "options": "Confer",
+   "reqd": 1
   },
   {
    "fieldname": "qr",
@@ -333,7 +333,7 @@
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 16:36:25.432294",
+ "modified": "2024-09-23 16:10:16.478535",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",
@@ -354,7 +354,6 @@
   },
   {
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,

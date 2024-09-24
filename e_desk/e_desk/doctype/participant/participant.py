@@ -17,6 +17,7 @@ class Participant(Document):
 		if not self.e_mail:
 			frappe.throw("Email is required to create a new User.")
 		if not frappe.db.exists('User',self.e_mail):
+			self.full_name = f"{self.first_name} {self.last_name}"
 			doc=frappe.new_doc('User')
 			doc.update({
 				"email":self.e_mail,
@@ -307,7 +308,7 @@ def register_event_participant(email, confer_id):
 	if email and confer_id:
 		user = frappe.db.get_value("User", {"email": email}, "name")
 		if not user:
-			return {"message": _("User does not exist. Please register as a new user.")}
+			return "User does not exist. Please register as a new user."
 		
 		participant_id = frappe.db.get_value("Participant", {"e_mail": email}, "name")
 		existing_registration = frappe.db.exists("Event Participant", {
@@ -317,7 +318,7 @@ def register_event_participant(email, confer_id):
 		
 		if existing_registration:
 				
-			return {"message": "You are already registered for this event."}
+			return "You are already registered for this event."
 		
 		
 		event_participant_doc = frappe.new_doc('Event Participant')
@@ -339,7 +340,19 @@ def register_event_participant(email, confer_id):
 				})
 		
 		user_permission_doc.save(ignore_permissions=True)
+		  # Create User Permission for Confer doctype
+		confer_permission_doc = frappe.new_doc('User Permission')
 		
-		return {"message": _("Registration successful!")}
+		confer_permission_doc.update({
+            "user": email,
+            "allow": "Confer",
+            "for_value": confer_id,
+            "apply_to_all_doctypes": False,  # Set to False if you want this permission to apply only to this specific Confer
+        })
+		confer_permission_doc.save(ignore_permissions=True)
+
+		
+		
+		return "Registration successful!"
 	else:
-		return {"message": _("Event is not found")}
+		return "Event is not found"
