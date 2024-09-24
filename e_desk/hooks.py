@@ -106,10 +106,10 @@ permission_query_conditions = {
 # 	"Conf Programme Attendee": "e_desk.e_desk.doctype.event_participant.event_participant.has_permission",
 # }
 #
-has_permission = {
-	"Conf Programme Attendee": "e_desk.e_desk.doctype.event_participant.event_participant.conf_programme_attendee_has_permission",
-    "Confer Agenda": "e_desk.e_desk.doctype.event_participant.event_participant.confer_agenda_has_permission"
-}
+# has_permission = {
+# 	"Conf Programme Attendee": "e_desk.e_desk.doctype.event_participant.event_participant.conf_programme_attendee_has_permission",
+#     "Confer Agenda": "e_desk.e_desk.doctype.event_participant.event_participant.confer_agenda_has_permission"
+# }
 
 # DocType Class
 # ---------------

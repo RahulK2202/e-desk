@@ -87,7 +87,6 @@
   {
    "fieldname": "full_name",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Full Name"
   },
   {
@@ -333,7 +332,7 @@
  "image_field": "profile_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-24 10:55:08.321160",
+ "modified": "2024-09-24 14:19:36.955541",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Participant",

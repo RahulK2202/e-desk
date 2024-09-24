@@ -14,10 +14,12 @@ from frappe import _
 class Participant(Document):
 	# @frappe.whitelist(allow_guest=True)
 	def after_insert(self):
+		self.full_name = f"{self.first_name} {self.last_name}"
+		self.save(ignore_permissions=True)
 		if not self.e_mail:
 			frappe.throw("Email is required to create a new User.")
 		if not frappe.db.exists('User',self.e_mail):
-			self.full_name = f"{self.first_name} {self.last_name}"
+			
 			doc=frappe.new_doc('User')
 			doc.update({
 				"email":self.e_mail,
