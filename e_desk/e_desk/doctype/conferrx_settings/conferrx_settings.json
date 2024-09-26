@@ -23,7 +23,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-09-04 17:39:48.966156",
+ "modified": "2024-09-26 15:59:51.696514",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Conferrx Settings",
@@ -36,6 +36,15 @@
    "print": 1,
    "read": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "E-Desk Admin",
+   "select": 1,
    "share": 1,
    "write": 1
   }

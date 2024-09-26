@@ -45,6 +45,8 @@ class Participant(Document):
 			self.save()
 			confer_id = self.event
 			if confer_id:
+
+				
 				# Create an Event Participant document
 				event_participant_doc = frappe.new_doc('Event Participant')
 				event_participant_doc.update({
@@ -54,17 +56,18 @@ class Participant(Document):
 				})
 				event_participant_doc.save(ignore_permissions=True)
         
-            # Create User Permission linked to this Event Participant
-			user_permission_doc = frappe.new_doc('User Permission')
+    #   code 59 hide during test   
+			# user_permission_doc = frappe.new_doc('User Permission')
 			
-			user_permission_doc.update({
-                "user": self.e_mail,
-                "allow": "Event Participant",
-                "for_value": event_participant_doc.name,
-                "apply_to_all_doctypes": True,
-                # "applicable_for": ["Confer"]
-            })
-			user_permission_doc.save(ignore_permissions=True)
+			# user_permission_doc.update({
+            #     "user": self.e_mail,
+            #     "allow": "Event Participant",
+            #     "for_value": event_participant_doc.name,
+            #     "apply_to_all_doctypes": True,
+            #     # "applicable_for": ["Confer"]
+            # })
+			# user_permission_doc.save(ignore_permissions=True)
+
 	# newpermission conf		
 			confer_permission_doc = frappe.new_doc('User Permission')
 		
@@ -72,12 +75,12 @@ class Participant(Document):
 				"user": self.e_mail,
 				"allow": "Confer",
 				"for_value": confer_id,
-				"apply_to_all_doctypes": False,  # Set to False if you want this permission to apply only to this specific Confer
+				"apply_to_all_doctypes": False, 
 			})
 			confer_permission_doc.save(ignore_permissions=True)
 
 #added qr here
-		
+	# code 59 hide during test 	
 
 
 			frappe.msgprint(
@@ -341,17 +344,19 @@ def register_event_participant(email, confer_id):
 					})
 		
 		event_participant_doc.save(ignore_permissions=True)
+
+
+	# code 349 sep	
+		# user_permission_doc = frappe.new_doc('User Permission')
+		# user_permission_doc.update({
+		# 			"user": email,
+		# 			"allow": "Event Participant",
+		# 			"for_value": event_participant_doc.name,
+		# 			"apply_to_all_doctypes": True,
+		# 			# "applicable_for": ["Confer"]
+		# 		})
 		
-		user_permission_doc = frappe.new_doc('User Permission')
-		user_permission_doc.update({
-					"user": email,
-					"allow": "Event Participant",
-					"for_value": event_participant_doc.name,
-					"apply_to_all_doctypes": True,
-					# "applicable_for": ["Confer"]
-				})
-		
-		user_permission_doc.save(ignore_permissions=True)
+		# user_permission_doc.save(ignore_permissions=True)
 		  # Create User Permission for Confer doctype
 		confer_permission_doc = frappe.new_doc('User Permission')
 		

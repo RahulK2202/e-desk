@@ -123,7 +123,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-24 10:56:00.177334",
+ "modified": "2024-09-26 18:14:40.424630",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Registration Desk",
@@ -169,6 +169,7 @@
    "role": "E-Desk Admin",
    "select": 1,
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

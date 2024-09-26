@@ -50,7 +50,7 @@ def count_volunteer_registered():
     event = frappe.db.get_single_value('Conferrx Settings', 'event')
     
     # Count the number of Event Participants linked to the fetched event
-    count = frappe.db.count('Event Participant', {'event': event, 'status': 'Registered','event_role':"Volunteer"})
+    count = frappe.db.count('Event Participant', {'event': event, 'event_role':"Volunteer"})
 
     # Return the count in the required format
     return {
@@ -154,13 +154,101 @@ def get_confer_agenda_events(start, end):
 #         return False
 
 
+# def participant_query_conditions(user: str = None) -> str:
+#     user = user or frappe.session.user
+#     # Get the user's role profile from the User doctype
+#     role_profile = frappe.db.get_value("User", {"name": user}, "role_profile_name")
+#     print(role_profile,"role profile.......................")
 
-# def conf_programme_attendee_has_permission(doc, user=None, permission_type=None):
-#     print("Checking permission for Conf Programme Attendee...")
-#     # Allow volunteers to access all actions (read, write, create, delete)
-#     if user and "Volunteer" in frappe.get_roles(user):
-#         return True
-#     return False
+#     # If the user is a participant or volunteer, show only their own records
+#     if role_profile in ["Participant", "Volunteer"]:
+#         return f"`tabParticipant`.e_mail = '{user}'"
+    
+#     # If the user is not a participant or volunteer, restrict access entirely
+#     return None
+
+
+
+
+# code 173
+def event_has_permission(user: str = None) -> str:
+    print("Checking permission for Conf Programme Attendee...")
+    
+    # Get the current user if not provided
+    user = user or frappe.session.user
+
+    # Get the user's role profile from the User doctype
+    email,role_profile, participant_id = frappe.db.get_value("User", {"name": user}, ["email","role_profile_name", "participant_id"])
+    print(user,participant_id,role_profile,"role profileeee..............")
+
+    # If the user has the Participant or Volunteer role profile
+    if role_profile in ["Participant", "Volunteer"]:
+        # Return the condition to restrict access to only the user's participant_id
+        return f"`tabEvent Participant`.participant = '{participant_id}'"
+    
+    # Deny access by default
+    return None
+
+
+
+def participant_has_permission(doc, user):
+    print(doc,"this si doc")
+    # Get the current user if not provided
+    user = user or frappe.session.user
+    email,role_profile, participant_id = frappe.db.get_value("User", {"name": user}, ["email","role_profile_name", "participant_id"])
+    if role_profile in ["Participant"]:
+        if doc.e_mail==email:
+            return True
+        return False
+
+def event_participant_has_permission(doc, user):
+    print("welcomeeeeeeeeeeeeeeeeeeee")
+    print(doc,"doc eventttt..............")
+    user = user or frappe.session.user
+    email,role_profile, participant_id = frappe.db.get_value("User", {"name": user}, ["email","role_profile_name", "participant_id"])
+    print( email,role_profile, participant_id)
+    if role_profile in ["Participant"]:
+        if doc.participant ==participant_id:
+            return True
+        return False
+    
+# def confer_has_permission(doc, user):
+#     print("welcomeeeeeeeeeeeeeeeeeeee")
+#     print(doc,"doc eventttt..............")
+#     user = user or frappe.session.user
+#     email,role_profile, participant_id = frappe.db.get_value("User", {"name": user}, ["email","role_profile_name", "participant_id"])
+#     print( email,role_profile, participant_id)
+#     if role_profile in ["Participant"]:
+#         event_participant_exists = frappe.db.exists("Event Participant", {
+#             "participant": participant_id,  # Check for the participant ID
+#             "event": doc.name  # Check if the event matches the current document
+#         })
+#         if event_participant_exists:
+#             return True
+#         return False
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # def confer_agenda_has_permission(doc, user=None, permission_type=None):
 #     print("Checking permission for Confer Agenda...")

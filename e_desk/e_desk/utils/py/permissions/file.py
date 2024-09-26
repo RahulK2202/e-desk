@@ -44,3 +44,20 @@ def get_file_permission(user: str = None) -> str:
 
     # If the user is not registered for any event or no access, return a condition that blocks everything
     return "1 = 0"  # Blocks access by returning a false condition
+
+
+
+
+def participant_query_conditions(user: str = None) -> str:
+    user = user or frappe.session.user
+    # Get the user's role profile from the User doctype
+    role_profile = frappe.db.get_value("User", {"name": user}, "role_profile_name")
+    print(role_profile,"role profile.......................")
+
+    # If the user is a participant or volunteer, show only their own records
+    if role_profile in ["Participant", "Volunteer"]:
+        return f"`tabParticipant`.e_mail = '{user}'"
+    
+    # If the user is not a participant or volunteer, restrict access entirely
+    return None
+

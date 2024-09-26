@@ -17,7 +17,15 @@ def update_event_participant_role(participant,confer, role_name):
     event_participant= frappe.db.get_value('Event Participant', {'event': confer,'participant':participant}, ['name'])
     frappe.db.set_value('Event Participant', event_participant, 'event_role', role_name, update_modified=False)
     user=frappe.get_doc('User',{'participant_id': participant})
-    update_user_role(user ,role_name)
+    print(user.role_profile_name,"user.role_profile_name")
+    user.role_profile_name = role_name
+    user.save()
+    frappe.db.commit()
+    # update_user_role(user ,role_name)
+
+
+
+
 
     # deleting permissions
     user_permissions = frappe.get_all('User Permission', filters={'user': user.email}, fields=['name'])
