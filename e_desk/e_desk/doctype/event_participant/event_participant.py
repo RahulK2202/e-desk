@@ -68,9 +68,12 @@ def get_confer_agenda_events(start, end):
     """Fetches the events from Confer Agenda to display in the calendar view."""
 
     user = frappe.session.user
+    user_roles = frappe.get_roles(user)
+    print( user_roles," user_roles..........")
+    has_e_desk_admin_role = 'E-Desk Admin' in user_roles
 
     agenda_events = []
-    if user == "Administrator":
+    if user == "Administrator" or has_e_desk_admin_role:
         print("Administrator logged in, showing all events.")
         
         confer_list = frappe.get_all('Confer', filters={

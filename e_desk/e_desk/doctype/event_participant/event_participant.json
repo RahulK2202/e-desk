@@ -10,6 +10,7 @@
  "field_order": [
   "participant",
   "event",
+  "column_break_xncz",
   "status",
   "is_paid",
   "invoice_no",
@@ -18,6 +19,7 @@
   "churchorganisation_you_represent",
   "capacity",
   "youth",
+  "column_break_eudp",
   "layordained",
   "visa_entrance",
   "arrival_details_section",
@@ -41,6 +43,7 @@
   "qr",
   "column_break_rulto",
   "check_out_date",
+  "accomodation_tab",
   "hotel",
   "column_break_xmwa1",
   "hotel_address_link",
@@ -49,6 +52,7 @@
   "location_url",
   "hotel_details",
   "hotel_address",
+  "church_visit_tab",
   "church_list",
   "column_break_d6rlj",
   "get_directions_church",
@@ -251,25 +255,32 @@
    "fieldtype": "Section Break"
   },
   {
+   "fetch_from": "hotel.location_url",
    "fieldname": "location_url",
    "fieldtype": "Small Text",
-   "label": "Location URL"
+   "label": "Location URL",
+   "read_only": 1
   },
   {
    "fieldname": "hotel_details",
    "fieldtype": "Small Text",
-   "label": "Hotel Details"
+   "label": "Hotel Details",
+   "read_only": 1
   },
   {
+   "fetch_from": "hotel.address",
    "fieldname": "hotel_address_link",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Hotel Address",
-   "options": "Address"
+   "options": "Address",
+   "read_only": 1
   },
   {
    "fieldname": "hotel_address",
    "fieldtype": "Small Text",
-   "label": "Hotel Address"
+   "label": "Hotel Address",
+   "read_only": 1
   },
   {
    "fieldname": "church_list",
@@ -291,19 +302,23 @@
    "fieldtype": "Section Break"
   },
   {
+   "fetch_from": "church_list.location_url",
    "fieldname": "location_url_church",
    "fieldtype": "Small Text",
-   "label": "Location URL Church"
+   "label": "Location URL Church",
+   "read_only": 1
   },
   {
    "fieldname": "church_details",
    "fieldtype": "Small Text",
-   "label": "Church Details"
+   "label": "Church Details",
+   "read_only": 1
   },
   {
    "fieldname": "church_address",
    "fieldtype": "Small Text",
-   "label": "Church Address"
+   "label": "Church Address",
+   "read_only": 1
   },
   {
    "fieldname": "reg_status",
@@ -324,11 +339,29 @@
    "fieldtype": "Link",
    "label": "Event",
    "options": "Confer"
+  },
+  {
+   "fieldname": "accomodation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Accomodation"
+  },
+  {
+   "fieldname": "church_visit_tab",
+   "fieldtype": "Tab Break",
+   "label": "Church visit"
+  },
+  {
+   "fieldname": "column_break_eudp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xncz",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-24 10:57:09.398874",
+ "modified": "2024-09-26 14:25:54.502032",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Event Participant",

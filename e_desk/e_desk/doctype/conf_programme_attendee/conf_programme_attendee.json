@@ -10,6 +10,7 @@
   "event",
   "column_break_drpy",
   "choose_programme",
+  "section_break_v2in",
   "scan_qr",
   "submit",
   "section_break_epxh",
@@ -54,12 +55,16 @@
   {
    "fieldname": "column_break_drpy",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_v2in",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-09-23 14:45:21.181506",
+ "modified": "2024-09-26 14:29:13.878551",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Conf Programme Attendee",
