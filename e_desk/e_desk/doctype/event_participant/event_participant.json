@@ -68,7 +68,8 @@
    "fieldname": "participant",
    "fieldtype": "Link",
    "label": "Participant",
-   "options": "Participant"
+   "options": "Participant",
+   "read_only": 1
   },
   {
    "fieldname": "status",
@@ -338,7 +339,8 @@
    "fieldname": "event",
    "fieldtype": "Link",
    "label": "Event",
-   "options": "Confer"
+   "options": "Confer",
+   "read_only": 1
   },
   {
    "fieldname": "accomodation_tab",
@@ -361,7 +363,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 14:25:54.502032",
+ "modified": "2024-09-27 00:20:05.345005",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Event Participant",
@@ -382,14 +384,9 @@
   },
   {
    "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
    "read": 1,
-   "report": 1,
    "role": "Participant",
    "select": 1,
-   "share": 1,
    "write": 1
   },
   {

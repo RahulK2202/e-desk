@@ -63,7 +63,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-26 13:44:56.179384",
+ "modified": "2024-09-27 00:12:52.078373",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Church",
@@ -103,8 +103,7 @@
    "report": 1,
    "role": "Participant",
    "select": 1,
-   "share": 1,
-   "write": 1
+   "share": 1
   },
   {
    "create": 1,
