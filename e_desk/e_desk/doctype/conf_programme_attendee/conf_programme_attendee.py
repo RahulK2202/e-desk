@@ -35,17 +35,29 @@ def scanning_validations(doc, programme,confer):
     }
 
 
+# @frappe.whitelist()
+# def get_programmes(confer):
+#     today_date = frappe.utils.nowdate()
+	
+
+#     programmes = frappe.db.sql("""
+#         SELECT agenda.name
+#         FROM `tabConfer Agenda` AS agenda
+#         WHERE agenda.parent = %s AND agenda.start_date >= %s
+#     """, (confer, today_date), as_list=1)
+
+#     return [prog[0] for prog in programmes]
+
 @frappe.whitelist()
 def get_programmes(confer):
     today_date = frappe.utils.nowdate()
-	
-
     programmes = frappe.db.sql("""
-        SELECT agenda.name
+        SELECT agenda.name, agenda.start_date
         FROM `tabConfer Agenda` AS agenda
-        WHERE agenda.parent = %s AND agenda.start_date >= %s
+        WHERE agenda.parent = %s AND DATE(agenda.start_date) = %s
     """, (confer, today_date), as_list=1)
 
+    print(programmes)
     return [prog[0] for prog in programmes]
 
 	

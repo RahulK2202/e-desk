@@ -19,14 +19,12 @@
  ],
  "fields": [
   {
-   "depends_on": "eval:doc.choose_programme",
    "fieldname": "scan_qr",
    "fieldtype": "Data",
    "label": "Scan QR",
    "options": "Barcode"
   },
   {
-   "depends_on": "eval:doc.choose_programme",
    "fieldname": "submit",
    "fieldtype": "Button",
    "label": "Submit"
@@ -73,7 +71,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-09-26 18:28:13.649638",
+ "modified": "2024-09-27 14:32:51.274207",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Conf Programme Attendee",

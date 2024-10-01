@@ -2,7 +2,7 @@
  "actions": [],
  "allow_guest_to_view": 1,
  "allow_rename": 1,
- "autoname": "format:{event}-{participant}",
+ "autoname": "format:{abr}-{participant}",
  "creation": "2024-08-03 12:27:53.901662",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -10,6 +10,7 @@
  "field_order": [
   "participant",
   "event",
+  "abr",
   "column_break_xncz",
   "status",
   "is_paid",
@@ -359,11 +360,18 @@
   {
    "fieldname": "column_break_xncz",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "event.abr",
+   "fieldname": "abr",
+   "fieldtype": "Data",
+   "label": "Abr",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-27 00:20:05.345005",
+ "modified": "2024-10-01 15:45:11.635764",
  "modified_by": "Administrator",
  "module": "E Desk",
  "name": "Event Participant",
